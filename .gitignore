@@ -11,6 +11,6 @@ Thumbs.db
 *.swp
 *.tmp
 
-# Mono / C# projects (if you use them)
+# Mono / C# projects
 .mono/
 .data_*/
