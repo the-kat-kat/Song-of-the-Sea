@@ -1,6 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfbmr1b8p0np2"]
+[gd_scene load_steps=18 format=3 uid="uid://bfbmr1b8p0np2"]
 
+[ext_resource type="Script" uid="uid://ct6hjqjcp5w5s" path="res://scenes/sub_viewport.gd" id="1_85g3d"]
 [ext_resource type="Texture2D" uid="uid://cty3mqk7sak1v" path="res://art/layer3.png" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://bsyvhc4xlrfk3" path="res://scenes/main.gd" id="1_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://cjsl1wywo4ror" path="res://art/layer1.png" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://cggnhantlrp7u" path="res://art/layer2.png" id="3_tefeu"]
 [ext_resource type="Script" uid="uid://clhkx2cashlun" path="res://scenes/player/player.gd" id="4_tbgi4"]
@@ -8,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cj8vfvoj0dh8" path="res://art/player/swim_anim/swim3.png" id="6_85g3d"]
 [ext_resource type="Texture2D" uid="uid://b3n5rewd3rnyh" path="res://art/player/swim_anim/swim1.png" id="7_choun"]
 [ext_resource type="Texture2D" uid="uid://dtv3ashxncq75" path="res://art/player/swim_anim/swim4.png" id="8_ya4ey"]
+[ext_resource type="Shader" uid="uid://btedhdw4ym1am" path="res://scenes/sway.gdshader" id="10_choun"]
 
 [sub_resource type="Sky" id="Sky_o6xl0"]
 
@@ -50,57 +53,81 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
 size = Vector2(127, 129)
 
-[node name="Node3D" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ya4ey"]
+shader = ExtResource("10_choun")
+shader_parameter/amplitude = 50.0
+shader_parameter/frequency = 2.0
+shader_parameter/speed = 1.0
+shader_parameter/strength = 0.35
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_choun"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ya4ey")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sugp2")
 
-[node name="Back" type="ParallaxBackground" parent="."]
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size_2d_override_stretch = true
+render_target_update_mode = 4
+script = ExtResource("1_85g3d")
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="Back"]
+[node name="Back" type="ParallaxBackground" parent="SubViewport"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Back/ParallaxLayer3"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="SubViewport/Back"]
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Back/ParallaxLayer3"]
 z_index = -10
 texture = ExtResource("1_sugp2")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Back"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="SubViewport/Back"]
 motion_scale = Vector2(0.95, 0.95)
 
-[node name="Sprite2D" type="Sprite2D" parent="Back/ParallaxLayer2"]
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Back/ParallaxLayer2"]
 z_index = -5
 texture = ExtResource("3_tefeu")
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Back"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="SubViewport/Back"]
 z_index = 5
 motion_scale = Vector2(0.9, 0.9)
 
-[node name="Sprite2D" type="Sprite2D" parent="Back/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Back/ParallaxLayer"]
 z_index = 5
 texture = ExtResource("2_tbgi4")
 
-[node name="player" type="CharacterBody2D" parent="."]
+[node name="player" type="CharacterBody2D" parent="SubViewport"]
 script = ExtResource("4_tbgi4")
 
-[node name="Camera2D" type="Camera2D" parent="player"]
+[node name="Camera2D" type="Camera2D" parent="SubViewport/player"]
 z_index = 7
 position = Vector2(300, -400)
 zoom = Vector2(0.8, 0.8)
 position_smoothing_enabled = true
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="player"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="SubViewport/player"]
 sprite_frames = SubResource("SpriteFrames_eb6dy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/player"]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_tipki")
 
-[node name="Front" type="ParallaxBackground" parent="."]
+[node name="Front" type="ParallaxBackground" parent="SubViewport"]
 layer = 1
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Front"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="SubViewport/Front"]
 z_index = 5
 motion_scale = Vector2(0.9, 0.9)
 
-[node name="Sprite2D" type="Sprite2D" parent="Front/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Front/ParallaxLayer"]
 z_index = 5
 texture = ExtResource("2_tbgi4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ya4ey")
+offset_right = 512.0
+offset_bottom = 512.0
+texture = SubResource("ViewportTexture_choun")

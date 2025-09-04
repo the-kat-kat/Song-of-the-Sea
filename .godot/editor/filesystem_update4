@@ -2,3 +2,6 @@ res://scenes/main.tscn
 res://scenes/player/player.tscn
 res://scenes/environment/rock.tscn
 res://scenes/player/player.gd
+res://scenes/sway.gdshader
+res://scenes/sub_viewport.gd
+res://scenes/main.gd
