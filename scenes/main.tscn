@@ -1,14 +1,11 @@
-[gd_scene load_steps=23 format=4 uid="uid://bfbmr1b8p0np2"]
+[gd_scene load_steps=18 format=4 uid="uid://bfbmr1b8p0np2"]
 
 [ext_resource type="Script" uid="uid://ct6hjqjcp5w5s" path="res://scenes/sub_viewport.gd" id="1_85g3d"]
 [ext_resource type="Script" uid="uid://bsyvhc4xlrfk3" path="res://scenes/main.gd" id="1_ya4ey"]
 [ext_resource type="AudioStream" uid="uid://dpal67oypkauo" path="res://audio/sfx/bubbles.mp3" id="2_trceg"]
 [ext_resource type="TileSet" uid="uid://dnainyjpdvrf8" path="res://scenes/test.tres" id="3_eb6dy"]
-[ext_resource type="Script" uid="uid://clhkx2cashlun" path="res://scenes/player/player.gd" id="4_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://bjjupl5srj2w0" path="res://art/player/swim_anim/swim2.png" id="5_tipki"]
-[ext_resource type="Texture2D" uid="uid://cj8vfvoj0dh8" path="res://art/player/swim_anim/swim3.png" id="6_85g3d"]
-[ext_resource type="Texture2D" uid="uid://b3n5rewd3rnyh" path="res://art/player/swim_anim/swim1.png" id="7_choun"]
-[ext_resource type="Texture2D" uid="uid://dtv3ashxncq75" path="res://art/player/swim_anim/swim4.png" id="8_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://b37o51iyq1xg8" path="res://scenes/player/player.tscn" id="5_choun"]
+[ext_resource type="PackedScene" uid="uid://cy5vpdxiqjn7x" path="res://scenes/environment/whale.tscn" id="6_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://bugiryymnhrmd" path="res://art/blobs/blob2a.png" id="9_eb6dy"]
 [ext_resource type="Shader" uid="uid://euq2opa7ov2x" path="res://scenes/distort.gdshader" id="9_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cigcpkf8bfxnn" path="res://ui/ui.tscn" id="10_eb6dy"]
@@ -26,40 +23,6 @@ clip_count = 1
 clip_0/name = &"dash"
 clip_0/stream = ExtResource("2_trceg")
 clip_0/auto_advance = 0
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_eb6dy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_tipki")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_85g3d")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_choun")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_tipki")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_85g3d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_ya4ey")
-}],
-"loop": true,
-"name": &"swim",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
-size = Vector2(127, 129)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trceg"]
 texture = ExtResource("9_eb6dy")
@@ -4135,23 +4098,9 @@ visible = false
 z_index = 5
 motion_scale = Vector2(0.9, 0.9)
 
-[node name="player" type="CharacterBody2D" parent="SubViewport" node_paths=PackedStringArray("player_audiostream")]
-script = ExtResource("4_tbgi4")
-player_audiostream = NodePath("../../PlayerAudioStream")
+[node name="Player" parent="SubViewport" instance=ExtResource("5_choun")]
 
-[node name="Camera2D" type="Camera2D" parent="SubViewport/player"]
-z_index = 7
-position = Vector2(150, -200)
-zoom = Vector2(1.4, 1.4)
-position_smoothing_enabled = true
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="SubViewport/player"]
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_eb6dy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/player"]
-position = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_tipki")
+[node name="Whale" parent="SubViewport" instance=ExtResource("6_ya4ey")]
 
 [node name="Front" type="ParallaxBackground" parent="SubViewport"]
 layer = 1

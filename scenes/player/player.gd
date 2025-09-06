@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var player_audiostream: AudioStreamPlayer2D
 
 @onready var playerAnim = $Sprite2D
+@onready var actionable_finder = $ActionableFinder
 
 var is_dashing := false
 var dash_timer := 0.0
@@ -50,6 +51,14 @@ func _physics_process(delta):
 		cooldown_timer -= delta
 	
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		print_debug("pressed space")
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() >0:
+			print_debug("there are some actionables")
+			actionables[0].action()
+			return
 
 func update_player_audio(name: String):
 	if name == "none":

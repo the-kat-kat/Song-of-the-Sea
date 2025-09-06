@@ -1,18 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwfnjmv0i3cmw"]
+[gd_scene load_steps=9 format=3 uid="uid://b37o51iyq1xg8"]
 
-[ext_resource type="Texture2D" uid="uid://0i0l4j0r1c0f" path="res://icon.svg" id="1_8afob"]
 [ext_resource type="Script" uid="uid://clhkx2cashlun" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Texture2D" uid="uid://bjjupl5srj2w0" path="res://art/player/swim_anim/swim2.png" id="2_p47bc"]
+[ext_resource type="Texture2D" uid="uid://cj8vfvoj0dh8" path="res://art/player/swim_anim/swim3.png" id="3_75vfm"]
+[ext_resource type="Texture2D" uid="uid://b3n5rewd3rnyh" path="res://art/player/swim_anim/swim1.png" id="4_0owmy"]
+[ext_resource type="Texture2D" uid="uid://dtv3ashxncq75" path="res://art/player/swim_anim/swim4.png" id="5_qek5x"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dovo2"]
-size = Vector3(1.07898, 1.12183, 0.2)
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlg0r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p47bc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_75vfm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0owmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p47bc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_75vfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qek5x")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 5.0
+}]
 
-[node name="player" type="CharacterBody3D"]
-motion_mode = 1
+[sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
+radius = 93.86
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fjrip"]
+radius = 127.51
+
+[node name="Player" type="Node2D"]
+
+[node name="player" type="CharacterBody2D" parent="."]
+position = Vector2(400, 400)
 script = ExtResource("1_dovo2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0394897, -0.0614014, 0)
-shape = SubResource("BoxShape3D_dovo2")
+[node name="Camera2D" type="Camera2D" parent="player"]
+z_index = 7
+position = Vector2(150, -200)
+zoom = Vector2(1.4, 1.4)
+position_smoothing_enabled = true
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-texture = ExtResource("1_8afob")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="player"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_qlg0r")
+
+[node name="PhysicsCollider" type="CollisionShape2D" parent="player"]
+position = Vector2(140, -230)
+shape = SubResource("CircleShape2D_tuyoq")
+
+[node name="ActionableFinder" type="Area2D" parent="player"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="DialogueCollider" type="CollisionShape2D" parent="player/ActionableFinder"]
+position = Vector2(150, -230)
+shape = SubResource("CircleShape2D_fjrip")

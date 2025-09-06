@@ -1,9 +1,11 @@
-res://scenes/main.tscn
 res://scenes/test.tres
 res://scenes/distort.gdshader
 res://scenes/sway.gdshader
-res://scenes/environment/rock.tscn
+res://scenes/main.tscn
+res://scripts/menu.gd
+res://scenes/environment/menu.tscn
 res://ui/ui.tscn
-res://scenes/player/player.tscn
 res://scenes/singletons/audio_manager.tscn
-res://scenes/player/player.gd
+res://scenes/actionable.tscn
+res://scenes/player/player.tscn
+res://scenes/environment/whale.tscn
