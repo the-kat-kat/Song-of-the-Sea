@@ -72,8 +72,7 @@ motion_scale = Vector2(0.9, 0.9)
 
 [node name="Player" parent="SubViewport" instance=ExtResource("5_choun")]
 
-[node name="Whale" parent="SubViewport" node_paths=PackedStringArray("player_node") instance=ExtResource("5_o6xl0")]
-player_node = NodePath("../Player")
+[node name="Whale" parent="SubViewport" instance=ExtResource("5_o6xl0")]
 
 [node name="Front" type="ParallaxBackground" parent="SubViewport"]
 layer = 1

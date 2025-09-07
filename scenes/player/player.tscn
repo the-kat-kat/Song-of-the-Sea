@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b37o51iyq1xg8"]
+[gd_scene load_steps=15 format=3 uid="uid://b37o51iyq1xg8"]
 
 [ext_resource type="Script" uid="uid://clhkx2cashlun" path="res://scripts/player.gd" id="1_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://ds78xikiwosu7" path="res://art/player/swim_anim/Untitled_Artwork-3.png" id="2_qek5x"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dt4tv53t821uo" path="res://art/player/swim_anim/Untitled_Artwork-6.png" id="7_gx1jg"]
 [ext_resource type="Texture2D" uid="uid://wuf85eck8wj5" path="res://art/player/swim_anim/Untitled_Artwork-7.png" id="8_ugbui"]
 [ext_resource type="AudioStream" uid="uid://dpal67oypkauo" path="res://audio/sfx/bubbles.mp3" id="9_5gtgg"]
+[ext_resource type="AudioStream" uid="uid://bik31ypu3gsvs" path="res://audio/Brave New Ocean Loopable.mp3" id="10_je7p5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qlg0r"]
 animations = [{
@@ -67,10 +68,11 @@ clip_0/auto_advance = 0
 
 [node name="Player" type="Node2D"]
 
-[node name="player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("player_audiostream") groups=["player"]]
+[node name="player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("player_audiostream", "bgm") groups=["player"]]
 position = Vector2(400, 400)
 script = ExtResource("1_5gtgg")
 player_audiostream = NodePath("../PlayerAudioStream")
+bgm = NodePath("../BackgroundMusicPlayer")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 z_index = 7
@@ -99,3 +101,9 @@ shape = SubResource("CircleShape2D_fjrip")
 stream = SubResource("AudioStreamInteractive_h17s1")
 volume_db = -33.541
 bus = &"sfx"
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_je7p5")
+volume_db = -14.938
+autoplay = true
+bus = &"music"

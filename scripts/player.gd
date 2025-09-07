@@ -6,7 +6,9 @@ extends CharacterBody2D
 @export var dash_speed := 2000.0
 @export var dash_time := 0.4
 @export var dash_cooldown := 1
+
 @export var player_audiostream: AudioStreamPlayer2D
+@export var bgm: AudioStreamPlayer
 
 @onready var playerAnim = $Sprite2D
 @onready var actionable_finder = $ActionableFinder
@@ -24,6 +26,8 @@ func _physics_process(delta: float) -> void:
 	).normalized()
 
 	if input_vector != Vector2.ZERO:
+		if !bgm.has_stream_playback():
+			bgm.play()
 		last_move_direction = input_vector
 
 	if Input.is_action_just_pressed("dash") and not is_dashing and cooldown_timer <= 0.0:
