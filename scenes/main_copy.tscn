@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmipvntljqk4d"]
+
+[ext_resource type="PackedScene" uid="uid://b37o51iyq1xg8" path="res://scenes/player/player.tscn" id="2_y8wwq"]
+[ext_resource type="PackedScene" uid="uid://cy5vpdxiqjn7x" path="res://scenes/environment/whale.tscn" id="3_xur5c"]
+
+[node name="MainCopy" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_y8wwq")]
+
+[node name="Whale" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("3_xur5c")]
+player_node = NodePath("../Player")
+
+[node name="Whale2" parent="." instance=ExtResource("3_xur5c")]
+visible = false

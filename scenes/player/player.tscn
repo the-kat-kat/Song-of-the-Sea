@@ -1,19 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://b37o51iyq1xg8"]
+[gd_scene load_steps=14 format=3 uid="uid://b37o51iyq1xg8"]
 
-[ext_resource type="Script" uid="uid://clhkx2cashlun" path="res://scenes/player/player.gd" id="1_dovo2"]
-[ext_resource type="Texture2D" uid="uid://bjjupl5srj2w0" path="res://art/player/swim_anim/swim2.png" id="2_p47bc"]
-[ext_resource type="Texture2D" uid="uid://cj8vfvoj0dh8" path="res://art/player/swim_anim/swim3.png" id="3_75vfm"]
-[ext_resource type="Texture2D" uid="uid://b3n5rewd3rnyh" path="res://art/player/swim_anim/swim1.png" id="4_0owmy"]
-[ext_resource type="Texture2D" uid="uid://dtv3ashxncq75" path="res://art/player/swim_anim/swim4.png" id="5_qek5x"]
+[ext_resource type="Script" uid="uid://clhkx2cashlun" path="res://scripts/player.gd" id="1_5gtgg"]
+[ext_resource type="Texture2D" uid="uid://ds78xikiwosu7" path="res://art/player/swim_anim/Untitled_Artwork-3.png" id="2_qek5x"]
+[ext_resource type="Texture2D" uid="uid://c22wi15mcmeis" path="res://art/player/swim_anim/Untitled_Artwork-4.png" id="3_5gtgg"]
+[ext_resource type="Texture2D" uid="uid://t7o1x2wxj5jl" path="res://art/player/swim_anim/Untitled_Artwork-5.png" id="4_h17s1"]
+[ext_resource type="Texture2D" uid="uid://1ncqg88phgk1" path="res://art/player/swim_anim/Untitled_Artwork-1.png" id="5_je7p5"]
+[ext_resource type="Texture2D" uid="uid://bwri3xfaqj8yr" path="res://art/player/swim_anim/Untitled_Artwork-2.png" id="6_fm80t"]
+[ext_resource type="Texture2D" uid="uid://dt4tv53t821uo" path="res://art/player/swim_anim/Untitled_Artwork-6.png" id="7_gx1jg"]
+[ext_resource type="Texture2D" uid="uid://wuf85eck8wj5" path="res://art/player/swim_anim/Untitled_Artwork-7.png" id="8_ugbui"]
+[ext_resource type="AudioStream" uid="uid://dpal67oypkauo" path="res://audio/sfx/bubbles.mp3" id="9_5gtgg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qlg0r"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_p47bc")
+"texture": ExtResource("2_qek5x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_75vfm")
+"texture": ExtResource("3_5gtgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h17s1")
 }],
 "loop": true,
 "name": &"default",
@@ -21,16 +28,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_0owmy")
+"texture": ExtResource("5_je7p5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_p47bc")
+"texture": ExtResource("6_fm80t")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_75vfm")
+"texture": ExtResource("2_qek5x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_qek5x")
+"texture": ExtResource("3_5gtgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h17s1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gx1jg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ugbui")
 }],
 "loop": true,
 "name": &"swim",
@@ -38,29 +54,37 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
-radius = 93.86
+radius = 235.1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fjrip"]
-radius = 127.51
+radius = 153.99
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_h17s1"]
+clip_count = 1
+clip_0/name = &"dash"
+clip_0/stream = ExtResource("9_5gtgg")
+clip_0/auto_advance = 0
 
 [node name="Player" type="Node2D"]
 
-[node name="player" type="CharacterBody2D" parent="."]
+[node name="player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("player_audiostream") groups=["player"]]
 position = Vector2(400, 400)
-script = ExtResource("1_dovo2")
+script = ExtResource("1_5gtgg")
+player_audiostream = NodePath("../PlayerAudioStream")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 z_index = 7
-position = Vector2(150, -200)
-zoom = Vector2(1.4, 1.4)
+position = Vector2(50, 0)
 position_smoothing_enabled = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="player"]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
+frame = 1
+frame_progress = 0.866328
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="player"]
-position = Vector2(140, -230)
+position = Vector2(50, 0)
 shape = SubResource("CircleShape2D_tuyoq")
 
 [node name="ActionableFinder" type="Area2D" parent="player"]
@@ -68,5 +92,10 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="DialogueCollider" type="CollisionShape2D" parent="player/ActionableFinder"]
-position = Vector2(150, -230)
+position = Vector2(50, 0)
 shape = SubResource("CircleShape2D_fjrip")
+
+[node name="PlayerAudioStream" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamInteractive_h17s1")
+volume_db = -33.541
+bus = &"sfx"

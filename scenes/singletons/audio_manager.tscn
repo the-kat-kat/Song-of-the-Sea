@@ -1,24 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpvrat7mvbxgj"]
+[gd_scene load_steps=6 format=3 uid="uid://dpvrat7mvbxgj"]
 
-[ext_resource type="Script" uid="uid://dva8v54w8nqpq" path="res://scenes/singletons/audio_manager.gd" id="1_ulevj"]
 [ext_resource type="AudioStream" uid="uid://bik31ypu3gsvs" path="res://audio/Brave New Ocean Loopable.mp3" id="2_yg6h4"]
 [ext_resource type="AudioStream" uid="uid://bmbbmajfxs8xj" path="res://audio/eyes_of_the_ocean.mp3" id="3_x0am4"]
 
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_a6aoe"]
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_yp8vq"]
 stream_count = 1
 stream_0 = ExtResource("2_yg6h4")
 
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_tsmvk"]
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_ulevj"]
 stream_count = 1
 stream_0 = ExtResource("3_x0am4")
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_dabex"]
 clip_count = 2
 clip_0/name = &"calm"
-clip_0/stream = SubResource("AudioStreamPlaylist_a6aoe")
+clip_0/stream = SubResource("AudioStreamPlaylist_yp8vq")
 clip_0/auto_advance = 0
 clip_1/name = &"dark"
-clip_1/stream = SubResource("AudioStreamPlaylist_tsmvk")
+clip_1/stream = SubResource("AudioStreamPlaylist_ulevj")
 clip_1/auto_advance = 0
 _transitions = {
 Vector2i(0, 1): {
@@ -36,7 +35,6 @@ Vector2i(1, 0): {
 }
 
 [node name="WorldAudioManager" type="Node"]
-script = ExtResource("1_ulevj")
 
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamInteractive_dabex")

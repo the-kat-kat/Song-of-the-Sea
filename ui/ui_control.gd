@@ -7,7 +7,7 @@ func _ready() -> void:
 	buttonWeird.pressed.connect(_on_button_pressed)
 
 func _on_button_pressed():
-	print("Button was pressed by code connection!")
+	print("Button was pressed!")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

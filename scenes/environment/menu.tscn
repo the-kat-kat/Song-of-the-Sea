@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dh8m8l20q7r4q"]
 
 [ext_resource type="Script" uid="uid://yjwe2orc2scw" path="res://scripts/menu.gd" id="1_24ubt"]
-[ext_resource type="Texture2D" uid="uid://0i0l4j0r1c0f" path="res://icon.svg" id="2_indf4"]
+[ext_resource type="Texture2D" uid="uid://dkn6780cy4ibp" path="res://icon.svg" id="2_indf4"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -11,14 +11,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Menu" type="VBoxContainer" parent="." node_paths=PackedStringArray("pointer")]
+[node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 569.0
 offset_top = 259.0
 offset_right = 711.0
 offset_bottom = 335.0
 script = ExtResource("1_24ubt")
-pointer = NodePath("../Icon")
 metadata/_custom_type_script = "uid://yjwe2orc2scw"
 
 [node name="Label" type="Label" parent="Menu"]

@@ -1,14 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy5vpdxiqjn7x"]
+[gd_scene load_steps=7 format=3 uid="uid://cy5vpdxiqjn7x"]
 
-[ext_resource type="Texture2D" uid="uid://0i0l4j0r1c0f" path="res://icon.svg" id="1_uhxwv"]
 [ext_resource type="PackedScene" uid="uid://crjbk6ldw8cy2" path="res://scenes/actionable.tscn" id="2_yapov"]
-[ext_resource type="Resource" uid="uid://dd7sb50pqvbn2" path="res://dialogue/whale1.dialogue" id="3_gujaw"]
+[ext_resource type="Texture2D" uid="uid://bexfin5h37k5r" path="res://art/other_ppl/whale.png" id="3_sf384"]
+[ext_resource type="Texture2D" uid="uid://dfp0trppgc0wp" path="res://art/other_ppl/interactIcon.png" id="5_sf384"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sf384"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_uhxwv")
+"texture": ExtResource("3_sf384")
 }],
 "loop": true,
 "name": &"default",
@@ -16,17 +16,32 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kk4py"]
-radius = 148.49
+radius = 486.51
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gujaw"]
+radius = 674.8
 
 [node name="Whale" type="Node2D"]
 
+[node name="InteractIcon" type="Sprite2D" parent="."]
+position = Vector2(300, -300)
+texture = ExtResource("5_sf384")
+
 [node name="WhaleSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(200, 200)
 sprite_frames = SubResource("SpriteFrames_sf384")
+flip_h = true
 
 [node name="Actionable" parent="WhaleSprite" instance=ExtResource("2_yapov")]
 collision_mask = 0
-dialogue_resource = ExtResource("3_gujaw")
+script = null
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WhaleSprite/Actionable"]
+[node name="DialogueCollision" type="CollisionShape2D" parent="WhaleSprite/Actionable"]
+position = Vector2(100, 0)
 shape = SubResource("CircleShape2D_kk4py")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="PhysicsCollision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(100, 0)
+shape = SubResource("CircleShape2D_gujaw")
+debug_color = Color(0.732366, 0.408186, 0.62488, 0.42)

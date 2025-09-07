@@ -1,3 +1,4 @@
+"""
 class_name Menu extends VBoxContainer
 
 signal actioned(item: Control)
@@ -17,7 +18,6 @@ func _unhandled_input(event):
 	if is_instance_valid(item) and event.is_action_pressed("ui_accept"):
 		actioned.emit(item)
 
-# Called when the node enters the scene tree for the first time.
 func get_items() -> Array[Control]:
 	var items: Array[Control] = []
 	for child in get_children():
@@ -66,4 +66,5 @@ func _on_focus_changed(item: Control)-> void:
 	
 func _update_selection() -> void:
 	var item = get_focused_item()
-	
+
+"""
