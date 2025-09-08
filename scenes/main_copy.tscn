@@ -7,8 +7,7 @@
 
 [node name="Player" parent="." instance=ExtResource("2_y8wwq")]
 
-[node name="Whale" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("3_xur5c")]
-player_node = NodePath("../Player")
+[node name="Whale" parent="." instance=ExtResource("3_xur5c")]
 
 [node name="Whale2" parent="." instance=ExtResource("3_xur5c")]
 visible = false

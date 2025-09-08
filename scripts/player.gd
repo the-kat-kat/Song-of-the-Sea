@@ -12,12 +12,14 @@ extends CharacterBody2D
 
 @onready var playerAnim = $Sprite2D
 @onready var actionable_finder = $ActionableFinder
+@onready var collisionPoly = $CollisionPolygon2D
 
 var is_dashing := false
 var dash_timer := 0.0
 var cooldown_timer := 0.0
 var last_move_direction: Vector2 = Vector2.RIGHT
 var current_audio_clip := "none"
+var last_dir := 1
 
 func _physics_process(delta: float) -> void:
 	var input_vector := Vector2(
@@ -26,8 +28,6 @@ func _physics_process(delta: float) -> void:
 	).normalized()
 
 	if input_vector != Vector2.ZERO:
-		if !bgm.has_stream_playback():
-			bgm.play()
 		last_move_direction = input_vector
 
 	if Input.is_action_just_pressed("dash") and not is_dashing and cooldown_timer <= 0.0:
@@ -43,14 +43,16 @@ func _physics_process(delta: float) -> void:
 		if dash_timer <= 0.0:
 			is_dashing = false
 
-	if input_vector == Vector2.ZERO:
+	if input_vector.x == 0:
 		playerAnim.play("default")
 	else:
 		playerAnim.play("swim")
-
-	if input_vector.x != 0.0:
-		playerAnim.flip_h = input_vector.x < 0.0
-
+		playerAnim.flip_h = input_vector.x < 0
+		if(input_vector.x > 0):
+			collisionPoly.scale.x = 14
+		else:
+			collisionPoly.scale.x = -14
+		
 	input_vector.y += 0.1
 	velocity = velocity.lerp(input_vector * speed, water_resistance * delta)
 

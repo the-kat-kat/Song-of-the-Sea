@@ -1,11 +1,10 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+Nathan: [[Hi|Hello|Howdy]], I'm a whale~
+Nathan: Since I have yet to code the mechanics all you can do right now is talk to me.
+Nathan: Are you feeling whale today?
+- Yess
+	Nathan: I'm doing whale as whale!
+- what??
+	Nathan: aww did you not like my pun :(
+Nathan: Ok bye I need to go lock in
 => END

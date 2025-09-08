@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b37o51iyq1xg8"]
+[gd_scene load_steps=13 format=3 uid="uid://b37o51iyq1xg8"]
 
 [ext_resource type="Script" uid="uid://clhkx2cashlun" path="res://scripts/player.gd" id="1_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://ds78xikiwosu7" path="res://art/player/swim_anim/Untitled_Artwork-3.png" id="2_qek5x"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dt4tv53t821uo" path="res://art/player/swim_anim/Untitled_Artwork-6.png" id="7_gx1jg"]
 [ext_resource type="Texture2D" uid="uid://wuf85eck8wj5" path="res://art/player/swim_anim/Untitled_Artwork-7.png" id="8_ugbui"]
 [ext_resource type="AudioStream" uid="uid://dpal67oypkauo" path="res://audio/sfx/bubbles.mp3" id="9_5gtgg"]
-[ext_resource type="AudioStream" uid="uid://bik31ypu3gsvs" path="res://audio/Brave New Ocean Loopable.mp3" id="10_je7p5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qlg0r"]
 animations = [{
@@ -54,9 +53,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
-radius = 235.1
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_fjrip"]
 radius = 153.99
 
@@ -68,16 +64,10 @@ clip_0/auto_advance = 0
 
 [node name="Player" type="Node2D"]
 
-[node name="player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("player_audiostream", "bgm") groups=["player"]]
-position = Vector2(400, 400)
+[node name="player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("player_audiostream") groups=["player"]]
+collision_layer = 3
 script = ExtResource("1_5gtgg")
 player_audiostream = NodePath("../PlayerAudioStream")
-bgm = NodePath("../BackgroundMusicPlayer")
-
-[node name="Camera2D" type="Camera2D" parent="player"]
-z_index = 7
-position = Vector2(50, 0)
-position_smoothing_enabled = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="player"]
 scale = Vector2(0.5, 0.5)
@@ -85,25 +75,28 @@ sprite_frames = SubResource("SpriteFrames_qlg0r")
 frame = 1
 frame_progress = 0.866328
 
-[node name="PhysicsCollider" type="CollisionShape2D" parent="player"]
-position = Vector2(50, 0)
-shape = SubResource("CircleShape2D_tuyoq")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player"]
+position = Vector2(0.999999, -0.25)
+scale = Vector2(14, 10.025)
+polygon = PackedVector2Array(-1.78571, -6.95761, -1.07143, -12.9426, 6.42857, -18.8279, 11.2857, -17.2319, 13.7143, -10.4489, 11.5, -2.76808, 8.5, -1.67082, 7.78572, 6.50873, 6.14286, 5.81047, 7.14286, 11.7955, 3.14286, 18.0798, -3.42857, 13.7905, -5.21429, 14.6883, -6.92857, 10.9975, -8.92857, 4.11471, -8.64286, -0.274314, -6.71429, -2.46883, -3.14286, -3.16708)
 
-[node name="ActionableFinder" type="Area2D" parent="player"]
-collision_layer = 0
+[node name="ActionableFinder" type="Area2D" parent="player" groups=["player"]]
+collision_layer = 2
 collision_mask = 16
 
 [node name="DialogueCollider" type="CollisionShape2D" parent="player/ActionableFinder"]
 position = Vector2(50, 0)
 shape = SubResource("CircleShape2D_fjrip")
+debug_color = Color(0, 0.6, 0.701961, 0.152941)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+visible = false
+z_index = 7
+position = Vector2(50, 0)
+zoom = Vector2(0.8, 0.8)
+position_smoothing_enabled = true
 
 [node name="PlayerAudioStream" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamInteractive_h17s1")
 volume_db = -33.541
 bus = &"sfx"
-
-[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_je7p5")
-volume_db = -14.938
-autoplay = true
-bus = &"music"

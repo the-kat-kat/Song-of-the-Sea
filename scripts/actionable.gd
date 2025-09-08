@@ -6,6 +6,9 @@ extends Area2D
 var dialogue_started: bool = false
 var connected_to_manager: bool = false
 
+func _ready() -> void:
+	_connect_to_manager()
+
 func _connect_to_manager() -> void:
 	if DialogueManager and not connected_to_manager:
 		DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
