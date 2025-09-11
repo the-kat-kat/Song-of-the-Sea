@@ -43,11 +43,11 @@ dialogue_resource = ExtResource("4_yapov")
 [node name="DialogueCollision" type="CollisionShape2D" parent="WhaleSprite/Actionable"]
 position = Vector2(100, 0)
 shape = SubResource("CircleShape2D_kk4py")
-debug_color = Color(0, 0.6, 0.701961, 0.180392)
+debug_color = Color(0, 0.6, 0.701961, 0.0666667)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="PhysicsCollision" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(100, 0)
 shape = SubResource("CircleShape2D_gujaw")
-debug_color = Color(0.733333, 0.407843, 0.623529, 0.129412)
+debug_color = Color(0.733333, 0.407843, 0.623529, 0.027451)
