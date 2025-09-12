@@ -8,3 +8,8 @@ res://scenes/singletons/audio_manager.tscn
 res://addons/dialogue_manager/example_balloon/example_balloon.tscn
 res://scenes/environment/enemy.tscn
 res://scenes/player/player.tscn
+res://scripts/player.gd
+res://scenes/boundary_collisions.tscn
+res://scripts/enemy.gd
+res://scripts/whale.gd
+res://scenes/player/camera_2d.gd

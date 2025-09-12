@@ -22,7 +22,6 @@ func _physics_process(delta: float) -> void:
 			interact_icon.visible = false
 
 func _on_area_body_entered(body: Node) -> void:
-	print_debug("entered")
 	if body.is_in_group("player"):
 		interact_icon.visible = true
 		

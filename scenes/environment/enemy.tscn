@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://bok5465lpn3wk"]
 
 [ext_resource type="Script" uid="uid://g5m48rcix8km" path="res://scripts/enemy.gd" id="1_fq8u7"]
-[ext_resource type="Texture2D" uid="uid://dkn6780cy4ibp" path="res://icon.svg" id="2_2y6kf"]
+[ext_resource type="Texture2D" uid="uid://b83l6sssj2lej" path="res://art/environment/enemyBlob.png" id="2_fq8u7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_120wc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2y6kf")
+"texture": ExtResource("2_fq8u7")
 }],
 "loop": true,
 "name": &"default",
@@ -18,12 +18,13 @@ animations = [{
 radius = 415.04
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l3fpy"]
-radius = 81.0
+radius = 100.0
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_fq8u7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_120wc")
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -34,6 +35,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_gtyae")
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
+position = Vector2(5, 5)
 shape = SubResource("CircleShape2D_l3fpy")
 
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]

@@ -7,21 +7,24 @@ extends CharacterBody2D
 @export var dash_time := 0.4
 @export var dash_cooldown := 1
 
-@export var player_audiostream: AudioStreamPlayer2D
 @export var bgm: AudioStreamPlayer
 
 @onready var playerAnim = $Sprite2D
 @onready var actionable_finder = $ActionableFinder
 @onready var collisionPoly = $CollisionPolygon2D
+@onready var camera = $Camera2D
+@export var audio_node: AudioStreamPlayer
 
 var is_dashing := false
 var dash_timer := 0.0
 var cooldown_timer := 0.0
 var last_move_direction: Vector2 = Vector2.RIGHT
-var current_audio_clip := "none"
 var last_dir := 1
 
+var bounce_force = 1000.0
+
 func _physics_process(delta: float) -> void:
+	print_debug(audio_node.playing)
 	var input_vector := Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -31,6 +34,8 @@ func _physics_process(delta: float) -> void:
 		last_move_direction = input_vector
 
 	if Input.is_action_just_pressed("dash") and not is_dashing and cooldown_timer <= 0.0:
+		audio_node.stop()
+		audio_node.play()
 		is_dashing = true
 		var dash_dir := input_vector if input_vector != Vector2.ZERO else last_move_direction
 		dash_timer = dash_time
@@ -38,7 +43,6 @@ func _physics_process(delta: float) -> void:
 		velocity = dash_dir * dash_speed
 
 	if is_dashing:
-		update_player_audio("dash")
 		dash_timer -= delta
 		if dash_timer <= 0.0:
 			is_dashing = false
@@ -61,22 +65,19 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	if Input.is_action_just_pressed("ui_accept"):
-		print("pressed space")
+	if Input.is_action_just_pressed("interact"):
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0 and actionables[0].has_method("action"):
-			print("calling action on actionable")
 			actionables[0].action()
 
-func update_player_audio(name: String) -> void:
-	if name == "none":
-		player_audiostream.stop()
-		current_audio_clip = "none"
-		return
 
-	if name != current_audio_clip:
-		# swap stream here
-		player_audiostream.play()
-		current_audio_clip = name
-	elif name == "dash":
-		player_audiostream.play()
+func _on_actionable_finder_body_entered(body: Node2D) -> void:
+	if(body.is_in_group("enemy")):
+		audio_node.play()
+		camera.start_shake(18.0, 2)
+		var enemy = body
+		var away = (global_position-body.global_position).normalized()
+		velocity = away * bounce_force
+		var enemy_char = enemy
+		enemy_char.velocity = -away * bounce_force
+		move_and_slide()
