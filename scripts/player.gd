@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@export var speed := 200.0
+@export var speed := 300.0
 @export var water_resistance := 4.0
 
-@export var dash_speed := 300.0
+@export var dash_speed := 1000.0
 @export var dash_time := 0.4
 @export var dash_cooldown := 1
 
@@ -21,7 +21,7 @@ var cooldown_timer := 0.0
 var last_move_direction: Vector2 = Vector2.RIGHT
 var last_dir := 1
 
-var bounce_force = 500.0
+var bounce_force = 700.0
 
 func _physics_process(delta: float) -> void:
 	var input_vector := Vector2(

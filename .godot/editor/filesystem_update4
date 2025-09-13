@@ -10,3 +10,4 @@ res://scenes/boundary_collisions.tscn
 res://scripts/player.gd
 res://bullet.gd
 res://scenes/bullet.tscn
+res://scripts/enemy.gd

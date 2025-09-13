@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b37o51iyq1xg8"]
+[gd_scene load_steps=13 format=3 uid="uid://b37o51iyq1xg8"]
 
 [ext_resource type="Script" uid="uid://clhkx2cashlun" path="res://scripts/player.gd" id="1_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://ds78xikiwosu7" path="res://art/player/swim_anim/Untitled_Artwork-3.png" id="2_qek5x"]
@@ -55,9 +55,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fjrip"]
-radius = 202.07
-
 [node name="PlayerNode" type="Node2D"]
 
 [node name="player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("audio_node") groups=["player"]]
@@ -79,13 +76,6 @@ polygon = PackedVector2Array(-1.78571, -6.95761, -1.07143, -12.9426, 5.42857, -1
 [node name="ActionableFinder" type="Area2D" parent="player" groups=["player"]]
 collision_layer = 3
 collision_mask = 19
-
-[node name="DialogueCollider" type="CollisionShape2D" parent="player/ActionableFinder"]
-visible = false
-position = Vector2(50, 0)
-shape = SubResource("CircleShape2D_fjrip")
-disabled = true
-debug_color = Color(0, 0.6, 0.701961, 0.152941)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player/ActionableFinder"]
 position = Vector2(0.999999, -0.25)
