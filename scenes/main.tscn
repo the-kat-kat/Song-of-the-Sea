@@ -44873,8 +44873,10 @@ expand_mode = 2
 layer = 2
 
 [node name="HorizontalHearts" parent="UIFront" instance=ExtResource("2_eb6dy")]
+offset_left = -109.0
 offset_top = 20.0
-offset_bottom = 120.0
+offset_right = 109.0
+offset_bottom = 90.0
 
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ya4ey")

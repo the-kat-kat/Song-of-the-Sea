@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b37o51iyq1xg8"]
+[gd_scene load_steps=14 format=3 uid="uid://b37o51iyq1xg8"]
 
 [ext_resource type="Script" uid="uid://clhkx2cashlun" path="res://scripts/player.gd" id="1_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://ds78xikiwosu7" path="res://art/player/swim_anim/Untitled_Artwork-3.png" id="2_qek5x"]
@@ -55,6 +55,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_je7p5"]
+radius = 110.0
+
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("firing_pos", "audio_node") groups=["player"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_5gtgg")
@@ -84,12 +87,15 @@ scale = Vector2(14, 10.025)
 polygon = PackedVector2Array(-1.78571, -13.4414, 4.07143, -18.7282, 11.0714, -19.1272, 15.6429, -11.9451, 13.2857, -1.87032, 8.28572, 12.1945, 4.14286, 19.3516, -4.92857, 18.1796, -9.07143, 11.7955, -10.1429, 2.21945, -7.85714, -4.96259)
 one_way_collision_margin = 16.4
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionableFinder"]
+position = Vector2(66, -108)
+shape = SubResource("CircleShape2D_je7p5")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 7
-position = Vector2(50, 0)
 zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
-position_smoothing_speed = 2.0
+position_smoothing_speed = 10.0
 script = ExtResource("9_h17s1")
 
 [node name="PlayerAudioStream" type="AudioStreamPlayer2D" parent="."]

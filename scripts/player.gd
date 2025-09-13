@@ -61,9 +61,11 @@ func _physics_process(delta: float) -> void:
 		if(input_vector.x > 0):
 			collisionPoly.scale.x = 14
 			actionable_finder.scale.x =1 
+			actionable_finder.position.x = 0
 		else:
 			collisionPoly.scale.x = -14
 			actionable_finder.scale.x = -1 
+			actionable_finder.position.x = -100
 		
 	input_vector.y += 0.1
 	velocity = velocity.lerp(input_vector * speed, water_resistance * delta)

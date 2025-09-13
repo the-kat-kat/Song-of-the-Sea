@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://g5m48rcix8km" path="res://scripts/enemy.gd" id="1_fq8u7"]
 [ext_resource type="Texture2D" uid="uid://b83l6sssj2lej" path="res://art/environment/enemyBlob.png" id="2_fq8u7"]
-[ext_resource type="Texture2D" uid="uid://dkn6780cy4ibp" path="res://icon.svg" id="3_2y6kf"]
+[ext_resource type="Texture2D" uid="uid://c15qjobwieo4c" path="res://art/ui/circleBlue.png" id="3_2y6kf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_120wc"]
 animations = [{
@@ -26,6 +26,7 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_fq8u7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5, -5)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_120wc")
 
@@ -40,12 +41,10 @@ one_way_collision_margin = 11.4
 
 [node name="Sprite2D" type="Sprite2D" parent="DetectionArea"]
 modulate = Color(1, 1, 1, 0.188235)
-position = Vector2(-25, 14)
-scale = Vector2(6.14062, 7.75)
+scale = Vector2(1.6, 1.6)
 texture = ExtResource("3_2y6kf")
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
-position = Vector2(5, 5)
 shape = SubResource("CircleShape2D_l3fpy")
 one_way_collision_margin = 6.8
 
