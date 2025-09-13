@@ -1,4 +1,5 @@
 extends CharacterBody2D
+var bullet_path = preload("res://scenes/bullet.tscn")
 
 @export var speed := 300.0
 @export var water_resistance := 4.0
@@ -8,6 +9,8 @@ extends CharacterBody2D
 @export var dash_cooldown := 1
 
 @export var bgm: AudioStreamPlayer
+@export var firing_pos: Node2D
+@export var heart_display: HBoxContainer
 
 @onready var playerAnim = $Sprite2D
 @onready var actionable_finder = $ActionableFinder
@@ -24,6 +27,7 @@ var last_dir := 1
 var bounce_force = 700.0
 
 func _physics_process(delta: float) -> void:
+	
 	var input_vector := Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -71,12 +75,22 @@ func _physics_process(delta: float) -> void:
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0 and actionables[0].has_method("action"):
 			actionables[0].action()
+			
+	if Input.is_action_just_pressed("fire"):
+		print_debug("fire")
+		var bullet = bullet_path.instantiate()
+		bullet.dir = rotation
+		bullet.pos = firing_pos.global_position
+		bullet.rota = global_rotation
+		get_parent().add_child(bullet)
+	
 
 
 func _on_actionable_finder_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("enemy")):
 		audio_node.play()
-		camera.start_shake(18.0, 2)
+		heart_display.take_damage()
+		camera.start_shake(40.0, 5)
 		var enemy = body
 		var away = (global_position-body.global_position).normalized()
 		velocity = away * bounce_force

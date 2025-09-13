@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://o08ql3nhny56"]
+
+[ext_resource type="Script" uid="uid://pd5vxhclkgba" path="res://scripts/health_display.gd" id="1_46ep2"]
+[ext_resource type="Texture2D" uid="uid://dkn6780cy4ibp" path="res://icon.svg" id="2_1kdcq"]
+
+[node name="HorizontalHearts" type="HBoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -4.0
+offset_right = 96.0
+offset_bottom = 100.0
+grow_horizontal = 2
+script = ExtResource("1_46ep2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_1kdcq")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_1kdcq")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_1kdcq")
+expand_mode = 2

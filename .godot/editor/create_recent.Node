@@ -1,3 +1,7 @@
+CanvasLayer
+HBoxContainer
+TextureRect
+AnimatedSprite2D
 CollisionShape2D
 Sprite2D
 CharacterBody2D
@@ -7,8 +11,4 @@ TileMapLayer
 TileMap
 CollisionPolygon2D
 Area2D
-AnimatedSprite2D
 ParallaxLayer
-ColorRect
-CanvasLayer
-ParallaxBackground

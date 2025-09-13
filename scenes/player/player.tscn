@@ -55,34 +55,33 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="PlayerNode" type="Node2D"]
-
-[node name="player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("audio_node") groups=["player"]]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("firing_pos", "audio_node") groups=["player"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_5gtgg")
+firing_pos = NodePath("FiringPosition")
 audio_node = NodePath("Bubbles")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="player"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
 frame = 1
 frame_progress = 0.866328
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0.999999, -0.25)
 scale = Vector2(14, 10.025)
 polygon = PackedVector2Array(-1.78571, -6.95761, -1.07143, -12.9426, 5.42857, -19.5262, 11.2857, -17.2319, 14.0714, -12.1446, 12.2857, -2.36908, 9.14286, -1.17207, 7.71429, 8.10474, 7.57143, 12.2943, 4, 17.9801, -4.71429, 16.1845, -7.64286, 11.2968, -9.5, 2.21945, -7.14286, -4.16459, -3.28571, -4.36409)
 
-[node name="ActionableFinder" type="Area2D" parent="player" groups=["player"]]
+[node name="ActionableFinder" type="Area2D" parent="." groups=["player"]]
 collision_layer = 3
 collision_mask = 19
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player/ActionableFinder"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ActionableFinder"]
 position = Vector2(0.999999, -0.25)
 scale = Vector2(14, 10.025)
 polygon = PackedVector2Array(-2.42857, -7.95511, -1.78571, -13.4414, 5, -20.6234, 11.5714, -17.9302, 14.6429, -12.2444, 13.2857, -1.87032, 9.64286, -0.374065, 8.28572, 8.10474, 8.28572, 12.1945, 4.14286, 18.7781, -4.78571, 16.9825, -8.28571, 11.596, -10.1429, 2.21945, -7.85714, -4.96259, -3.57143, -5.66085)
 
-[node name="Camera2D" type="Camera2D" parent="player"]
+[node name="Camera2D" type="Camera2D" parent="."]
 z_index = 7
 position = Vector2(50, 0)
 zoom = Vector2(1.2, 1.2)
@@ -90,7 +89,7 @@ position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 script = ExtResource("9_h17s1")
 
-[node name="PlayerAudioStream" type="AudioStreamPlayer2D" parent="player"]
+[node name="PlayerAudioStream" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_h17s1")
 volume_db = 10.433
 autoplay = true
@@ -98,10 +97,11 @@ max_distance = 4096.0
 bus = &"sfx"
 playback_type = 1
 
-[node name="Bubbles" type="AudioStreamPlayer" parent="player"]
+[node name="Bubbles" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_5gtgg")
 volume_db = -32.584
 
-[node name="FiringPosition" type="Node2D" parent="player"]
+[node name="FiringPosition" type="Node2D" parent="."]
+position = Vector2(166, 22)
 
-[connection signal="body_entered" from="player/ActionableFinder" to="player" method="_on_actionable_finder_body_entered"]
+[connection signal="body_entered" from="ActionableFinder" to="." method="_on_actionable_finder_body_entered"]
