@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@export var speed := 500.0
-@export var water_resistance := 2.0
+@export var speed := 200.0
+@export var water_resistance := 4.0
 
-@export var dash_speed := 2000.0
+@export var dash_speed := 300.0
 @export var dash_time := 0.4
 @export var dash_cooldown := 1
 
@@ -21,10 +21,9 @@ var cooldown_timer := 0.0
 var last_move_direction: Vector2 = Vector2.RIGHT
 var last_dir := 1
 
-var bounce_force = 1000.0
+var bounce_force = 500.0
 
 func _physics_process(delta: float) -> void:
-	print_debug(audio_node.playing)
 	var input_vector := Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -54,8 +53,10 @@ func _physics_process(delta: float) -> void:
 		playerAnim.flip_h = input_vector.x < 0
 		if(input_vector.x > 0):
 			collisionPoly.scale.x = 14
+			actionable_finder.scale.x =1 
 		else:
 			collisionPoly.scale.x = -14
+			actionable_finder.scale.x = -1 
 		
 	input_vector.y += 0.1
 	velocity = velocity.lerp(input_vector * speed, water_resistance * delta)
@@ -66,6 +67,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	if Input.is_action_just_pressed("interact"):
+		print_debug("interact")
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0 and actionables[0].has_method("action"):
 			actionables[0].action()
