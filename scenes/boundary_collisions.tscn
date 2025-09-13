@@ -1,9 +1,57 @@
-[gd_scene load_steps=5 format=3 uid="uid://co6jyburghxre"]
+[gd_scene load_steps=16 format=3 uid="uid://co6jyburghxre"]
 
+[ext_resource type="Texture2D" uid="uid://bxanqmlswydr4" path="res://art/wave/wave1.png" id="1_563gt"]
 [ext_resource type="Texture2D" uid="uid://cceyfwnamkhlm" path="res://art/environment/sky.png" id="1_f64bx"]
-[ext_resource type="Texture2D" uid="uid://dpetgdwklghhu" path="res://art/environment/sky w:o pigeons.png" id="1_nrkga"]
+[ext_resource type="Texture2D" uid="uid://bc1wv708vtokc" path="res://art/wave/wave2.png" id="2_qsxxp"]
+[ext_resource type="Texture2D" uid="uid://cn4fblsurxvw4" path="res://art/wave/wave3.png" id="3_vu2qk"]
+[ext_resource type="Texture2D" uid="uid://diays8nr3snde" path="res://art/wave/wave4.png" id="4_i5x6w"]
+[ext_resource type="Texture2D" uid="uid://b8djnf081ptar" path="res://art/wave/wave5.png" id="5_8ffel"]
+[ext_resource type="Texture2D" uid="uid://bo4ux4e4d6iqd" path="res://art/wave/wave6.png" id="6_fk6en"]
+[ext_resource type="Texture2D" uid="uid://d2djgcyegmfji" path="res://art/wave/wave7.png" id="7_1cat6"]
+[ext_resource type="Texture2D" uid="uid://dxqbxwk1abduh" path="res://art/wave/wave8.png" id="8_tp21j"]
+[ext_resource type="Texture2D" uid="uid://j7rmvmf24072" path="res://art/wave/wave9.png" id="9_l5g45"]
+[ext_resource type="Texture2D" uid="uid://dtmbobn5d085f" path="res://art/wave/wave10.png" id="10_qfc6t"]
+[ext_resource type="Script" uid="uid://ci5d8n04mwvoj" path="res://scenes/wave.gd" id="11_qsxxp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jkqav"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_18b6p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_563gt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qsxxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vu2qk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_i5x6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8ffel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fk6en")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1cat6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tp21j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_l5g45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qfc6t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f64bx"]
 
@@ -15,10 +63,12 @@
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_jkqav")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(383, -838)
-scale = Vector2(1.38556, 0.776165)
-texture = ExtResource("1_nrkga")
+[node name="wave" type="AnimatedSprite2D" parent="StaticBody2D"]
+position = Vector2(519.5, -430)
+scale = Vector2(2.49676, 0.972839)
+sprite_frames = SubResource("SpriteFrames_18b6p")
+frame_progress = 0.128618
+script = ExtResource("11_qsxxp")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-1800, 0)
@@ -30,15 +80,13 @@ position = Vector2(0, 4500)
 shape = SubResource("WorldBoundaryShape2D_jkqav")
 
 [node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D"]
-visible = false
-modulate = Color(1, 1, 1, 0.4)
+modulate = Color(1, 1, 1, 0.654902)
 position = Vector2(-3931, 2336)
 scale = Vector2(1, 1.57731)
 texture = ExtResource("1_f64bx")
 
 [node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D"]
-visible = false
 modulate = Color(1, 1, 1, 0.462745)
-position = Vector2(-59, 6140)
+position = Vector2(-101, 3667)
 scale = Vector2(1.99349, 1)
 texture = ExtResource("1_f64bx")

@@ -44811,7 +44811,7 @@ tile_map_data = PackedByteArray("AAAgAOX/AgATAD8AAAAgAOb/AgATAEAAAAAgAOf/AgATAEE
 tile_set = ExtResource("3_eb6dy")
 
 [node name="BoundaryCollisions" parent="SubViewport" instance=ExtResource("4_choun")]
-position = Vector2(0, -1300)
+position = Vector2(4, -965)
 
 [node name="Player" parent="SubViewport" node_paths=PackedStringArray("heart_display") instance=ExtResource("5_choun")]
 heart_display = NodePath("../../UIFront/HorizontalHearts")

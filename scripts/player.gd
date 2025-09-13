@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 			collisionPoly.scale.x = -14
 			actionable_finder.scale.x = -1 
 		
-	#input_vector.y += 0.1
+	input_vector.y += 0.1
 	velocity = velocity.lerp(input_vector * speed, water_resistance * delta)
 
 	if cooldown_timer > 0.0:

@@ -35803,7 +35803,7 @@ tile_map_data = PackedByteArray("AAAgAOX/AgATAD8AAAAgAOb/AgATAEAAAAAgAOf/AgATAEE
 tile_set = ExtResource("2_y7clp")
 
 [node name="BoundaryCollisions" parent="." instance=ExtResource("3_4k05o")]
-position = Vector2(0, -1300)
+position = Vector2(4, -965)
 
 [node name="Player" parent="." instance=ExtResource("3_sv6s2")]
 
