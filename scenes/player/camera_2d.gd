@@ -11,7 +11,6 @@ func _ready() -> void:
 	original_rotation = rotation
 
 func start_shake(intensity: float, duration: float) -> void:
-	print_debug("shake")
 	shake_intensity = intensity
 	shake_duration = duration
 	shake_time = duration

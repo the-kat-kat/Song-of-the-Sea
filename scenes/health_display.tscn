@@ -7,8 +7,8 @@
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -4.0
-offset_right = 96.0
+offset_left = -154.0
+offset_right = 154.0
 offset_bottom = 100.0
 grow_horizontal = 2
 script = ExtResource("1_46ep2")

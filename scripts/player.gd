@@ -24,7 +24,10 @@ var cooldown_timer := 0.0
 var last_move_direction: Vector2 = Vector2.RIGHT
 var last_dir := 1
 
-var bounce_force = 700.0
+var bounce_force = 1000.0
+var invulnerable := false
+var invuln_time := 0.25
+var invuln_timer := 0.0
 
 func _physics_process(delta: float) -> void:
 	
@@ -62,7 +65,7 @@ func _physics_process(delta: float) -> void:
 			collisionPoly.scale.x = -14
 			actionable_finder.scale.x = -1 
 		
-	input_vector.y += 0.1
+	#input_vector.y += 0.1
 	velocity = velocity.lerp(input_vector * speed, water_resistance * delta)
 
 	if cooldown_timer > 0.0:
@@ -87,13 +90,20 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_actionable_finder_body_entered(body: Node2D) -> void:
-	if(body.is_in_group("enemy")):
-		audio_node.play()
-		heart_display.take_damage()
-		camera.start_shake(40.0, 5)
-		var enemy = body
-		var away = (global_position-body.global_position).normalized()
-		velocity = away * bounce_force
-		var enemy_char = enemy
-		enemy_char.velocity = -away * bounce_force
-		move_and_slide()
+	if not body.is_in_group("enemy"):
+		return
+		
+	body.set_touching_player(true)
+	audio_node.play()
+	heart_display.take_damage()
+	camera.start_shake(80.0, 1)
+
+	var away = (global_position - body.global_position).normalized()
+	velocity = away * bounce_force
+	body.set_deferred("velocity", -away * bounce_force)
+	global_position += away * 24
+
+func _on_actionable_finder_body_exited(body: Node2D) -> void:
+	if not body.is_in_group("enemy"):
+		return
+	body.set_touching_player(false)

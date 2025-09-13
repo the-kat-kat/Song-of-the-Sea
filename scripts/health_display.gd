@@ -1,7 +1,7 @@
 extends HBoxContainer
 
-var max_health = 3
-var health = 3
+var max_health = 3.0
+var health = 3.0
 
 @onready var hearts = get_children()
 
@@ -16,13 +16,16 @@ func _process(delta: float) -> void:
 	
 	
 func take_damage():
-	health -= 0.5
-	if(health <=0):
+	if(health == 0):
 		print_debug("died")
 	else:
-		for i in range(max_health):
+		health -= 0.5
+		print_debug("heath", health)
+		for i in range(1, max_health+1):
 			if i <= health:
-				hearts[i].show()
+				print_debug("show", i)
+				hearts[i-1].show()
 			else:
-				hearts[i].hide()
+				print_debug("hide", i)
+				hearts[i-1].hide()
 		

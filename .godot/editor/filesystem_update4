@@ -13,3 +13,6 @@ res://scenes/bullet.tscn
 res://scripts/health_display.gd
 res://scenes/health_display.tscn
 res://scripts/player.gd
+res://scripts/enemy.gd
+res://scripts/whale.gd
+res://scenes/player/camera_2d.gd
