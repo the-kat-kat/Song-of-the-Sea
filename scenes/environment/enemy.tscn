@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bok5465lpn3wk"]
+[gd_scene load_steps=8 format=3 uid="uid://bok5465lpn3wk"]
 
 [ext_resource type="Script" uid="uid://g5m48rcix8km" path="res://scripts/enemy.gd" id="1_fq8u7"]
 [ext_resource type="Texture2D" uid="uid://b83l6sssj2lej" path="res://art/environment/enemyBlob.png" id="2_fq8u7"]
@@ -16,10 +16,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gtyae"]
-radius = 568.88
+radius = 564.1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l3fpy"]
 radius = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2y6kf"]
+radius = 122.43
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(0.5, 0.5)
@@ -32,12 +35,13 @@ sprite_frames = SubResource("SpriteFrames_120wc")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 modulate = Color(0.637843, 0.637843, 0.637843, 1)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_gtyae")
 one_way_collision_margin = 11.4
+debug_color = Color(0, 0.6, 0.701961, 0.152941)
 
 [node name="Sprite2D" type="Sprite2D" parent="DetectionArea"]
 modulate = Color(1, 1, 1, 0.0862745)
@@ -48,5 +52,27 @@ texture = ExtResource("3_2y6kf")
 shape = SubResource("CircleShape2D_l3fpy")
 one_way_collision_margin = 6.8
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = -192.0
+offset_right = 96.0
+offset_bottom = -143.0
+grow_horizontal = 2
+value = 100.0
+rounded = true
+
+[node name="BulletArea" type="Area2D" parent="."]
+modulate = Color(0.637843, 0.637843, 0.637843, 1)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletArea"]
+shape = SubResource("CircleShape2D_2y6kf")
+
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
+[connection signal="body_entered" from="BulletArea" to="." method="_on_bullet_area_body_entered"]
+[connection signal="body_exited" from="BulletArea" to="." method="_on_detection_area_body_exited"]

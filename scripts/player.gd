@@ -14,6 +14,7 @@ var bullet_path = preload("res://scenes/bullet.tscn")
 
 @onready var playerAnim = $Sprite2D
 @onready var camera = $Camera2D
+@export var viewport: SubViewport
 @export var audio_node: AudioStreamPlayer
 
 @export var actionable_finder: Area2D
@@ -91,16 +92,18 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire"):
 		print_debug("fire")
 		var bullet = bullet_path.instantiate()
-		bullet.dir = rotation
-		bullet.pos = firing_pos.global_position
-		bullet.rota = global_rotation
+		var bullet_rota =  (viewport.get_mouse_position() - global_position).angle()
+		print_debug("mouse pos", viewport.get_mouse_position())
+		print_debug("pos", global_position)
+		print_debug("bullet rota", bullet_rota)
+		bullet.set_up(firing_pos.global_position, 0)
 		get_parent().add_child(bullet)
 
 func _on_actionable_finder_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("enemy"):
 		return
 		
-	body.set_touching_player(true)
+	body.touching_player = true
 	audio_node.play()
 	heart_display.take_damage()
 	camera.start_shake(80.0, 1)
@@ -112,4 +115,4 @@ func _on_actionable_finder_body_entered(body: Node2D) -> void:
 func _on_actionable_finder_body_exited(body: Node2D) -> void:
 	if not body.is_in_group("enemy"):
 		return
-	body.set_touching_player(false)
+	body.touching_player = true

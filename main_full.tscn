@@ -35813,6 +35813,9 @@ tile_set = ExtResource("2_y7clp")
 [node name="Enemy" parent="." instance=ExtResource("4_4k05o")]
 position = Vector2(1428, 505)
 
+[node name="Enemy2" parent="." instance=ExtResource("4_4k05o")]
+position = Vector2(400, -300)
+
 [node name="Whale" parent="." instance=ExtResource("5_yc7d0")]
 
 [node name="Front" type="ParallaxBackground" parent="."]

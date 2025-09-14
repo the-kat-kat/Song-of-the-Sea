@@ -1,6 +1,8 @@
 CollisionShape2D
-AnimatedSprite2D
+Area2D
 Sprite2D
+ProgressBar
+AnimatedSprite2D
 CanvasLayer
 HBoxContainer
 TextureRect
@@ -10,5 +12,3 @@ StaticBody2D
 TileMapLayer
 TileMap
 CollisionPolygon2D
-Area2D
-ParallaxLayer
