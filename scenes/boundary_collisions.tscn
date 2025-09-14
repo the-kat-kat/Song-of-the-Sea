@@ -16,6 +16,8 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jkqav"]
 distance = 1.0
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f64bx"]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_18b6p"]
 animations = [{
 "frames": [{
@@ -54,43 +56,39 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f64bx"]
-
 [node name="BoundaryCollisions" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -300)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_jkqav")
-disabled = true
-
-[node name="wave" type="AnimatedSprite2D" parent="StaticBody2D"]
-z_index = -150
-position = Vector2(519.5, -380)
-scale = Vector2(2.49676, 0.972839)
-sprite_frames = SubResource("SpriteFrames_18b6p")
-frame_progress = 0.128618
-script = ExtResource("11_qsxxp")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-1800, 0)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_f64bx")
-disabled = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 1500)
 shape = SubResource("WorldBoundaryShape2D_jkqav")
-disabled = true
 
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D"]
+[node name="wave" type="AnimatedSprite2D" parent="."]
+z_index = -150
+position = Vector2(86, -750)
+scale = Vector2(2.49676, 0.972839)
+sprite_frames = SubResource("SpriteFrames_18b6p")
+frame_progress = 0.128618
+script = ExtResource("11_qsxxp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.654902)
 position = Vector2(-3931, 2336)
 scale = Vector2(1, 1.57731)
 texture = ExtResource("1_f64bx")
 
-[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D3" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.462745)
 position = Vector2(-6, 3013)
 scale = Vector2(1.99349, 1)

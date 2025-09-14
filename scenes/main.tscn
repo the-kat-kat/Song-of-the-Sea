@@ -44749,8 +44749,10 @@ shader_parameter/debug_show_mask = false
 [sub_resource type="ViewportTexture" id="ViewportTexture_jyhfs"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player", "enemy")]
 script = ExtResource("1_ya4ey")
+player = NodePath("SubViewport/Player")
+enemy = NodePath("SubViewport/Enemy")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -44771,15 +44773,15 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.549978, 0.941276, 1, 1)
 
+[node name="BoundaryCollisions" parent="SubViewport" instance=ExtResource("4_choun")]
+z_as_relative = false
+position = Vector2(15, -636)
+
 [node name="Back" type="ParallaxBackground" parent="SubViewport"]
 layer = -10
 
 [node name="ParallaxCollision" type="ParallaxLayer" parent="SubViewport/Back"]
 z_index = 1
-
-[node name="BoundaryCollisions" parent="SubViewport/Back/ParallaxCollision" instance=ExtResource("4_choun")]
-z_as_relative = false
-position = Vector2(15, -636)
 
 [node name="TileMap" type="TileMap" parent="SubViewport/Back/ParallaxCollision"]
 modulate = Color(1, 0.933333, 0.866667, 0.662745)
@@ -44818,8 +44820,9 @@ tile_set = ExtResource("3_eb6dy")
 [node name="Player" parent="SubViewport" node_paths=PackedStringArray("heart_display") instance=ExtResource("5_choun")]
 heart_display = NodePath("../../UIFront/HorizontalHearts")
 
-[node name="Enemy" parent="SubViewport" instance=ExtResource("4_o6xl0")]
+[node name="Enemy" parent="SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("4_o6xl0")]
 position = Vector2(1428, 505)
+player = NodePath("../Player")
 
 [node name="Whale" parent="SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("5_o6xl0")]
 scale = Vector2(0.5, 0.5)
@@ -44861,8 +44864,8 @@ material = SubResource("ShaderMaterial_a8y0u")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_right = 1153.0
+offset_left = 2.0
+offset_right = 1154.0
 offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -44874,11 +44877,12 @@ expand_mode = 2
 [node name="UIFront" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="HorizontalHearts" parent="UIFront" instance=ExtResource("2_eb6dy")]
+[node name="HorizontalHearts" parent="UIFront" node_paths=PackedStringArray("main") instance=ExtResource("2_eb6dy")]
 offset_left = -109.0
 offset_top = 20.0
 offset_right = 109.0
 offset_bottom = 90.0
+main = NodePath("../..")
 
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ya4ey")
