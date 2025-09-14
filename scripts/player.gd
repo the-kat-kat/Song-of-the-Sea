@@ -65,11 +65,13 @@ func _physics_process(delta: float) -> void:
 		playerAnim.play("swim")
 		playerAnim.flip_h = input_vector.x < 0
 		if(input_vector.x > 0):
+			firing_pos.position.x= 200
 			collision_poly_left.set_deferred("disabled", false)
 			collision_poly_right.set_deferred("disabled", true)
 			actionable_finder_left.set_deferred("disabled", false)
 			actionable_finder_left.set_deferred("disabled", true)
 		else:
+			firing_pos.position.x= -200
 			collision_poly_left.set_deferred("disabled",  true)
 			collision_poly_right.set_deferred("disabled", false)
 			actionable_finder_left.set_deferred("disabled", true)
@@ -92,11 +94,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire"):
 		print_debug("fire")
 		var bullet = bullet_path.instantiate()
-		var bullet_rota =  (viewport.get_mouse_position() - global_position).angle()
-		print_debug("mouse pos", viewport.get_mouse_position())
-		print_debug("pos", global_position)
-		print_debug("bullet rota", bullet_rota)
-		bullet.set_up(firing_pos.global_position, 0)
+		var bullet_rota = 0
+		if playerAnim.flip_h:
+			bullet_rota = deg_to_rad(180)
+		print("bullet_rota", bullet_rota)
+		bullet.set_up(firing_pos.global_position, bullet_rota)
 		get_parent().add_child(bullet)
 
 func _on_actionable_finder_body_entered(body: Node2D) -> void:

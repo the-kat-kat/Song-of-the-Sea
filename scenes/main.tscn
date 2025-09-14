@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bfbmr1b8p0np2"]
+[gd_scene load_steps=28 format=4 uid="uid://bfbmr1b8p0np2"]
 
 [ext_resource type="Script" uid="uid://bsyvhc4xlrfk3" path="res://scripts/main.gd" id="1_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://o08ql3nhny56" path="res://scenes/health_display.tscn" id="2_eb6dy"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cy5vpdxiqjn7x" path="res://scenes/environment/whale.tscn" id="5_o6xl0"]
 [ext_resource type="Shader" uid="uid://btedhdw4ym1am" path="res://scenes/shaders/sway.gdshader" id="7_85g3d"]
 [ext_resource type="Texture2D" uid="uid://4fp0qmnhu7de" path="res://art/environment/jellies.png" id="7_choun"]
+[ext_resource type="FontFile" uid="uid://bo5ne51gkjwi0" path="res://dialogue/fonts/AdabelleHandwriting-Regular.ttf" id="7_trceg"]
 [ext_resource type="AudioStream" uid="uid://bik31ypu3gsvs" path="res://audio/Brave New Ocean Loopable.mp3" id="8_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85g3d"]
@@ -43110,6 +43111,14 @@ sources/2 = SubResource("TileSetAtlasSource_eb6dy")
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_85g3d"]
 blend_mode = 3
 
+[sub_resource type="Theme" id="Theme_a8y0u"]
+default_font = ExtResource("7_trceg")
+default_font_size = 40
+/font_sizes/default = 40
+/fonts/font = ExtResource("7_trceg")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkv2x"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
 texture = ExtResource("7_choun")
 12:1/0 = 0
@@ -44775,7 +44784,7 @@ color = Color(0.549978, 0.941276, 1, 1)
 
 [node name="BoundaryCollisions" parent="SubViewport" instance=ExtResource("4_choun")]
 z_as_relative = false
-position = Vector2(15, -636)
+position = Vector2(0, -636)
 
 [node name="Back" type="ParallaxBackground" parent="SubViewport"]
 layer = -10
@@ -44854,6 +44863,20 @@ collision_enabled = false
 z_index = 6
 motion_scale = Vector2(0.8, 0.8)
 
+[node name="TextEdit" type="TextEdit" parent="SubViewport/Front/ParallaxLayerTop"]
+z_index = 100
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 41.0
+offset_bottom = 2.0
+theme = SubResource("Theme_a8y0u")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jkv2x")
+text = "WASD - Move
+E - Interact
+X - Dash
+Space - Shoot"
+
 [node name="TileMap2" type="TileMap" parent="SubViewport/Front/ParallaxLayerTop"]
 tile_set = SubResource("TileSet_ya4ey")
 format = 2
@@ -44892,4 +44915,5 @@ main = NodePath("../..")
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ya4ey")
 volume_db = -14.938
+autoplay = true
 bus = &"music"

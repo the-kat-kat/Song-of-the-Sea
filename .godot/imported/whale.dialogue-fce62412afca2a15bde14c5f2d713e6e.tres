@@ -34,48 +34,48 @@ lines = {
 &"character": "Nathan",
 &"id": "2",
 &"next_id": "3",
-&"text": "Since I have yet to code the mechanics all you can do right now is talk to me.",
-&"type": "dialogue"
-},
-"3": {
-&"character": "Nathan",
-&"id": "3",
-&"next_id": "4",
 &"text": "Are you feeling whale today?",
 &"type": "dialogue"
 },
-"4": {
-&"id": "4",
-&"next_id": "5",
-&"responses": PackedStringArray("4", "6"),
+"3": {
+&"id": "3",
+&"next_id": "4",
+&"responses": PackedStringArray("3", "5"),
 &"text": "Yess",
 &"type": "response"
 },
-"5": {
+"4": {
 &"character": "Nathan",
-&"id": "5",
-&"next_id": "8",
+&"id": "4",
+&"next_id": "7",
 &"text": "I'm doing whale as whale!",
 &"type": "dialogue"
 },
-"6": {
-&"id": "6",
-&"next_id": "7",
+"5": {
+&"id": "5",
+&"next_id": "6",
 &"text": "what??",
 &"type": "response"
+},
+"6": {
+&"character": "Nathan",
+&"id": "6",
+&"next_id": "7",
+&"text": "aww did you not like my pun :(",
+&"type": "dialogue"
 },
 "7": {
 &"character": "Nathan",
 &"id": "7",
 &"next_id": "8",
-&"text": "aww did you not like my pun :(",
+&"text": "Anyways, there are some weird blobs around here. You can kill them by shooting them :>",
 &"type": "dialogue"
 },
 "8": {
 &"character": "Nathan",
 &"id": "8",
 &"next_id": "9",
-&"text": "Ok bye I need to go lock in",
+&"text": "PS If the game seems random its because I've only developed like half the mechanics :')",
 &"type": "dialogue"
 },
 "9": {
@@ -88,12 +88,12 @@ lines = {
 }
 raw_text = "~ start
 Nathan: [[Hi|Hello|Howdy]], I'm a whale~
-Nathan: Since I have yet to code the mechanics all you can do right now is talk to me.
 Nathan: Are you feeling whale today?
 - Yess
 	Nathan: I'm doing whale as whale!
 - what??
 	Nathan: aww did you not like my pun :(
-Nathan: Ok bye I need to go lock in
+Nathan: Anyways, there are some weird blobs around here. You can kill them by shooting them :>
+Nathan: PS If the game seems random its because I've only developed like half the mechanics :')
 => END"
 metadata/dialogue_manager_version = "3.7.1"

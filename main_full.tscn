@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://ctrj7wnrv3kil"]
+[gd_scene load_steps=19 format=4 uid="uid://ctrj7wnrv3kil"]
 
 [ext_resource type="Texture2D" uid="uid://bn50llk5gq115" path="res://art/blobs/blob3.png" id="1_qgccg"]
 [ext_resource type="PackedScene" uid="uid://o08ql3nhny56" path="res://scenes/health_display.tscn" id="1_yc7d0"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b37o51iyq1xg8" path="res://scenes/player/player.tscn" id="3_sv6s2"]
 [ext_resource type="PackedScene" uid="uid://bok5465lpn3wk" path="res://scenes/environment/enemy.tscn" id="4_4k05o"]
 [ext_resource type="PackedScene" uid="uid://cy5vpdxiqjn7x" path="res://scenes/environment/whale.tscn" id="5_yc7d0"]
+[ext_resource type="FontFile" uid="uid://bo5ne51gkjwi0" path="res://dialogue/fonts/AdabelleHandwriting-Regular.ttf" id="6_37pa6"]
 [ext_resource type="Texture2D" uid="uid://4fp0qmnhu7de" path="res://art/environment/jellies.png" id="6_y7clp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4k05o"]
@@ -34943,6 +34944,14 @@ sources/2 = SubResource("TileSetAtlasSource_yc7d0")
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y6clf"]
 blend_mode = 3
 
+[sub_resource type="Theme" id="Theme_qse01"]
+default_font = ExtResource("6_37pa6")
+default_font_size = 40
+/font_sizes/default = 40
+/fonts/font = ExtResource("6_37pa6")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6clf"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_37pa6"]
 texture = ExtResource("6_y7clp")
 12:1/0 = 0
@@ -35809,6 +35818,20 @@ tile_map_data = PackedByteArray("AAAgAOX/AgATAD8AAAAgAOb/AgATAEAAAAAgAOf/AgATAEE
 tile_set = ExtResource("2_y7clp")
 
 [node name="Player" parent="." instance=ExtResource("3_sv6s2")]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+z_index = 200
+offset_left = -210.0
+offset_top = -522.0
+offset_right = 31.0
+offset_bottom = -320.0
+theme = SubResource("Theme_qse01")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y6clf")
+text = "WASD - Move
+E - Interact
+X - Dash
+Space - Shoot"
 
 [node name="Enemy" parent="." instance=ExtResource("4_4k05o")]
 position = Vector2(1428, 505)
