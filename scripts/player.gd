@@ -13,10 +13,14 @@ var bullet_path = preload("res://scenes/bullet.tscn")
 @export var heart_display: HBoxContainer
 
 @onready var playerAnim = $Sprite2D
-@onready var actionable_finder = $ActionableFinder
-@onready var collisionPoly = $CollisionPolygon2D
 @onready var camera = $Camera2D
 @export var audio_node: AudioStreamPlayer
+
+@export var actionable_finder: Area2D
+@export var actionable_finder_left: CollisionPolygon2D
+@export var actionable_finder_right: CollisionPolygon2D
+@export var collision_poly_left: CollisionPolygon2D
+@export var collision_poly_right: CollisionPolygon2D
 
 var is_dashing := false
 var dash_timer := 0.0
@@ -28,6 +32,7 @@ var bounce_force = 1000.0
 var invulnerable := false
 var invuln_time := 0.25
 var invuln_timer := 0.0
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -59,13 +64,15 @@ func _physics_process(delta: float) -> void:
 		playerAnim.play("swim")
 		playerAnim.flip_h = input_vector.x < 0
 		if(input_vector.x > 0):
-			collisionPoly.scale.x = 14
-			actionable_finder.scale.x =1 
-			actionable_finder.position.x = 0
+			collision_poly_left.set_deferred("disabled", false)
+			collision_poly_right.set_deferred("disabled", true)
+			actionable_finder_left.set_deferred("disabled", false)
+			actionable_finder_left.set_deferred("disabled", true)
 		else:
-			collisionPoly.scale.x = -14
-			actionable_finder.scale.x = -1 
-			actionable_finder.position.x = -100
+			collision_poly_left.set_deferred("disabled",  true)
+			collision_poly_right.set_deferred("disabled", false)
+			actionable_finder_left.set_deferred("disabled", true)
+			actionable_finder_left.set_deferred("disabled", false)
 		
 	input_vector.y += 0.1
 	velocity = velocity.lerp(input_vector * speed, water_resistance * delta)
@@ -88,8 +95,6 @@ func _physics_process(delta: float) -> void:
 		bullet.pos = firing_pos.global_position
 		bullet.rota = global_rotation
 		get_parent().add_child(bullet)
-	
-
 
 func _on_actionable_finder_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("enemy"):
@@ -103,7 +108,6 @@ func _on_actionable_finder_body_entered(body: Node2D) -> void:
 	var away = (global_position - body.global_position).normalized()
 	velocity = away * bounce_force
 	body.set_deferred("velocity", -away * bounce_force)
-	global_position += away * 24
 
 func _on_actionable_finder_body_exited(body: Node2D) -> void:
 	if not body.is_in_group("enemy"):

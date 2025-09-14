@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://ci5d8n04mwvoj" path="res://scenes/wave.gd" id="11_qsxxp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jkqav"]
+distance = 1.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_18b6p"]
 animations = [{
@@ -62,9 +63,11 @@ animations = [{
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_jkqav")
+disabled = true
 
 [node name="wave" type="AnimatedSprite2D" parent="StaticBody2D"]
-position = Vector2(519.5, -430)
+z_index = -150
+position = Vector2(519.5, -380)
 scale = Vector2(2.49676, 0.972839)
 sprite_frames = SubResource("SpriteFrames_18b6p")
 frame_progress = 0.128618
@@ -74,10 +77,12 @@ script = ExtResource("11_qsxxp")
 position = Vector2(-1800, 0)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_f64bx")
+disabled = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 2200)
+position = Vector2(0, 1500)
 shape = SubResource("WorldBoundaryShape2D_jkqav")
+disabled = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D"]
 modulate = Color(1, 1, 1, 0.654902)
@@ -87,6 +92,6 @@ texture = ExtResource("1_f64bx")
 
 [node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D"]
 modulate = Color(1, 1, 1, 0.462745)
-position = Vector2(-101, 3667)
+position = Vector2(-6, 3013)
 scale = Vector2(1.99349, 1)
 texture = ExtResource("1_f64bx")

@@ -11,3 +11,4 @@ res://scenes/bullet.tscn
 res://scenes/health_display.tscn
 res://scenes/wave.gd
 res://scripts/player.gd
+res://scripts/enemy.gd

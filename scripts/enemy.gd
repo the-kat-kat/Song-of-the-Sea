@@ -16,6 +16,9 @@ func _physics_process(delta: float) -> void:
 			velocity = direction * speed
 	elif velocity.length() > 0:
 		velocity = velocity.lerp(Vector2.ZERO, 0.8 * delta)
+		
+	if velocity.length() > speed:
+		velocity = -velocity.normalized()* speed * 0.5
 	move_and_slide()
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
