@@ -24,3 +24,5 @@ I struggled a lot with build errors at first (for some reason I can never get au
 
 
 This game is being developed for Shiba :D In the end, I plan for it to be centered around echolocation, where you have to use a sound mechanic to navigate (I haven't started making this yet TT)
+
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
