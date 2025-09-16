@@ -5,7 +5,7 @@ res://scenes/environment/whale.tscn::61dbf1695cbc9b45cfaa33add402fae6::175784043
 res://scenes/player/player.tscn::0a908dac1f411f43b8200de5300640f3::1757840434::res://.godot/exported/133200997/export-c2c62cb8c73458cd122faf659769dc80-player.scn
 res://scenes/singletons/audio_manager.tscn::25b29bd547ba96189a881a2c8215dc6a::1757652850::res://.godot/exported/133200997/export-5121ca6b176118c7637b66309e3ff3a5-audio_manager.scn
 res://scenes/actionable.tscn::2d987f8a8defda8bc67af240fd98fa98::1757229292::res://.godot/exported/133200997/export-a883e76a223c15d693cc10103e2c0ec3-actionable.scn
-res://scenes/main.tscn::48be7c4d361707b8a24c09e2d6da9bbe::1757840531::res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn
+res://scenes/main.tscn::21cc075f4bbd311a5eb0121a5f3e5235::1757842642::res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn
 res://scenes/test.tres::f3fe2c22ca79f92727cad59dde3396a3::1757813617::res://.godot/exported/133200997/export-32f3ffb0c8c408f0b8662484dc8cca1e-test.res
 res://ui/ui.tscn::e8d85d3ffe37f9c6224308c5d72d284f::1757229292::res://.godot/exported/133200997/export-388bf9857f8605ce0d560309bd309226-ui.scn
 res://default_bus_layout.tres::a6c76183544e898f894caacbe11be8ff::1757046712::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res

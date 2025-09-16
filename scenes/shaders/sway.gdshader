@@ -21,6 +21,11 @@ uniform float length_seed_offset = 12.34;
 
 uniform bool debug_show_mask = false;
 
+uniform float tone : hint_range(-1.0, 1.0) = -0.9;
+uniform vec3 tint_color = vec3(1.0, 0.6, 0.6);
+uniform float tint_strength : hint_range(0.0, 1.0) = 0.5;
+uniform float preserve_threshold : hint_range(0.0, 1.0) = 0.90;
+
 float hash1(float n) {
     return fract(sin(n) * 43758.5453123);
 }
@@ -84,6 +89,19 @@ void fragment() {
 		vec3 ray_col = ray_tint * mask * ray_intensity;
 		vec3 final_rgb = base.rgb + ray_col * (1.0 - base.rgb);
 		final_rgb = clamp(final_rgb, 0.0, 1.0);
+		
+		float luma = dot(final_rgb, vec3(0.2126, 0.7152, 0.0722));
+		float highlight_mask = smoothstep(preserve_threshold, preserve_threshold + 0.05, luma);
+		float affect = 1.0 - highlight_mask;
+
+		float t = clamp(tone, -1.0, 1.0);
+		if (t > 0.0) {
+			final_rgb = mix(final_rgb, vec3(1.0), t * affect);
+		} else if (t < 0.0) {
+			final_rgb = mix(final_rgb, vec3(0.0), -t * affect);
+		}
+		final_rgb = mix(final_rgb, final_rgb * tint_color, tint_strength * affect);
+		
 		COLOR = vec4(final_rgb, base.a);
 	}
 }

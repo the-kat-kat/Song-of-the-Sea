@@ -1,3 +1,4 @@
+Node2D
 TextEdit
 CollisionShape2D
 Area2D
@@ -8,8 +9,6 @@ CanvasLayer
 HBoxContainer
 TextureRect
 CharacterBody2D
-Node2D
 StaticBody2D
 TileMapLayer
 TileMap
-CollisionPolygon2D

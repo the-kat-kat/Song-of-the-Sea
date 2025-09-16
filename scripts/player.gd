@@ -10,11 +10,12 @@ var bullet_path = preload("res://scenes/bullet.tscn")
 
 @export var bgm: AudioStreamPlayer
 @export var firing_pos: Node2D
-@export var heart_display: HBoxContainer
+@onready var heart_display: HBoxContainer = get_tree().get_nodes_in_group("hearts")[0]
+
 
 @onready var playerAnim = $Sprite2D
 @onready var camera = $Camera2D
-@export var viewport: SubViewport
+@onready var viewport = get_viewport()
 @export var audio_node: AudioStreamPlayer
 
 @export var actionable_finder: Area2D

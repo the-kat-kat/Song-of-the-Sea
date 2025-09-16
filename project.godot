@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Song of the Sea"
-run/main_scene="uid://bfbmr1b8p0np2"
+run/main_scene="uid://bryy5s7wqs2yk"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -32,6 +32,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://add
 player=""
 enemy=""
 bullet=""
+hearts=""
 
 [input]
 

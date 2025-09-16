@@ -12,6 +12,6 @@ func set_up(pos: Vector2, rota: float):
 	velocity = Vector2(speed, 0).rotated(rota)
 
 func _physics_process(delta):
-	if(global_position.x < -1685):
+	if((global_position-pos).length() > 5000):
 		queue_free()
 	move_and_slide()
