@@ -41,8 +41,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
-	print_debug("detected")
 	if area.is_in_group("player"):
+		print_debug("detected", area.name)
 		player_chase = true
 
 func _on_detection_area_area_exited(area: Area2D) -> void:
