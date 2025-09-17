@@ -69,10 +69,12 @@ shape = SubResource("WorldBoundaryShape2D_jkqav")
 position = Vector2(-1800, 0)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_f64bx")
+disabled = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 1500)
 shape = SubResource("WorldBoundaryShape2D_jkqav")
+disabled = true
 
 [node name="wave" type="AnimatedSprite2D" parent="."]
 z_index = -150

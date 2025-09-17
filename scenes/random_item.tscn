@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d12j6ywq448v6"]
+[gd_scene load_steps=9 format=3 uid="uid://d12j6ywq448v6"]
 
 [ext_resource type="Script" uid="uid://dpvxd28eaddni" path="res://random_item.gd" id="1_v7qbb"]
 [ext_resource type="Texture2D" uid="uid://bullfdxm7yfl5" path="res://art/placeholder/bunnycool.jpg" id="2_n541a"]
@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://b1a71agiwiqlr" path="res://art/placeholder/heart.jpg" id="4_7rwk6"]
 [ext_resource type="Texture2D" uid="uid://qmbnwe4r3bxn" path="res://art/placeholder/kit_yay.png" id="5_juxg1"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v7qbb"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7qbb"]
-radius = 231.002
+radius = 43.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vu4ag"]
 animations = [{
@@ -45,11 +47,14 @@ animations = [{
 }]
 
 [node name="RandomItem" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_v7qbb")
 script = ExtResource("1_v7qbb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v7qbb")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3.8147e-06, 0)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_vu4ag")
 animation = &"4"

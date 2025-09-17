@@ -17,6 +17,7 @@ func reset():
 	
 	await get_tree().create_timer(1.0).timeout
 	for enemy in enemy_array:
+		player.global_position = Vector2.ZERO
 		enemy.velocity = Vector2.ZERO
 		enemy.set_deferred("velocity", Vector2.ZERO)
 		enemy.player_chase = false

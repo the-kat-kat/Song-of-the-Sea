@@ -1,18 +1,20 @@
 extends Node2D
 var enemy_path = preload("res://scenes/environment/enemy.tscn")
 
-var max_enemies: int
+@export var max_enemies: int = 5
 var enemies_spawned = 0
 
 
-# Called when the node enters the scene tree for the first time.
+@export var spawn_interval = 5.0
+
 func _ready() -> void:
-	pass # Replace with function body.
+	spawn_loop()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	while(enemies_spawned <= max_enemies):
+func spawn_loop() -> void:
+	while enemies_spawned < max_enemies:
 		var enemy = enemy_path.instantiate()
-		enemy.global_position = position + Vector2(randf_range(-100,100),randf_range(-100,100))
+		add_child(enemy)
+		enemy.global_position = position + Vector2(randf_range(-300, 300), randf_range(-300, 300))
+		enemy.velocity = Vector2.ZERO
 		enemies_spawned += 1
+		await get_tree().create_timer(spawn_interval).timeout

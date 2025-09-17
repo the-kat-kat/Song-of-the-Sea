@@ -35841,11 +35841,9 @@ Space - Shoot"
 position = Vector2(1500, 500)
 script = ExtResource("8_biknp")
 
-[node name="Enemy" parent="EnemySpawner" node_paths=PackedStringArray("player") instance=ExtResource("4_4k05o")]
-player = NodePath("../../Player")
+[node name="Enemy" parent="EnemySpawner" instance=ExtResource("4_4k05o")]
 
-[node name="Whale" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_yc7d0")]
-player = NodePath("../Player")
+[node name="Whale" parent="." instance=ExtResource("5_yc7d0")]
 
 [node name="Front" type="ParallaxBackground" parent="."]
 layer = 1

@@ -86,7 +86,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("ui_accept"):
 		print_debug("interact")
 		var actionables = actionable_finder.get_overlapping_areas()
 		for actionable in actionables:

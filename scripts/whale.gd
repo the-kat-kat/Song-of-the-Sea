@@ -1,27 +1,19 @@
 extends Node2D
 
 @export var interact_icon: Sprite2D
-@export var area: Area2D
-@export var player: CharacterBody2D
+@onready var player = get_tree().get_nodes_in_group("player")[0]
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	interact_icon.visible = false
-	area.body_entered.connect(_on_area_body_entered)
-	area.body_exited.connect(_on_area_body_exited)
 
-func _physics_process(delta: float) -> void:
-	if area and player:
-		if area.overlaps_body(player):
-			interact_icon.visible = true
-		else:
-			interact_icon.visible = false
 
-func _on_area_body_entered(body: Node) -> void:
+func _on_whale_actionable_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		interact_icon.visible = true
-		
-func _on_area_body_exited(body: Node) -> void:
+
+
+func _on_whale_actionable_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		interact_icon.visible = false

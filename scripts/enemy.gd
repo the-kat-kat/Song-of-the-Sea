@@ -6,7 +6,7 @@ var player_chase = false
 var health = 100
 var active = true
 
-@export var player: CharacterBody2D
+@onready var player = get_tree().get_nodes_in_group("player")[0]
 @export var max_health = 100
 
 @onready var health_bar = $ProgressBar
@@ -46,7 +46,8 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 		player_chase = true
 
 func _on_detection_area_area_exited(area: Area2D) -> void:
-	player_chase = false
+	if area.is_in_group("player"):
+		player_chase = false
 	
 	
 func set_touching_player(touching: bool):
@@ -62,10 +63,14 @@ func _on_bullet_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("bullet"):
 		print_debug("bullet")
 		body.queue_free()
-		health -= 3
+		health -= 50
 		health_bar.value = max(0, health)
 		if health<=0:
+			print_debug("died")
+			spawn_random_item()
 			die()
 			
 func spawn_random_item():
 	var random_item = random_item_path.instantiate()
+	random_item.position = position
+	get_parent().call_deferred("add_child", random_item)

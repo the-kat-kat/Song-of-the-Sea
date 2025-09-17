@@ -13,3 +13,5 @@ res://scenes/environment/whale.tscn
 res://scripts/enemy.gd
 res://random_item.gd
 res://scenes/random_item.tscn
+res://scripts/whale.gd
+res://scripts/main.gd
