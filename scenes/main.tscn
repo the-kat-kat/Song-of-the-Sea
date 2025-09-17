@@ -40,15 +40,15 @@ handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="MainFull" parent="SubViewport" instance=ExtResource("2_tbgi4")]
+[node name="MainFull" parent="SubViewport" node_paths=PackedStringArray("enemy_array") instance=ExtResource("2_tbgi4")]
+enemy_array = [NodePath("EnemySpawner/Enemy"), null]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_a8y0u")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_right = 1154.0
+offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -61,7 +61,7 @@ expand_mode = 2
 layer = 2
 visible = false
 
-[node name="HorizontalHearts" parent="UIFront" node_paths=PackedStringArray("main") instance=ExtResource("2_eb6dy")]
+[node name="HorizontalHearts" parent="UIFront" node_paths=PackedStringArray("main") groups=["hearts"] instance=ExtResource("2_eb6dy")]
 visible = false
 offset_left = -109.0
 offset_top = 20.0

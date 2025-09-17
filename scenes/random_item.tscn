@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://d12j6ywq448v6"]
+
+[ext_resource type="Script" uid="uid://dpvxd28eaddni" path="res://random_item.gd" id="1_v7qbb"]
+[ext_resource type="Texture2D" uid="uid://bullfdxm7yfl5" path="res://art/placeholder/bunnycool.jpg" id="2_n541a"]
+[ext_resource type="Texture2D" uid="uid://bxkvmnbl15foh" path="res://art/placeholder/cat.jpeg" id="3_8b5vx"]
+[ext_resource type="Texture2D" uid="uid://b1a71agiwiqlr" path="res://art/placeholder/heart.jpg" id="4_7rwk6"]
+[ext_resource type="Texture2D" uid="uid://qmbnwe4r3bxn" path="res://art/placeholder/kit_yay.png" id="5_juxg1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v7qbb"]
+radius = 231.002
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vu4ag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n541a")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8b5vx")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7rwk6")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_juxg1")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}]
+
+[node name="RandomItem" type="StaticBody2D"]
+script = ExtResource("1_v7qbb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v7qbb")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vu4ag")
+animation = &"4"

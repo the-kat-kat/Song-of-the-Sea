@@ -1,4 +1,5 @@
 extends CharacterBody2D
+var random_item_path = preload("res://scenes/random_item.tscn")
 
 var speed = 280
 var player_chase = false
@@ -65,3 +66,6 @@ func _on_bullet_area_body_entered(body: Node2D) -> void:
 		health_bar.value = max(0, health)
 		if health<=0:
 			die()
+			
+func spawn_random_item():
+	var random_item = random_item_path.instantiate()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxgdqntkkccch"
-path="res://.godot/imported/colorgp.png-343f3a2d1acca45eb73dfc82b48c4b43.ctex"
+uid="uid://bullfdxm7yfl5"
+path="res://.godot/imported/bunnycool.jpg-9c346549017016d3afff218e4f3fce14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/blobs/colorgp.png"
-dest_files=["res://.godot/imported/colorgp.png-343f3a2d1acca45eb73dfc82b48c4b43.ctex"]
+source_file="res://art/placeholder/bunnycool.jpg"
+dest_files=["res://.godot/imported/bunnycool.jpg-9c346549017016d3afff218e4f3fce14.ctex"]
 
 [params]
 

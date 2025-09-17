@@ -1,8 +1,8 @@
-[gd_scene load_steps=19 format=4 uid="uid://ctrj7wnrv3kil"]
+[gd_scene load_steps=20 format=4 uid="uid://ctrj7wnrv3kil"]
 
 [ext_resource type="Script" uid="uid://bsyvhc4xlrfk3" path="res://scripts/main.gd" id="1_biknp"]
-[ext_resource type="Texture2D" uid="uid://bn50llk5gq115" path="res://art/blobs/blob3.png" id="1_qgccg"]
-[ext_resource type="Texture2D" uid="uid://cru052vhey4sb" path="res://art/blobs/blob4.png" id="2_4k05o"]
+[ext_resource type="Texture2D" uid="uid://bn50llk5gq115" path="res://art/environment/blobs/blob3.png" id="1_qgccg"]
+[ext_resource type="Texture2D" uid="uid://cru052vhey4sb" path="res://art/environment/blobs/blob4.png" id="2_4k05o"]
 [ext_resource type="TileSet" uid="uid://dnainyjpdvrf8" path="res://scenes/test.tres" id="2_y7clp"]
 [ext_resource type="PackedScene" uid="uid://co6jyburghxre" path="res://scenes/boundary_collisions.tscn" id="3_4k05o"]
 [ext_resource type="PackedScene" uid="uid://b37o51iyq1xg8" path="res://scenes/player/player.tscn" id="3_sv6s2"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cy5vpdxiqjn7x" path="res://scenes/environment/whale.tscn" id="5_yc7d0"]
 [ext_resource type="FontFile" uid="uid://bo5ne51gkjwi0" path="res://dialogue/fonts/AdabelleHandwriting-Regular.ttf" id="6_37pa6"]
 [ext_resource type="Texture2D" uid="uid://4fp0qmnhu7de" path="res://art/environment/jellies.png" id="6_y7clp"]
+[ext_resource type="Script" uid="uid://c3bindv088m03" path="res://scripts/enemyspawner.gd" id="8_biknp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4k05o"]
 texture = ExtResource("1_qgccg")
@@ -35763,7 +35764,7 @@ sources/0 = SubResource("TileSetAtlasSource_37pa6")
 [node name="MainFull" type="Node2D" node_paths=PackedStringArray("player", "enemy_array")]
 script = ExtResource("1_biknp")
 player = NodePath("Player")
-enemy_array = [NodePath("Node2D/Enemy"), NodePath("Node2D/Enemy2")]
+enemy_array = [NodePath("EnemySpawner/Enemy"), null]
 
 [node name="UIBack" type="CanvasLayer" parent="."]
 layer = -128
@@ -35836,14 +35837,11 @@ E - Interact
 X - Dash
 Space - Shoot"
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="EnemySpawner" type="Node2D" parent="."]
+position = Vector2(1500, 500)
+script = ExtResource("8_biknp")
 
-[node name="Enemy" parent="Node2D" node_paths=PackedStringArray("player") instance=ExtResource("4_4k05o")]
-position = Vector2(1396, 476)
-player = NodePath("../../Player")
-
-[node name="Enemy2" parent="Node2D" node_paths=PackedStringArray("player") instance=ExtResource("4_4k05o")]
-position = Vector2(400, -300)
+[node name="Enemy" parent="EnemySpawner" node_paths=PackedStringArray("player") instance=ExtResource("4_4k05o")]
 player = NodePath("../../Player")
 
 [node name="Whale" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_yc7d0")]

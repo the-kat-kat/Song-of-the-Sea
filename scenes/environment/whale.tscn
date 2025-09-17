@@ -36,12 +36,12 @@ texture = ExtResource("5_sf384")
 sprite_frames = SubResource("SpriteFrames_sf384")
 flip_h = true
 
-[node name="Actionable" parent="WhaleSprite" instance=ExtResource("2_yapov")]
+[node name="WhaleActionable" parent="WhaleSprite" instance=ExtResource("2_yapov")]
 collision_layer = 19
 collision_mask = 3
 dialogue_resource = ExtResource("4_yapov")
 
-[node name="DialogueCollision" type="CollisionShape2D" parent="WhaleSprite/Actionable"]
+[node name="DialogueCollision" type="CollisionShape2D" parent="WhaleSprite/WhaleActionable"]
 position = Vector2(100, 0)
 shape = SubResource("CircleShape2D_kk4py")
 debug_color = Color(0, 0.6, 0.701961, 0.0666667)

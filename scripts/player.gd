@@ -89,11 +89,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		print_debug("interact")
 		var actionables = actionable_finder.get_overlapping_areas()
-		if actionables.size() > 0 and actionables[0].has_method("action"):
-			actionables[0].action()
+		for actionable in actionables:
+				if actionable.has_method("action"):
+					print_debug(actionable.name)
+					actionable.action()
 			
 	if Input.is_action_just_pressed("fire"):
-		print_debug("fire")
 		var bullet = bullet_path.instantiate()
 		var bullet_rota = 0
 		if playerAnim.flip_h:
