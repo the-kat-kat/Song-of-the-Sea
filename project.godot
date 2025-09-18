@@ -33,6 +33,7 @@ player=""
 enemy=""
 bullet=""
 hearts=""
+texture_rect=""
 
 [input]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b37o51iyq1xg8"]
+[gd_scene load_steps=14 format=3 uid="uid://b37o51iyq1xg8"]
 
 [ext_resource type="Script" uid="uid://clhkx2cashlun" path="res://scripts/player.gd" id="1_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://ds78xikiwosu7" path="res://art/player/swim_anim/Untitled_Artwork-3.png" id="2_qek5x"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dpal67oypkauo" path="res://audio/sfx/bubbles.mp3" id="9_5gtgg"]
 [ext_resource type="Script" uid="uid://cjvcsi771r50" path="res://scenes/player/camera_2d.gd" id="9_h17s1"]
 [ext_resource type="AudioStream" uid="uid://bik31ypu3gsvs" path="res://audio/Brave New Ocean Loopable.mp3" id="10_h17s1"]
+[ext_resource type="Texture2D" uid="uid://c70ushbaxpv1n" path="res://art/ui/rectangle.jpg" id="12_fm80t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qlg0r"]
 animations = [{
@@ -121,6 +122,10 @@ volume_db = -32.584
 
 [node name="FiringPosition" type="Node2D" parent="."]
 position = Vector2(166, 22)
+
+[node name="Sprite2D" type="Sprite2D" parent="FiringPosition"]
+scale = Vector2(0.0837887, 0.078125)
+texture = ExtResource("12_fm80t")
 
 [connection signal="body_entered" from="ActionableFinder" to="." method="_on_actionable_finder_body_entered"]
 [connection signal="body_exited" from="ActionableFinder" to="." method="_on_actionable_finder_body_exited"]

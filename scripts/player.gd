@@ -17,6 +17,7 @@ var bullet_path = preload("res://scenes/bullet.tscn")
 @onready var camera = $Camera2D
 @onready var viewport = get_viewport()
 @export var audio_node: AudioStreamPlayer
+@onready var display_control = get_tree().get_nodes_in_group("texture_rect")[0]
 
 @export var actionable_finder: Area2D
 @export var actionable_finder_left: CollisionPolygon2D
@@ -85,7 +86,9 @@ func _physics_process(delta: float) -> void:
 		cooldown_timer -= delta
 
 	move_and_slide()
-
+	
+	get_mouse_dir()
+	
 	if Input.is_action_just_pressed("ui_accept"):
 		print_debug("interact")
 		var actionables = actionable_finder.get_overlapping_areas()
@@ -96,10 +99,10 @@ func _physics_process(delta: float) -> void:
 			
 	if Input.is_action_just_pressed("fire"):
 		var bullet = bullet_path.instantiate()
-		var bullet_rota = 0
-		if playerAnim.flip_h:
-			bullet_rota = deg_to_rad(180)
-		print("bullet_rota", bullet_rota)
+		var bullet_rota = firing_pos.rotation
+		if abs(bullet_rota)>180:
+			bullet_rota = bullet_rota * 0.5
+		print("firing_pos.global_position", firing_pos.global_position)
 		bullet.set_up(firing_pos.global_position, bullet_rota)
 		get_parent().add_child(bullet)
 
@@ -120,3 +123,9 @@ func _on_actionable_finder_body_exited(body: Node2D) -> void:
 	if not body.is_in_group("enemy"):
 		return
 	body.touching_player = true
+	
+func get_mouse_dir():
+	var mouse_pos = get_global_mouse_position()
+	print(mouse_pos)
+	var dir = mouse_pos - firing_pos.global_position
+	firing_pos.global_rotation = dir.angle()
