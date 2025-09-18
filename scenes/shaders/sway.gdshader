@@ -89,7 +89,7 @@ void fragment() {
 		vec3 ray_col = ray_tint * mask * ray_intensity;
 		vec3 final_rgb = base.rgb + ray_col * (1.0 - base.rgb);
 		final_rgb = clamp(final_rgb, 0.0, 1.0);
-		
+
 		float luma = dot(final_rgb, vec3(0.2126, 0.7152, 0.0722));
 		float highlight_mask = smoothstep(preserve_threshold, preserve_threshold + 0.05, luma);
 		float affect = 1.0 - highlight_mask;
@@ -101,7 +101,7 @@ void fragment() {
 			final_rgb = mix(final_rgb, vec3(0.0), -t * affect);
 		}
 		final_rgb = mix(final_rgb, final_rgb * tint_color, tint_strength * affect);
-		
+
 		COLOR = vec4(final_rgb, base.a);
 	}
 }

@@ -5,11 +5,17 @@ var health = 3.0
 
 @onready var hearts = get_children()
 
-@export var main: Node2D
+@onready var main: Node2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	var mains = get_tree().get_nodes_in_group("main")
+	if mains.size() > 0:
+		main = mains[0]
+	else:
+		await get_tree().process_frame
+		mains = get_tree().get_nodes_in_group("player")
+		if mains.size() > 0:
+			main = mains[0]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

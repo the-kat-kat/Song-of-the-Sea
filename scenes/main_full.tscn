@@ -35788,6 +35788,7 @@ z_as_relative = false
 position = Vector2(15, -636)
 
 [node name="ParallaxCollision" type="ParallaxLayer" parent="Back"]
+motion_scale = Vector2(0.98, 0.98)
 
 [node name="TileMap" type="TileMap" parent="Back/ParallaxCollision"]
 tile_set = SubResource("TileSet_qse01")

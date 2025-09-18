@@ -34,6 +34,7 @@ enemy=""
 bullet=""
 hearts=""
 texture_rect=""
+main=""
 
 [input]
 

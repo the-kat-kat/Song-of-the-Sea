@@ -36,6 +36,11 @@ var invulnerable := false
 var invuln_time := 0.25
 var invuln_timer := 0.0
 
+var shoot_timer = 3.0
+var can_shoot = true
+var shoots_left = 3.0
+var shoot_delay = 3.0
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -86,8 +91,7 @@ func _physics_process(delta: float) -> void:
 		cooldown_timer -= delta
 
 	move_and_slide()
-	
-	get_mouse_dir()
+
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		print_debug("interact")
@@ -97,14 +101,31 @@ func _physics_process(delta: float) -> void:
 					print_debug(actionable.name)
 					actionable.action()
 			
+	if shoots_left < 3:
+		shoot_timer += delta
+		if shoot_timer == shoot_delay:
+			shoots_left = 3
+		elif shoot_timer >= 2*shoot_delay/3:
+			shoots_left = 2
+		elif shoot_timer >= shoot_delay/3:
+			shoots_left = 1
+			can_shoot = true
+		else:
+			shoots_left = 0
+			can_shoot = false
+			
 	if Input.is_action_just_pressed("fire"):
-		var bullet = bullet_path.instantiate()
-		var bullet_rota = firing_pos.rotation
-		if abs(bullet_rota)>180:
-			bullet_rota = bullet_rota * 0.5
-		print("firing_pos.global_position", firing_pos.global_position)
-		bullet.set_up(firing_pos.global_position, bullet_rota)
-		get_parent().add_child(bullet)
+		if can_shoot:
+			shoots_left -= 1
+			shoot_timer -= shoot_delay/3
+			
+			var bullet = bullet_path.instantiate()
+			var bullet_rota = 0
+			if playerAnim.flip_h:
+				bullet_rota = PI
+			print("firing_pos.global_position", firing_pos.global_position)
+			bullet.set_up(firing_pos.global_position, bullet_rota)
+			get_parent().add_child(bullet)
 
 func _on_actionable_finder_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("enemy"):
@@ -124,8 +145,5 @@ func _on_actionable_finder_body_exited(body: Node2D) -> void:
 		return
 	body.touching_player = true
 	
-func get_mouse_dir():
-	var mouse_pos = get_global_mouse_position()
-	print(mouse_pos)
-	var dir = mouse_pos - firing_pos.global_position
-	firing_pos.global_rotation = dir.angle()
+
+	
