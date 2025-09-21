@@ -7,6 +7,9 @@ extends StaticBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var random_number = str(randi_range(1,4))
+	match random_number:
+		1:
+			type = "gem"
 	animated_sprite.play(random_number)
 
 

@@ -78,10 +78,12 @@ disabled = true
 
 [node name="wave" type="AnimatedSprite2D" parent="."]
 z_index = -150
-position = Vector2(86, -750)
+position = Vector2(86, -700)
 scale = Vector2(2.49676, 0.972839)
 sprite_frames = SubResource("SpriteFrames_18b6p")
-frame_progress = 0.128618
+frame = 3
+frame_progress = 0.114481
+speed_scale = 2.0
 script = ExtResource("11_qsxxp")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]

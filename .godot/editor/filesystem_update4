@@ -1,6 +1,12 @@
-res://scenes/random_item.tscn
+res://scenes/main_full.tscn
 res://scenes/test.tres
 res://scenes/shaders/sway.gdshader
 res://scenes/shaders/ocean_light.gdshader
-res://scripts/player.gd
-res://random_item.gd
+res://scenes/main.tscn
+res://scenes/environment/enemy.tscn
+res://scenes/player/player.tscn
+res://scenes/bullet.tscn
+res://scenes/ui.tscn
+res://scenes/random_item.tscn
+res://scenes/environment/whale.tscn
+res://scenes/boundary_collisions.tscn
