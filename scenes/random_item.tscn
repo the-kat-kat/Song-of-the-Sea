@@ -46,7 +46,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="RandomItem" type="StaticBody2D"]
+[node name="RandomItem" type="StaticBody2D" groups=["random_item"]]
 physics_material_override = SubResource("PhysicsMaterial_v7qbb")
 script = ExtResource("1_v7qbb")
 

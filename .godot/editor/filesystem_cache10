@@ -1,5 +1,5 @@
 bfb0616f7e4ae0b130e35f25e0b7a2f2
-::res://::1758215956
+::res://::1758445993
 default_bus_layout.tres::AudioBusLayout/AudioBusLayout::64691622790204510::1757046712::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile/TextFile::-1::1757844456::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::7889928542457878329::1756803453::1757233718::1::::<><><>0<>0<>34c9de27c41f7c9054ba4bb69ed8f2b4<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
@@ -158,43 +158,43 @@ whale_talk.dialogue::Resource/Resource::8526865229395478408::1757237030::1757237
 ::res://dialogue/fonts/::1757275634
 AdabelleHandwriting-Regular.ttf::FontFile/FontFile::3431793907480705833::1757271928::1757275634::1::::<><><>0<>0<>28a9cd6de817d676361dd8ff5bbf6971<>res://.godot/imported/AdabelleHandwriting-Regular.ttf-0d0d18bb46b50764f0f2a5c4af75e020.fontdata::uid://b6m0siskoa5pr::::res://dialogue/fonts/April.ttf
 April.ttf::FontFile/FontFile::4588597887096650791::1757273000::1757275634::1::::<><><>0<>0<>8d05a0b9dc7612b061640432a07d5265<>res://.godot/imported/April.ttf-4753a128113aeadf193a4c5ec19edd11.fontdata::
-::res://scenes/::1758213234
+::res://scenes/::1758445166
 actionable.tscn::PackedScene/PackedScene::5984711329334814939::1757229292::0::1::::<><><>0<>0<><>::uid://cjdc216q4qcrq::::res://scripts/actionable.gd
 boundary_collisions.tscn::PackedScene/PackedScene::5820070284883285210::1758096395::0::1::::<><><>0<>0<><>::uid://bxanqmlswydr4::::res://art/wave/wave1.png<>uid://cceyfwnamkhlm::::res://art/environment/sky.png<>uid://bc1wv708vtokc::::res://art/wave/wave2.png<>uid://cn4fblsurxvw4::::res://art/wave/wave3.png<>uid://diays8nr3snde::::res://art/wave/wave4.png<>uid://b8djnf081ptar::::res://art/wave/wave5.png<>uid://bo4ux4e4d6iqd::::res://art/wave/wave6.png<>uid://d2djgcyegmfji::::res://art/wave/wave7.png<>uid://dxqbxwk1abduh::::res://art/wave/wave8.png<>uid://j7rmvmf24072::::res://art/wave/wave9.png<>uid://dtmbobn5d085f::::res://art/wave/wave10.png<>uid://ci5d8n04mwvoj::::res://scenes/wave.gd
-bullet.tscn::PackedScene::940495143586104935::1758213000::0::1::::<><><>0<>0<><>::uid://dfcapenx1nfi0::::res://scripts/bullet.gd<>uid://c70ushbaxpv1n::::res://art/ui/rectangle.jpg
-bullet_bar.gd::GDScript::162611921628458138::1758213234::0::1::::<>ProgressBar<><>0<>0<><>::
+bullet.tscn::PackedScene::940495143586104935::1758444858::0::1::::<><><>0<>0<><>::uid://dfcapenx1nfi0::::res://scripts/bullet.gd<>uid://c70ushbaxpv1n::::res://art/ui/rectangle.jpg
+bullet_bar.gd::GDScript/GDScript::162611921628458138::1758224223::0::1::::<>ProgressBar<><>0<>0<><>::
 health_display.tscn::PackedScene/PackedScene::1036286109859649267::1758013822::0::1::::<><><>0<>0<><>::uid://pd5vxhclkgba::::res://scripts/health_display.gd<>uid://bksaard0e64hk::::res://art/ui/heart1.png<>uid://b238wl52pn0nr::::res://art/ui/heart2.png<>uid://br45vv2108yeb::::res://art/ui/heart3.png
-main.tscn::PackedScene::2740189610719223909::1758212997::0::1::::<><><>0<>0<><>::uid://bsyvhc4xlrfk3::::res://scripts/main.gd<>uid://o08ql3nhny56::::res://scenes/health_display.tscn<>uid://ctrj7wnrv3kil::::res://scenes/main_full.tscn<>uid://btedhdw4ym1am::::res://scenes/shaders/sway.gdshader<>uid://bik31ypu3gsvs::::res://audio/Brave New Ocean Loopable.mp3
+main.tscn::PackedScene::2740189610719223909::1758444851::0::1::::<><><>0<>0<><>::uid://bsyvhc4xlrfk3::::res://scripts/main.gd<>uid://ctrj7wnrv3kil::::res://scenes/main_full.tscn<>uid://dnotv4gkcasbw::::res://scenes/ui.tscn<>uid://btedhdw4ym1am::::res://scenes/shaders/sway.gdshader<>uid://bik31ypu3gsvs::::res://audio/Brave New Ocean Loopable.mp3
 main_copy.tscn::PackedScene/PackedScene::3630687869156372342::1758017250::0::1::::<><><>0<>0<><>::uid://ctrj7wnrv3kil::::res://scenes/main_full.tscn<>uid://btedhdw4ym1am::::res://scenes/shaders/sway.gdshader<>uid://o08ql3nhny56::::res://scenes/health_display.tscn<>uid://bik31ypu3gsvs::::res://audio/Brave New Ocean Loopable.mp3
-main_full.tscn::PackedScene::6142128593065426643::1758213000::0::1::::<><><>0<>0<><>::uid://bsyvhc4xlrfk3::::res://scripts/main.gd<>uid://bn50llk5gq115::::res://art/environment/blobs/blob3.png<>uid://cru052vhey4sb::::res://art/environment/blobs/blob4.png<>uid://dnainyjpdvrf8::::res://scenes/test.tres<>uid://co6jyburghxre::::res://scenes/boundary_collisions.tscn<>uid://b37o51iyq1xg8::::res://scenes/player/player.tscn<>uid://bok5465lpn3wk::::res://scenes/environment/enemy.tscn<>uid://cy5vpdxiqjn7x::::res://scenes/environment/whale.tscn<>uid://bo5ne51gkjwi0::::res://dialogue/fonts/AdabelleHandwriting-Regular.ttf<>uid://4fp0qmnhu7de::::res://art/environment/jellies.png<>uid://c3bindv088m03::::res://scripts/enemyspawner.gd
-random_item.tscn::PackedScene::9040513292886708901::1758213000::0::1::::<><><>0<>0<><>::uid://dpvxd28eaddni::::res://random_item.gd<>uid://bullfdxm7yfl5::::res://art/placeholder/bunnycool.jpg<>uid://bxkvmnbl15foh::::res://art/placeholder/cat.jpeg<>uid://b1a71agiwiqlr::::res://art/placeholder/heart.jpg<>uid://qmbnwe4r3bxn::::res://art/placeholder/kit_yay.png
-test.tres::TileSet::8072227244786648327::1758212914::0::1::::<><><>0<>0<><>::uid://dyxybjdtv71vk::::res://art/environment/blobs/blob1.png<>uid://pg3lot3mw4um::::res://art/environment/blobs/blob2.png<>uid://dggle0j78m4g0::::res://art/environment/blobs/color_blob.png<>uid://5vuup62mq4x0::::res://art/environment/blobs/colorpurp.png
-ui.tscn::PackedScene::8101810964368155104::1758213233::0::1::::<><><>0<>0<><>::uid://o08ql3nhny56::::res://scenes/health_display.tscn<>uid://ck1gu7hng7yk::::res://scenes/bullet_bar.gd
+main_full.tscn::PackedScene::6142128593065426643::1758445166::0::1::::<><><>0<>0<><>::uid://bsyvhc4xlrfk3::::res://scripts/main.gd<>uid://bn50llk5gq115::::res://art/environment/blobs/blob3.png<>uid://cru052vhey4sb::::res://art/environment/blobs/blob4.png<>uid://dnainyjpdvrf8::::res://scenes/test.tres<>uid://co6jyburghxre::::res://scenes/boundary_collisions.tscn<>uid://b37o51iyq1xg8::::res://scenes/player/player.tscn<>uid://bok5465lpn3wk::::res://scenes/environment/enemy.tscn<>uid://cy5vpdxiqjn7x::::res://scenes/environment/whale.tscn<>uid://bo5ne51gkjwi0::::res://dialogue/fonts/AdabelleHandwriting-Regular.ttf<>uid://4fp0qmnhu7de::::res://art/environment/jellies.png<>uid://c3bindv088m03::::res://scripts/enemyspawner.gd
+random_item.tscn::PackedScene/PackedScene::9040513292886708901::1758221105::0::1::::<><><>0<>0<><>::uid://dpvxd28eaddni::::res://random_item.gd<>uid://bullfdxm7yfl5::::res://art/placeholder/bunnycool.jpg<>uid://bxkvmnbl15foh::::res://art/placeholder/cat.jpeg<>uid://b1a71agiwiqlr::::res://art/placeholder/heart.jpg<>uid://qmbnwe4r3bxn::::res://art/placeholder/kit_yay.png
+test.tres::TileSet::8072227244786648327::1758444855::0::1::::<><><>0<>0<><>::uid://dyxybjdtv71vk::::res://art/environment/blobs/blob1.png<>uid://pg3lot3mw4um::::res://art/environment/blobs/blob2.png<>uid://dggle0j78m4g0::::res://art/environment/blobs/color_blob.png<>uid://5vuup62mq4x0::::res://art/environment/blobs/colorpurp.png
+ui.tscn::PackedScene::8101810964368155104::1758444858::0::1::::<><><>0<>0<><>::uid://o08ql3nhny56::::res://scenes/health_display.tscn<>uid://ck1gu7hng7yk::::res://scenes/bullet_bar.gd
 wave.gd::GDScript/GDScript::5396525254047630473::1757792043::0::1::::<>AnimatedSprite2D<><>0<>0<><>::
-::res://scenes/environment/::1758213000
+::res://scenes/environment/::1758444858
 cat.jpeg::CompressedTexture2D/CompressedTexture2D::6968035298571698676::1758094096::1758094096::1::::<><><>0<>0<>0968397d42eb9ea5cb8ab8ce392393b0<>res://.godot/imported/cat.jpeg-554c4a7e00dfbb2274667f93c19f00d2.ctex::
-enemy.tscn::PackedScene::3391583245060753822::1758213000::0::1::::<><><>0<>0<><>::uid://g5m48rcix8km::::res://scripts/enemy.gd<>uid://b83l6sssj2lej::::res://art/environment/enemyBlob.png<>uid://c15qjobwieo4c::::res://art/ui/circleBlue.png
+enemy.tscn::PackedScene::3391583245060753822::1758444858::0::1::::<><><>0<>0<><>::uid://g5m48rcix8km::::res://scripts/enemy.gd<>uid://b83l6sssj2lej::::res://art/environment/enemyBlob.png<>uid://c15qjobwieo4c::::res://art/ui/circleBlue.png
 menu.tscn::PackedScene/PackedScene::7719496578166677774::1757273242::0::1::::<><><>0<>0<><>::uid://yjwe2orc2scw::::res://scripts/menu.gd<>uid://dkn6780cy4ibp::::res://icon.svg
 physics-whale-collision.gd::GDScript/GDScript::151386130244821328::1757236725::0::1::::<>Area2D<><>0<>0<><>::
-whale.tscn::PackedScene::6520606984563228435::1758213000::0::1::::<><><>0<>0<><>::uid://dllabo06gglta::::res://scripts/whale.gd<>uid://crjbk6ldw8cy2::::res://scenes/actionable.tscn<>uid://bexfin5h37k5r::::res://art/other_ppl/whale.png<>uid://b4k2pemnelcur::::res://dialogue/whale.dialogue<>uid://dfp0trppgc0wp::::res://art/other_ppl/interactIcon.png
-::res://scenes/player/::1758213000
+whale.tscn::PackedScene/PackedScene::6520606984563228435::1758221105::0::1::::<><><>0<>0<><>::uid://dllabo06gglta::::res://scripts/whale.gd<>uid://crjbk6ldw8cy2::::res://scenes/actionable.tscn<>uid://bexfin5h37k5r::::res://art/other_ppl/whale.png<>uid://b4k2pemnelcur::::res://dialogue/whale.dialogue<>uid://dfp0trppgc0wp::::res://art/other_ppl/interactIcon.png
+::res://scenes/player/::1758444858
 camera_2d.gd::GDScript/GDScript::160236674774985129::1757744976::0::1::::<>Camera2D<><>0<>0<><>::
-player.tscn::PackedScene::4418673384482217369::1758213000::0::1::::<><><>0<>0<><>::uid://clhkx2cashlun::::res://scripts/player.gd<>uid://ds78xikiwosu7::::res://art/player/swim_anim/Untitled_Artwork-3.png<>uid://c22wi15mcmeis::::res://art/player/swim_anim/Untitled_Artwork-4.png<>uid://t7o1x2wxj5jl::::res://art/player/swim_anim/Untitled_Artwork-5.png<>uid://1ncqg88phgk1::::res://art/player/swim_anim/Untitled_Artwork-1.png<>uid://bwri3xfaqj8yr::::res://art/player/swim_anim/Untitled_Artwork-2.png<>uid://dt4tv53t821uo::::res://art/player/swim_anim/Untitled_Artwork-6.png<>uid://wuf85eck8wj5::::res://art/player/swim_anim/Untitled_Artwork-7.png<>uid://dpal67oypkauo::::res://audio/sfx/bubbles.mp3<>uid://cjvcsi771r50::::res://scenes/player/camera_2d.gd<>uid://bik31ypu3gsvs::::res://audio/Brave New Ocean Loopable.mp3<>uid://c70ushbaxpv1n::::res://art/ui/rectangle.jpg
-::res://scenes/shaders/::1758213237
-ocean_light.gdshader::Shader::323063376495327153::1758213237::0::1::::<><><>0<>0<><>::
-sway.gdshader::Shader::3728461068273537780::1758213237::0::1::::<><><>0<>0<><>::
+player.tscn::PackedScene::4418673384482217369::1758444858::0::1::::<><><>0<>0<><>::uid://clhkx2cashlun::::res://scripts/player.gd<>uid://ds78xikiwosu7::::res://art/player/swim_anim/Untitled_Artwork-3.png<>uid://c22wi15mcmeis::::res://art/player/swim_anim/Untitled_Artwork-4.png<>uid://t7o1x2wxj5jl::::res://art/player/swim_anim/Untitled_Artwork-5.png<>uid://1ncqg88phgk1::::res://art/player/swim_anim/Untitled_Artwork-1.png<>uid://bwri3xfaqj8yr::::res://art/player/swim_anim/Untitled_Artwork-2.png<>uid://dt4tv53t821uo::::res://art/player/swim_anim/Untitled_Artwork-6.png<>uid://wuf85eck8wj5::::res://art/player/swim_anim/Untitled_Artwork-7.png<>uid://dpal67oypkauo::::res://audio/sfx/bubbles.mp3<>uid://cjvcsi771r50::::res://scenes/player/camera_2d.gd<>uid://bik31ypu3gsvs::::res://audio/Brave New Ocean Loopable.mp3<>uid://c70ushbaxpv1n::::res://art/ui/rectangle.jpg
+::res://scenes/shaders/::1758445166
+ocean_light.gdshader::Shader::323063376495327153::1758445166::0::1::::<><><>0<>0<><>::
+sway.gdshader::Shader::3728461068273537780::1758445166::0::1::::<><><>0<>0<><>::
 ::res://scenes/singletons/::1757652850
 audio_manager.tscn::PackedScene/PackedScene::8256479875312822409::1757652850::0::1::::<><><>0<>0<><>::uid://bik31ypu3gsvs::::res://audio/Brave New Ocean Loopable.mp3<>uid://bmbbmajfxs8xj::::res://audio/eyes_of_the_ocean.mp3
-::res://scripts/::1758213101
+::res://scripts/::1758220433
 actionable.gd::GDScript/GDScript::5410905158074030954::1757271371::0::1::::<>Area2D<><>0<>0<><>::
 audio_global.gd::GDScript/GDScript::796177860693840996::1757057959::0::1::::<>Node<><>0<>0<><>::
 bullet.gd::GDScript/GDScript::7514362042942292581::1758182817::0::1::::<>CharacterBody2D<><>0<>0<><>::
 enemy.gd::GDScript/GDScript::483846546021160988::1758101878::0::1::::<>CharacterBody2D<><>0<>0<><>::
 enemyspawner.gd::GDScript/GDScript::6740702509460303638::1758096563::0::1::::<>Node2D<><>0<>0<><>::
-health_display.gd::GDScript::1060886018244316602::1758213101::0::1::::<>HBoxContainer<><>0<>0<><>::
+health_display.gd::GDScript/GDScript::1060886018244316602::1758217958::0::1::::<>HBoxContainer<><>0<>0<><>::
 main.gd::GDScript/GDScript::3700652643586965724::1758101545::0::1::::<>Node2D<><>0<>0<><>::
 menu.gd::GDScript/GDScript::1704456004649669690::1757227491::0::1::::<>RefCounted<><>0<>0<><>::
-player.gd::GDScript/GDScript::5560018956114859321::1758212216::0::1::::<>CharacterBody2D<><>0<>0<><>::
+player.gd::GDScript/GDScript::5560018956114859321::1758220433::0::1::::<>CharacterBody2D<><>0<>0<><>::
 sub_viewport.gd::GDScript/GDScript::6170867052368143302::1757228734::0::1::::<>SubViewport<><>0<>0<><>::
 texture_rect.gd::GDScript/GDScript::4735919495591589666::1757228269::0::1::::<>TextureRect<><>0<>0<><>::
 whale.gd::GDScript/GDScript::7954050047549999586::1758100369::0::1::::<>Node2D<><>0<>0<><>::

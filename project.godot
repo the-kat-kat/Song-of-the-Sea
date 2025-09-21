@@ -35,6 +35,7 @@ bullet=""
 hearts=""
 texture_rect=""
 main=""
+random_item=""
 
 [input]
 

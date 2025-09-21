@@ -128,9 +128,18 @@ func _physics_process(delta: float) -> void:
 			get_parent().add_child(bullet)
 
 func _on_actionable_finder_body_entered(body: Node2D) -> void:
+	if body.is_in_group("random_item"):
+		touching_random_item(body)
+		
+	if body.is_in_group("enemy"):
+		touching_enemy(body)
+
+func _on_actionable_finder_body_exited(body: Node2D) -> void:
 	if not body.is_in_group("enemy"):
 		return
-		
+	body.touching_player = true
+	
+func touching_enemy(body: Node2D):
 	body.touching_player = true
 	audio_node.play()
 	heart_display.take_damage()
@@ -139,11 +148,6 @@ func _on_actionable_finder_body_entered(body: Node2D) -> void:
 	var away = (global_position - body.global_position).normalized()
 	velocity = away * bounce_force
 	body.set_deferred("velocity", -away * bounce_force)
-
-func _on_actionable_finder_body_exited(body: Node2D) -> void:
-	if not body.is_in_group("enemy"):
-		return
-	body.touching_player = true
 	
-
-	
+func touching_random_item(body: Node2D):
+	body.queue_free()
