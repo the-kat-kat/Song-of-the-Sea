@@ -1,25 +1,34 @@
-extends Panel
-signal inventory_changed
+extends Control
 
-var slot_path = preload("res://scenes/bullet.tscn")
+@onready var manager = get_node("/root/InventoryManager")
+@onready var slots_grid = $Slots
+@export var slot_scene: PackedScene = preload("res://ui/slot.tscn")
 
-@export var max_slots := 6
-var items := []
+var slot_nodes := []
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	items.clear()
-	for i in range(max_slots):
-		items.append(null)
-
-func add_item(item: Dictionary) -> bool:
+func _ready():
+	for i in range(manager.max_slots):
+		var s = slot_scene.instantiate()
+		s.slot_index = i
+		s.connect("request_swap", Callable(self, "_on_request_swap"))
+		s.connect("request_pickup", Callable(self, "_on_request_pickup"))
+		s.connect("request_drop", Callable(self, "_on_request_drop"))
+		slots_grid.add_child(s)
+		slot_nodes.append(s)
+		
+	_update_ui()
+	manager.connect("inventory_changed", Callable(self, "_update_ui"))
+	
+func _update_ui():
+	var items = manager.get_items()
 	for i in range(items.size()):
-		if items[i] == null:
-			items[i] = item
-			emit_signal("inventory_changed")
-			return true
-	return false
+		slot_nodes[i].set_item(items[i])
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _on_request_swap(from_idx:int, to_idx:int):
+	manager.swap_slots(from_idx, to_idx)
+	
+func _on_request_pickup(slot_index:int):
+	manager.remove_item(slot_index)
+	
+func _on_request_drop(slot_index:int, data):
 	pass

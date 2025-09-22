@@ -21,3 +21,4 @@ res://scripts/enemy.gd
 res://ui/inside_bar.tres
 res://scenes/inventory.gd
 res://slot.gd
+res://ui/slot.tscn

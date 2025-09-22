@@ -1,10 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnotv4gkcasbw"]
+[gd_scene load_steps=7 format=3 uid="uid://dnotv4gkcasbw"]
 
 [ext_resource type="PackedScene" uid="uid://o08ql3nhny56" path="res://scenes/health_display.tscn" id="1_nt7q6"]
 [ext_resource type="Script" uid="uid://ck1gu7hng7yk" path="res://scenes/bullet_bar.gd" id="2_x4jx1"]
 [ext_resource type="StyleBox" uid="uid://0cje81sfp0ft" path="res://ui/inside_bar.tres" id="2_yev5y"]
+[ext_resource type="Script" uid="uid://bfvx1vuab3cwk" path="res://scenes/inventory_manager.gd" id="4_gdt2y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4jx1"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wm3ai"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
@@ -36,3 +44,23 @@ rounded = true
 fill_mode = 3
 show_percentage = false
 script = ExtResource("2_x4jx1")
+
+[node name="Inventory" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.24
+anchor_top = 0.846
+anchor_right = 0.76
+anchor_bottom = 1.0
+offset_left = -0.480011
+offset_top = -18.208
+offset_right = 0.479919
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wm3ai")
+
+[node name="InventoryManager" type="Control" parent="Inventory"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_gdt2y")

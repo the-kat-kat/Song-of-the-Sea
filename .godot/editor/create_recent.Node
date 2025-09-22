@@ -1,6 +1,6 @@
+Control
 TextureRect
 Button
-Control
 Panel
 CollisionShape2D
 CanvasLayer
@@ -12,4 +12,3 @@ ProgressBar
 CharacterBody2D
 Sprite2D
 TextEdit
-Area2D

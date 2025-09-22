@@ -7,7 +7,6 @@ signal request_drop(slot_index:int, data)
 var slot_index := -1
 @onready var button_icon = $Icon
 
-# Called when the node enters the scene tree for the first time.
 func set_item(item: Dictionary) -> void:
 	if item:
 		icon.texture = item.get("icon", null)
