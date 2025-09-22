@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfbmr1b8p0np2"]
+[gd_scene load_steps=7 format=3 uid="uid://bfbmr1b8p0np2"]
 
-[ext_resource type="Script" uid="uid://bsyvhc4xlrfk3" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://ctrj7wnrv3kil" path="res://scenes/main_full.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dnotv4gkcasbw" path="res://scenes/ui.tscn" id="4_tbgi4"]
 [ext_resource type="Shader" uid="uid://btedhdw4ym1am" path="res://scenes/shaders/sway.gdshader" id="7_85g3d"]
@@ -33,8 +32,7 @@ shader_parameter/preserve_threshold = 0.92
 [sub_resource type="ViewportTexture" id="ViewportTexture_jyhfs"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Main" type="Node2D" groups=["main"]]
-script = ExtResource("1_tbgi4")
+[node name="Main" type="Node2D"]
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -42,8 +40,7 @@ handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="MainFull" parent="SubViewport" node_paths=PackedStringArray("enemy_array") instance=ExtResource("2_tbgi4")]
-enemy_array = [NodePath("EnemySpawner/Enemy"), null]
+[node name="MainFull" parent="SubViewport" instance=ExtResource("2_tbgi4")]
 
 [node name="TextureRect" type="TextureRect" parent="." groups=["texture_rect"]]
 material = SubResource("ShaderMaterial_a8y0u")

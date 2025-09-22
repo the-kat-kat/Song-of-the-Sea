@@ -87,12 +87,14 @@ speed_scale = 2.0
 script = ExtResource("11_qsxxp")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.654902)
 position = Vector2(-3931, 2336)
 scale = Vector2(1, 1.57731)
 texture = ExtResource("1_f64bx")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.462745)
 position = Vector2(-6, 3013)
 scale = Vector2(1.99349, 1)

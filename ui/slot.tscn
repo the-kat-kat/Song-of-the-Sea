@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0o5jup11m58w"]
+
+[ext_resource type="Script" uid="uid://bghr7afvmifpf" path="res://slot.gd" id="1_mityc"]
+
+[node name="Slot" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mityc")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

@@ -9,7 +9,7 @@ var bullet_path = preload("res://scenes/bullet.tscn")
 @export var dash_cooldown := 1
 
 @export var bgm: AudioStreamPlayer
-@export var firing_pos: Node2D
+@export var firing_pos_array: Array[Node2D]
 @onready var heart_display: HBoxContainer = get_tree().get_nodes_in_group("hearts")[0]
 
 
@@ -20,8 +20,8 @@ var bullet_path = preload("res://scenes/bullet.tscn")
 @onready var display_control = get_tree().get_nodes_in_group("texture_rect")[0]
 
 @export var actionable_finder: Area2D
-@export var actionable_finder_left: CollisionPolygon2D
-@export var actionable_finder_right: CollisionPolygon2D
+@export var actionable_finder_left: CollisionShape2D
+@export var actionable_finder_right: CollisionShape2D
 @export var collision_poly_left: CollisionPolygon2D
 @export var collision_poly_right: CollisionPolygon2D
 
@@ -38,9 +38,13 @@ var invuln_timer := 0.0
 
 var shoot_timer = 3.0
 var can_shoot = true
+var number_shots = 3.0
 var shoots_left = 3.0
 var shoot_delay = 3.0
 
+func _ready():
+	shoots_left = number_shots
+	shoot_delay = number_shots
 
 func _physics_process(delta: float) -> void:
 	
@@ -72,13 +76,17 @@ func _physics_process(delta: float) -> void:
 		playerAnim.play("swim")
 		playerAnim.flip_h = input_vector.x < 0
 		if(input_vector.x > 0):
-			firing_pos.position.x= 200
+			for firing_pos in firing_pos_array:
+				firing_pos.position.x = abs(firing_pos.position.x)
+				firing_pos.rotation = abs(firing_pos.rotation)
 			collision_poly_left.set_deferred("disabled", false)
 			collision_poly_right.set_deferred("disabled", true)
 			actionable_finder_left.set_deferred("disabled", false)
 			actionable_finder_left.set_deferred("disabled", true)
 		else:
-			firing_pos.position.x= -200
+			for firing_pos in firing_pos_array:
+				firing_pos.rotation = -abs(firing_pos.rotation)
+				firing_pos.position.x = -abs(firing_pos.position.x)
 			collision_poly_left.set_deferred("disabled",  true)
 			collision_poly_right.set_deferred("disabled", false)
 			actionable_finder_left.set_deferred("disabled", true)
@@ -94,21 +102,16 @@ func _physics_process(delta: float) -> void:
 
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		print_debug("interact")
 		var actionables = actionable_finder.get_overlapping_areas()
 		for actionable in actionables:
 				if actionable.has_method("action"):
 					print_debug(actionable.name)
 					actionable.action()
 			
-	if shoots_left < 3:
+	if shoots_left < number_shots:
 		shoot_timer += delta
-		if shoot_timer == shoot_delay:
-			shoots_left = 3
-		elif shoot_timer >= 2*shoot_delay/3:
-			shoots_left = 2
-		elif shoot_timer >= shoot_delay/3:
-			shoots_left = 1
+		if shoot_timer >= shoot_delay/number_shots:
+			shoots_left = floor(shoot_timer * number_shots/shoot_delay)
 			can_shoot = true
 		else:
 			shoots_left = 0
@@ -116,38 +119,40 @@ func _physics_process(delta: float) -> void:
 			
 	if Input.is_action_just_pressed("fire"):
 		if can_shoot:
+			print_debug("shots", shoots_left)
 			shoots_left -= 1
-			shoot_timer -= shoot_delay/3
+			shoot_timer -= shoot_delay/number_shots
 			
-			var bullet = bullet_path.instantiate()
-			var bullet_rota = 0
-			if playerAnim.flip_h:
-				bullet_rota = PI
-			print("firing_pos.global_position", firing_pos.global_position)
-			bullet.set_up(firing_pos.global_position, bullet_rota)
-			get_parent().add_child(bullet)
+			for firing_pos in firing_pos_array:
+				var bullet = bullet_path.instantiate()
+				var bullet_direction = Vector2(firing_pos.global_position - global_position)
+				var bullet_rota = bullet_direction.angle()
+				bullet.set_up(firing_pos.global_position, bullet_rota)
+				get_parent().add_child(bullet)
 
 func _on_actionable_finder_body_entered(body: Node2D) -> void:
 	if body.is_in_group("random_item"):
 		touching_random_item(body)
 		
 	if body.is_in_group("enemy"):
+		print_debug("touching")
 		touching_enemy(body)
 
 func _on_actionable_finder_body_exited(body: Node2D) -> void:
 	if not body.is_in_group("enemy"):
 		return
-	body.touching_player = true
+	body.touching_player = false
 	
 func touching_enemy(body: Node2D):
-	body.touching_player = true
 	audio_node.play()
 	heart_display.take_damage()
 	camera.start_shake(80.0, 1)
 
 	var away = (global_position - body.global_position).normalized()
 	velocity = away * bounce_force
-	body.set_deferred("velocity", -away * bounce_force)
+	body.velocity = -away * bounce_force
+	body.touching_player = true
 	
 func touching_random_item(body: Node2D):
-	body.queue_free()
+	if !body.just_spawned:
+		body.queue_free()

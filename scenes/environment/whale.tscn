@@ -42,7 +42,8 @@ sprite_frames = SubResource("SpriteFrames_sf384")
 flip_h = true
 
 [node name="PhysicsCollision" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(99, 204, 257, 196, 393, 95, 537, -153, 519, -214, 478, -213, 364, -182, 171, -100, -31, -41, -211, -34, -338, -6, -301, 26, -76, 155)
+polygon = PackedVector2Array(99, 204, 257, 196, 393, 95, 537, -153, 519, -214, 478, -213, 364, -182, 171, -100, -31, -41, -211, -34, -338, -6, -361, 49, -370, 90, -362, 138, -319, 89, -301, 26, -76, 155)
+disabled = true
 
 [connection signal="body_entered" from="WhaleActionable" to="." method="_on_whale_actionable_body_entered"]
 [connection signal="body_exited" from="WhaleActionable" to="." method="_on_whale_actionable_body_exited"]

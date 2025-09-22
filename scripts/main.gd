@@ -1,29 +1,17 @@
 extends Node2D
 
-@export var player: CharacterBody2D
-@export var enemy_array: Array[CharacterBody2D] = []
+@onready var player = get_tree().get_nodes_in_group("player")[0]
+@export var enemy_array: Array[Node]
+@onready var enemy_spawner = get_tree().get_nodes_in_group("enemy_spawner")[0]
+
+func get_enemy_array():
+	enemy_array = get_tree().get_nodes_in_group("enemy")
 
 func reset():
+	print("died")
+	print(enemy_array)
 	for enemy in enemy_array:
-		enemy.active = false
-		player.global_position = Vector2.ZERO
-		enemy.global_position = Vector2(randf_range(200,1000),randf_range(-1000,1000))
-		enemy.velocity = Vector2.ZERO
-		enemy.set_deferred("velocity", Vector2.ZERO)
-		enemy.player_chase = false
-		enemy.set_deferred("player_chase", false)
-		enemy.touching_player = false
-		enemy.set_deferred("touching_player", false)
-	
-	await get_tree().create_timer(1.0).timeout
-	for enemy in enemy_array:
-		player.global_position = Vector2.ZERO
-		enemy.velocity = Vector2.ZERO
-		enemy.set_deferred("velocity", Vector2.ZERO)
-		enemy.player_chase = false
-		enemy.set_deferred("player_chase", false)
-		enemy.touching_player = false
-		enemy.set_deferred("touching_player", false)
-		enemy.health = 100
-		enemy.health_bar.value = 100
-		enemy.active = true
+		enemy.queue_free()
+		enemy_spawner.enemies_spawned -= 1
+		player.global_position = Vector2(-443, -543)
+		print("main pos", player.global_position)

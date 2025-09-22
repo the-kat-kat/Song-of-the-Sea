@@ -6,6 +6,8 @@ var player_chase = false
 var health = 100
 var active = true
 
+var enemy_spawner: Node2D
+
 @onready var player = get_tree().get_nodes_in_group("player")[0]
 @export var max_health = 100
 
@@ -14,6 +16,7 @@ var active = true
 var touching_player = false
 
 func _ready():
+	enemy_spawner = get_tree().get_nodes_in_group("enemy_spawner")[0]
 	health_bar.max_value = max_health
 	health_bar.value = max_health
 	health = max_health
@@ -49,14 +52,8 @@ func _on_detection_area_area_exited(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		player_chase = false
 	
-	
-func set_touching_player(touching: bool):
-	touching_player = touching
-	
-func set_player_chase(chase: bool):
-	player_chase = chase
-	
 func die():
+	enemy_spawner.enemies_spawned -= 1
 	queue_free()
 
 func _on_bullet_area_body_entered(body: Node2D) -> void:

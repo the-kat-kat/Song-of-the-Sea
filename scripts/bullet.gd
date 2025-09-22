@@ -4,11 +4,15 @@ var firing_pos: Vector2
 var rota: float
 var speed = 400.0
 
+@onready var sprite = $Sprite2D
+
+func _ready():
+	sprite.play()
+
 func set_up(pos: Vector2, rota: float):
 	firing_pos = pos
 	global_position = firing_pos
 	global_rotation = rota
-	print("rota",rota)
 	velocity = Vector2(speed, 0).rotated(rota)
 
 func _physics_process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b37o51iyq1xg8"]
+[gd_scene load_steps=15 format=3 uid="uid://b37o51iyq1xg8"]
 
 [ext_resource type="Script" uid="uid://clhkx2cashlun" path="res://scripts/player.gd" id="1_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://ds78xikiwosu7" path="res://art/player/swim_anim/Untitled_Artwork-3.png" id="2_qek5x"]
@@ -56,19 +56,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("firing_pos", "audio_node", "actionable_finder", "actionable_finder_left", "actionable_finder_right", "collision_poly_left", "collision_poly_right") groups=["player"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_fm80t"]
+radius = 228.009
+
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("firing_pos_array", "audio_node", "actionable_finder", "actionable_finder_left", "actionable_finder_right", "collision_poly_left", "collision_poly_right") groups=["player"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_5gtgg")
-firing_pos = NodePath("FiringPosition")
+firing_pos_array = [NodePath("FiringPositionHolder/FiringPosition"), NodePath("FiringPositionHolder/FiringPosition2"), NodePath("FiringPositionHolder/FiringPosition3")]
 audio_node = NodePath("Bubbles")
 actionable_finder = NodePath("ActionableFinder")
-actionable_finder_left = NodePath("ActionableFinder/AreaLeft")
-actionable_finder_right = NodePath("ActionableFinder/AreaRight")
+actionable_finder_left = NodePath("ActionableFinder/Area")
+actionable_finder_right = NodePath("ActionableFinder/Area")
 collision_poly_left = NodePath("CollisionLeft")
 collision_poly_right = NodePath("CollisionRight")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-44, 0)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
 frame = 1
@@ -77,13 +79,13 @@ frame_progress = 0.866328
 [node name="CollisionRight" type="CollisionPolygon2D" parent="."]
 position = Vector2(-48, -4)
 scale = Vector2(14, 10.025)
-polygon = PackedVector2Array(-0.928571, -13.9402, 4.07143, -18.1297, 10.9286, -18.7282, 14.0714, -12.1446, 13.0714, -4.76309, 9.92857, 2.01995, 7.71429, 8.10474, 7.57143, 12.2943, 3.78571, 18.9776, -4.71429, 16.1845, -7.64286, 11.2968, -9.5, 2.21945, -7.14286, -4.16459, -2.92857, -7.75561)
+polygon = PackedVector2Array(-6.71429, -17.9551, 14, -18.9526, 17.5714, -9.77556, 12.4286, 12.1696, 7.71429, 18.9526, -3, 16.3591, -7.71429, 9.57606, -10.4286, -0.399003, -9.42857, -11.1721)
 one_way_collision_margin = 2.0
 
 [node name="CollisionLeft" type="CollisionPolygon2D" parent="."]
 position = Vector2(-48, -4)
 scale = Vector2(-14, 10.025)
-polygon = PackedVector2Array(-0.928571, -13.9402, 4.07143, -18.1297, 10.9286, -18.7282, 14.0714, -12.1446, 13.0714, -4.76309, 9.92857, 2.01995, 7.71429, 8.10474, 7.57143, 12.2943, 3.78571, 18.9776, -4.71429, 16.1845, -7.64286, 11.2968, -9.5, 2.21945, -7.14286, -4.16459, -2.92857, -7.75561)
+polygon = PackedVector2Array(4, -18.9526, 7.28571, -17.1571, 10.2857, -11.1721, 9.85714, 6.58354, 2.57143, 17.5561, -7.57143, 19.3516, -12.4286, 12.1696, -17.7143, -9.37656, -14.1429, -18.7531)
 one_way_collision_margin = 2.0
 
 [node name="ActionableFinder" type="Area2D" parent="." groups=["player"]]
@@ -91,16 +93,20 @@ collision_layer = 16
 collision_mask = 25
 
 [node name="AreaRight" type="CollisionPolygon2D" parent="ActionableFinder"]
+visible = false
 position = Vector2(-46, -6)
 scale = Vector2(14, 10.025)
-polygon = PackedVector2Array(-1.78571, -13.4414, 4.07143, -18.7282, 11.0714, -19.1272, 15.6429, -11.9451, 13.2857, -1.87032, 8.28572, 12.1945, 4.14286, 19.3516, -4.92857, 18.1796, -9.07143, 11.7955, -10.1429, 2.21945, -7.85714, -4.96259)
-one_way_collision_margin = 2.0
+polygon = PackedVector2Array(-9.85714, -22.5436, 1.28571, -25.1372, 15.5714, -20.3491, 19.1429, -12.7681, 16.8571, 10.5736, 8, 21.1471, -3.28571, 21.1471, -10.2857, 14.5636, -15.2857, -0.798005, -15.4286, -14.9626)
 
 [node name="AreaLeft" type="CollisionPolygon2D" parent="ActionableFinder"]
-position = Vector2(-50, -6)
+visible = false
+position = Vector2(-30, -6)
 scale = Vector2(-14, 10.025)
-polygon = PackedVector2Array(-1.78571, -13.4414, 4.07143, -18.7282, 11.0714, -19.1272, 15.6429, -11.9451, 13.2857, -1.87032, 8.28572, 12.1945, 4.14286, 19.3516, -4.92857, 18.1796, -9.07143, 11.7955, -10.1429, 2.21945, -7.85714, -4.96259)
-one_way_collision_margin = 2.0
+polygon = PackedVector2Array(-14.2857, -20.1496, -0.714286, -24.9377, 10.7143, -22.1446, 16.1429, -14.5636, 16.2857, -0.997506, 4.14286, 19.3516, -6, 19.3516, -11.4286, 12.9676, -13.7143, 3.39152, -16.4286, -9.17706)
+
+[node name="Area" type="CollisionShape2D" parent="ActionableFinder"]
+position = Vector2(0, -25)
+shape = SubResource("CircleShape2D_fm80t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 7
@@ -120,10 +126,31 @@ playback_type = 1
 stream = ExtResource("9_5gtgg")
 volume_db = -32.584
 
-[node name="FiringPosition" type="Node2D" parent="."]
-position = Vector2(166, 22)
+[node name="FiringPositionHolder" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="FiringPosition"]
+[node name="FiringPosition" type="Node2D" parent="FiringPositionHolder"]
+position = Vector2(162, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="FiringPositionHolder/FiringPosition"]
+visible = false
+scale = Vector2(0.0837887, 0.078125)
+texture = ExtResource("12_fm80t")
+
+[node name="FiringPosition2" type="Node2D" parent="FiringPositionHolder"]
+position = Vector2(100, -240)
+rotation = 1.8326
+
+[node name="Sprite2D" type="Sprite2D" parent="FiringPositionHolder/FiringPosition2"]
+visible = false
+scale = Vector2(0.0837887, 0.078125)
+texture = ExtResource("12_fm80t")
+
+[node name="FiringPosition3" type="Node2D" parent="FiringPositionHolder"]
+position = Vector2(100, 172)
+rotation = 0.925025
+
+[node name="Sprite2D" type="Sprite2D" parent="FiringPositionHolder/FiringPosition3"]
+visible = false
 scale = Vector2(0.0837887, 0.078125)
 texture = ExtResource("12_fm80t")
 

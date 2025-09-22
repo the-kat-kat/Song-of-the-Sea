@@ -10,3 +10,14 @@ res://scenes/ui.tscn
 res://scenes/random_item.tscn
 res://scenes/environment/whale.tscn
 res://scenes/boundary_collisions.tscn
+res://scripts/player.gd
+res://random_item.gd
+res://scripts/enemyspawner.gd
+res://scripts/main.gd
+res://scripts/health_display.gd
+res://scripts/bullet.gd
+res://scenes/bullet_bar.gd
+res://scripts/enemy.gd
+res://ui/inside_bar.tres
+res://scenes/inventory.gd
+res://slot.gd
