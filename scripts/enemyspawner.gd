@@ -15,7 +15,6 @@ func spawn_loop() -> void:
 		var enemy = enemy_path.instantiate()
 		add_child(enemy)
 		enemy.add_to_group("enemy")
-		print(get_tree().get_nodes_in_group("enemy"))
 		enemy.global_position = position + Vector2(randf_range(-300, 300), randf_range(-300, 300))
 		enemy.velocity = Vector2.ZERO
 		enemies_spawned += 1

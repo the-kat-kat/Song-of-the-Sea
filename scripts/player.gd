@@ -1,6 +1,8 @@
 extends CharacterBody2D
 var bullet_path = preload("res://scenes/bullet.tscn")
 
+@export var inv: Inv
+
 @export var speed := 300.0
 @export var water_resistance := 4.0
 
