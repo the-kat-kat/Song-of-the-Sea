@@ -9,9 +9,10 @@ func get_enemy_array():
 
 func reset():
 	print("died")
-	print(enemy_array)
 	for enemy in enemy_array:
-		enemy.queue_free()
-		enemy_spawner.enemies_spawned -= 1
+		if enemy:
+			enemy.queue_free()
+			enemy_spawner.enemies_spawned -= 1
 		player.global_position = Vector2(-443, -543)
 		print("main pos", player.global_position)
+	print(enemy_spawner.enemies_spawned)

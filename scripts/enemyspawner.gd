@@ -6,12 +6,11 @@ var enemies_spawned = 0
 @onready var main = get_tree().get_nodes_in_group("main")[0]
 
 @export var spawn_interval = 1.0
+  
 
-func _ready() -> void:
-	spawn_loop()
-
-func spawn_loop() -> void:
-	while enemies_spawned < max_enemies:
+func _physics_process(delta: float) -> void:
+	if enemies_spawned < max_enemies:
+		print_debug("es", enemies_spawned)
 		var enemy = enemy_path.instantiate()
 		add_child(enemy)
 		enemy.add_to_group("enemy")

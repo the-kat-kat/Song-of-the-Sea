@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://co6jyburghxre"]
+[gd_scene load_steps=19 format=3 uid="uid://co6jyburghxre"]
 
 [ext_resource type="Texture2D" uid="uid://bxanqmlswydr4" path="res://art/wave/wave1.png" id="1_563gt"]
 [ext_resource type="Texture2D" uid="uid://cceyfwnamkhlm" path="res://art/environment/sky.png" id="1_f64bx"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://j7rmvmf24072" path="res://art/wave/wave9.png" id="9_l5g45"]
 [ext_resource type="Texture2D" uid="uid://dtmbobn5d085f" path="res://art/wave/wave10.png" id="10_qfc6t"]
 [ext_resource type="Script" uid="uid://ci5d8n04mwvoj" path="res://scenes/wave.gd" id="11_qsxxp"]
+[ext_resource type="AudioStream" uid="uid://2eiki3mclfbh" path="res://audio/waves.mp3" id="13_vu2qk"]
+[ext_resource type="Texture2D" uid="uid://bxkvmnbl15foh" path="res://art/placeholder/cat.jpeg" id="14_i5x6w"]
+[ext_resource type="Script" uid="uid://vdk0w1tmwmak" path="res://scenes/wave_adio.gd" id="15_8ffel"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jkqav"]
 distance = 1.0
@@ -99,3 +102,19 @@ modulate = Color(1, 1, 1, 0.462745)
 position = Vector2(-6, 3013)
 scale = Vector2(1.99349, 1)
 texture = ExtResource("1_f64bx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -400)
+scale = Vector2(0.208824, 0.176471)
+texture = ExtResource("14_i5x6w")
+
+[node name="WaveAudio" type="AudioStreamPlayer2D" parent="Sprite2D"]
+position = Vector2(4.78873, -0.000244141)
+scale = Vector2(4.78873, 5.66667)
+stream = ExtResource("13_vu2qk")
+volume_db = -3.059
+autoplay = true
+max_distance = 539.0
+attenuation = 2.46229
+bus = &"sfx"
+script = ExtResource("15_8ffel")
