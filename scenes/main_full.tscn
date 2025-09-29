@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://ctrj7wnrv3kil"]
+[gd_scene load_steps=21 format=4 uid="uid://ctrj7wnrv3kil"]
 
 [ext_resource type="Script" uid="uid://bsyvhc4xlrfk3" path="res://scripts/main.gd" id="1_biknp"]
 [ext_resource type="Texture2D" uid="uid://bn50llk5gq115" path="res://art/environment/blobs/blob3.png" id="1_qgccg"]
@@ -10,6 +10,8 @@
 [ext_resource type="FontFile" uid="uid://bo5ne51gkjwi0" path="res://dialogue/fonts/AdabelleHandwriting-Regular.ttf" id="6_37pa6"]
 [ext_resource type="Texture2D" uid="uid://4fp0qmnhu7de" path="res://art/environment/jellies.png" id="6_y7clp"]
 [ext_resource type="Script" uid="uid://c3bindv088m03" path="res://scripts/enemyspawner.gd" id="8_biknp"]
+[ext_resource type="AudioStream" uid="uid://2eiki3mclfbh" path="res://audio/waves.mp3" id="10_yq0vf"]
+[ext_resource type="Script" uid="uid://vdk0w1tmwmak" path="res://scenes/wave_adio.gd" id="11_oaiiy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_biknp"]
 
@@ -3366,6 +3368,20 @@ script = ExtResource("8_biknp")
 
 [node name="Whale" parent="." instance=ExtResource("5_yc7d0")]
 position = Vector2(-344, -328)
+
+[node name="WaveAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -900)
+scale = Vector2(0.5, 0.5)
+stream = ExtResource("10_yq0vf")
+volume_db = -15.0
+autoplay = true
+max_distance = 1200.0
+attenuation = 2.2974
+panning_strength = 1.85
+bus = &"sfx"
+area_mask = 3
+parameters/looping = true
+script = ExtResource("11_oaiiy")
 
 [node name="Front" type="ParallaxBackground" parent="."]
 layer = 1

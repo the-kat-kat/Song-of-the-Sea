@@ -1,4 +1,4 @@
-res://main_menu.gd
+res://scenes/boundary_collisions.tscn
 res://scenes/test.tres
 res://ui/inside_bar.tres
 res://scenes/shaders/sway.gdshader
@@ -7,9 +7,5 @@ res://scenes/main.tscn
 res://scenes/main_full.tscn
 res://scenes/environment/enemy.tscn
 res://scenes/player/player.tscn
-res://scenes/ui.tscn
 res://scenes/bullet.tscn
-res://ui/slot.tscn
-res://scenes/main_menu.tscn
-res://scenes/boundary_collisions.tscn
 res://scenes/wave_adio.gd

@@ -44,9 +44,11 @@ var number_shots = 3.0
 var shoots_left = 3.0
 var shoot_delay = 3.0
 
+
 func _ready():
 	shoots_left = number_shots
 	shoot_delay = number_shots
+	print_debug("player", global_position)
 
 func _physics_process(delta: float) -> void:
 	
