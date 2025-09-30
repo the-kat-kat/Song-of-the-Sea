@@ -14,3 +14,5 @@ res://scripts/player.gd
 res://scripts/random_item.gd
 res://scripts/enemyspawner.gd
 res://scenes/bullet_bar.gd
+res://scripts/enemy.gd
+res://scenes/wave_adio.gd

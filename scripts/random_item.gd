@@ -4,18 +4,26 @@ extends StaticBody2D
 @export var type: String = ""
 
 const HAM = preload("res://ui/inventory/items/ham.tres")
-
+const CAT = preload("res://ui/inventory/items/cat.tres")
 
 var item: Item = null
 var just_spawned = true
 
 func _ready() -> void:
-	var random_number = str(randi_range(1,4))
-	item = HAM
+	randomize()
+	var random_number = str(randi_range(1,2))
 	match random_number:
-		1:
-			type = "ham"
-	animated_sprite.play(random_number)
+		"1":
+			type = "ham" 
+			item = HAM
+			animated_sprite.play("1")
+		"2":
+			type = "cat"
+			item = CAT
+			animated_sprite.play("2")
+		_:
+			print("unexpected random_number:", random_number)
+	print("item spawnerd", item)
 	await get_tree().create_timer(0.5).timeout
 	just_spawned = false
 

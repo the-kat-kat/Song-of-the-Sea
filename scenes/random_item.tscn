@@ -15,7 +15,7 @@ radius = 43.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_n541a")
+"texture": ExtResource("4_7rwk6")
 }],
 "loop": true,
 "name": &"1",
@@ -31,7 +31,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_7rwk6")
+"texture": ExtResource("2_n541a")
 }],
 "loop": true,
 "name": &"3",
@@ -57,4 +57,4 @@ shape = SubResource("CircleShape2D_v7qbb")
 position = Vector2(-3.8147e-06, 0)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_vu4ag")
-animation = &"4"
+animation = &"3"

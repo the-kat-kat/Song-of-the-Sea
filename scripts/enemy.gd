@@ -45,7 +45,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		print_debug("detected", area.name)
 		player_chase = true
 
 func _on_detection_area_area_exited(area: Area2D) -> void:
@@ -58,12 +57,10 @@ func die():
 
 func _on_bullet_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("bullet"):
-		print_debug("bullet")
 		body.queue_free()
 		health -= 50
 		health_bar.value = max(0, health)
 		if health<=0:
-			print_debug("died")
 			spawn_random_item()
 			die()
 			
