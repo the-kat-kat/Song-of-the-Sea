@@ -4,8 +4,7 @@ extends Node2D
 @export var enemy_array: Array[Node]
 @onready var enemy_spawner = get_tree().get_nodes_in_group("enemy_spawner")[0]
 
-func _ready():
-	Inventory.current_scene = self
+var currently_equipped: Item = null
 
 func get_enemy_array():
 	enemy_array = get_tree().get_nodes_in_group("enemy")

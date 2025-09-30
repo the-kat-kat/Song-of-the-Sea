@@ -11,7 +11,7 @@ var bullet_path = preload("res://scenes/bullet.tscn")
 @export var bgm: AudioStreamPlayer
 @export var firing_pos_array: Array[Node2D]
 @onready var heart_display: HBoxContainer = get_tree().get_nodes_in_group("hearts")[0]
-
+@onready var inventory: Control = get_tree().get_nodes_in_group("inventory")[0]
 
 @onready var playerAnim = $Sprite2D
 @onready var camera = $Camera2D
@@ -46,7 +46,6 @@ var shoot_delay = 3.0
 func _ready():
 	shoots_left = number_shots
 	shoot_delay = number_shots
-	print_debug("player", global_position)
 
 func _physics_process(delta: float) -> void:
 	
@@ -107,7 +106,6 @@ func _physics_process(delta: float) -> void:
 		var actionables = actionable_finder.get_overlapping_areas()
 		for actionable in actionables:
 				if actionable.has_method("action"):
-					print_debug(actionable.name)
 					actionable.action()
 			
 	if shoots_left < number_shots:
@@ -121,7 +119,6 @@ func _physics_process(delta: float) -> void:
 			
 	if Input.is_action_just_pressed("fire"):
 		if can_shoot:
-			print_debug("shots", shoots_left)
 			shoots_left -= 1
 			shoot_timer -= shoot_delay/number_shots
 			
@@ -137,7 +134,6 @@ func _on_actionable_finder_body_entered(body: Node2D) -> void:
 		touching_random_item(body)
 		
 	if body.is_in_group("enemy"):
-		print_debug("touching")
 		touching_enemy(body)
 
 func _on_actionable_finder_body_exited(body: Node2D) -> void:
@@ -157,4 +153,5 @@ func touching_enemy(body: Node2D):
 	
 func touching_random_item(body: Node2D):
 	if !body.just_spawned:
+		inventory.add_item(body.item)
 		body.queue_free()

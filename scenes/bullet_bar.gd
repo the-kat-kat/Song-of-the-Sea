@@ -7,7 +7,6 @@ var sb: StyleBoxFlat
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sb = get_theme_stylebox("fill")
-	print("p", player)
 	value = 0
 	sb.bg_color = Color("#91ffcf")
 

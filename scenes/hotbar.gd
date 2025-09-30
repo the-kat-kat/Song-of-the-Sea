@@ -18,9 +18,23 @@ var index = 0:
 			index = get_child_count() - 1
 		
 		currently_equipped = get_child(index).item
-		
+		queue_redraw()
+
+func _ready():
+	call_deferred("queue_redraw")
+	
 func _draw():
-	draw_rect(Rect2(get_child(index).position, get_child(index).size), Color.WHITE, false, 1)
+	if get_child_count() == 0:
+		return
+	var child = get_child(index)
+	var rect = child.get_global_rect()
+	rect.position = child.position
+	
+	var margin = 6.0
+	rect.position -= Vector2(margin, margin)
+	rect.size += Vector2(margin * 2.0, margin * 2.0)
+	
+	draw_rect(rect, Color.WHITE, false, 3) 
 	
 func _input(event):
 	if Input.is_action_just_pressed("q"):

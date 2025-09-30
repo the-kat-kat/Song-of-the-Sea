@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-Inventory="*res://scenes/inventory.tscn"
 
 [display]
 
@@ -38,6 +37,7 @@ texture_rect=""
 main=""
 random_item=""
 enemy_spawner=""
+inventory=""
 
 [input]
 

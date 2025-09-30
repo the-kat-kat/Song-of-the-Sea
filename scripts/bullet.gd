@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var firing_pos: Vector2
 var rota: float
-var speed = 400.0
+var speed = 300.0
 
 @onready var sprite = $Sprite2D
 
