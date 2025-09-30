@@ -23,3 +23,7 @@ res://scenes/environment/menu.tscn
 res://scenes/main_menu.tscn
 res://scenes/main_full_copy.tscn
 res://scenes/environment/whale.tscn
+res://scenes/hotbar.gd
+res://scenes/inventory.gd
+res://scenes/main.gd
+res://scripts/main.gd
