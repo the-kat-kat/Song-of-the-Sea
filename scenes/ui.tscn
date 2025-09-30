@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnotv4gkcasbw"]
+[gd_scene load_steps=6 format=3 uid="uid://dnotv4gkcasbw"]
 
 [ext_resource type="PackedScene" uid="uid://o08ql3nhny56" path="res://scenes/health_display.tscn" id="1_nt7q6"]
 [ext_resource type="Script" uid="uid://ck1gu7hng7yk" path="res://scenes/bullet_bar.gd" id="2_x4jx1"]
 [ext_resource type="StyleBox" uid="uid://0cje81sfp0ft" path="res://ui/inside_bar.tres" id="2_yev5y"]
-[ext_resource type="PackedScene" uid="uid://c0o5jup11m58w" path="res://ui/slot.tscn" id="5_8dubc"]
-[ext_resource type="Script" uid="uid://67fq3qfoqqph" path="res://ui/inventory/inventory_ui.gd" id="5_wm3ai"]
+[ext_resource type="PackedScene" uid="uid://bb545e5l5xd2p" path="res://scenes/inventory.tscn" id="4_gdt2y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4jx1"]
 bg_color = Color(1, 1, 1, 1)
@@ -39,42 +38,4 @@ fill_mode = 3
 show_percentage = false
 script = ExtResource("2_x4jx1")
 
-[node name="Inventory" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(20, 100)
-anchors_preset = -1
-anchor_left = 0.205
-anchor_top = 0.818
-anchor_right = 0.812
-anchor_bottom = 0.972
-offset_left = -0.160019
-offset_top = -0.0640259
-offset_right = 0.575928
-offset_bottom = 0.143982
-grow_vertical = 0
-theme_override_constants/separation = 16
-alignment = 1
-script = ExtResource("5_wm3ai")
-
-[node name="Slot" parent="Inventory" instance=ExtResource("5_8dubc")]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Slot2" parent="Inventory" instance=ExtResource("5_8dubc")]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Slot3" parent="Inventory" instance=ExtResource("5_8dubc")]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Slot4" parent="Inventory" instance=ExtResource("5_8dubc")]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Slot5" parent="Inventory" instance=ExtResource("5_8dubc")]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Slot6" parent="Inventory" instance=ExtResource("5_8dubc")]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="Inventory" parent="." instance=ExtResource("4_gdt2y")]

@@ -9,3 +9,17 @@ res://scenes/environment/enemy.tscn
 res://scenes/player/player.tscn
 res://scenes/bullet.tscn
 res://scenes/wave_adio.gd
+res://ui/inventory/items/Item.gd
+res://BlockData.gd
+res://slot.gd
+res://slot.tscn
+res://scenes/slot.tscn
+res://scenes/inventory.tscn
+res://ui/inventory/items/ham.tres
+res://scenes/ui.tscn
+res://ui/ui.tscn
+res://scripts/player.gd
+res://scenes/environment/menu.tscn
+res://scenes/main_menu.tscn
+res://scenes/main_full_copy.tscn
+res://scenes/environment/whale.tscn

@@ -70,6 +70,7 @@ animations = [{
 size = Vector2(50, 12)
 
 [node name="Bullet" type="CharacterBody2D" groups=["bullet"]]
+scale = Vector2(1.5, 1.5)
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_y25gk")

@@ -1,13 +1,13 @@
-extends Control
+extends Item
+class_name BlockData
 
-@onready var buttonWeird = $CanvasLayer/Button
+@export var tile_name:String
+@export var atlas_coords: Array[Vector2i] = []
+@export var source_id: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	buttonWeird.pressed.connect(_on_button_pressed)
-
-func _on_button_pressed():
-	print("Button was pressed!")
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

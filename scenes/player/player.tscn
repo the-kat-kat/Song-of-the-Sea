@@ -62,7 +62,7 @@ radius = 228.009
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("firing_pos_array", "audio_node", "actionable_finder", "actionable_finder_left", "actionable_finder_right", "collision_poly_left", "collision_poly_right") groups=["player"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_5gtgg")
-firing_pos_array = [NodePath("FiringPositionHolder/FiringPosition"), NodePath("FiringPositionHolder/FiringPosition2"), NodePath("FiringPositionHolder/FiringPosition3")]
+firing_pos_array = [NodePath("FiringPositionHolder/FiringPosition"), NodePath("FiringPositionHolder/FiringPosition2"), NodePath("FiringPositionHolder/FiringPosition3"), NodePath("FiringPositionHolder/FiringPosition4"), NodePath("FiringPositionHolder/FiringPosition5")]
 audio_node = NodePath("Bubbles")
 actionable_finder = NodePath("ActionableFinder")
 actionable_finder_left = NodePath("ActionableFinder/Area")
@@ -128,7 +128,7 @@ volume_db = -32.584
 [node name="FiringPositionHolder" type="Node2D" parent="."]
 
 [node name="FiringPosition" type="Node2D" parent="FiringPositionHolder"]
-position = Vector2(162, 0)
+position = Vector2(200, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="FiringPositionHolder/FiringPosition"]
 visible = false
@@ -149,6 +149,25 @@ position = Vector2(100, 172)
 rotation = 0.925025
 
 [node name="Sprite2D" type="Sprite2D" parent="FiringPositionHolder/FiringPosition3"]
+visible = false
+scale = Vector2(0.0837887, 0.078125)
+texture = ExtResource("12_fm80t")
+
+[node name="FiringPosition4" type="Node2D" parent="FiringPositionHolder"]
+position = Vector2(180, -160)
+rotation = 2.50804
+scale = Vector2(1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="FiringPositionHolder/FiringPosition4"]
+visible = false
+scale = Vector2(0.0837887, 0.078125)
+texture = ExtResource("12_fm80t")
+
+[node name="FiringPosition5" type="Node2D" parent="FiringPositionHolder"]
+position = Vector2(166, 88)
+rotation = 0.432842
+
+[node name="Sprite2D" type="Sprite2D" parent="FiringPositionHolder/FiringPosition5"]
 visible = false
 scale = Vector2(0.0837887, 0.078125)
 texture = ExtResource("12_fm80t")

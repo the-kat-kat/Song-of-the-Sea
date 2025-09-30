@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://d12j6ywq448v6"]
 
-[ext_resource type="Script" uid="uid://dpvxd28eaddni" path="res://random_item.gd" id="1_v7qbb"]
+[ext_resource type="Script" uid="uid://dpvxd28eaddni" path="res://scripts/random_item.gd" id="1_v7qbb"]
 [ext_resource type="Texture2D" uid="uid://bullfdxm7yfl5" path="res://art/placeholder/bunnycool.jpg" id="2_n541a"]
 [ext_resource type="Texture2D" uid="uid://bxkvmnbl15foh" path="res://art/placeholder/cat.jpeg" id="3_8b5vx"]
 [ext_resource type="Texture2D" uid="uid://b1a71agiwiqlr" path="res://art/placeholder/heart.jpg" id="4_7rwk6"]
