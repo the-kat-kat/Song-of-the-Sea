@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3 uid="uid://w3g3twtt5nau"]
+
+[ext_resource type="Texture2D" uid="uid://b4jlvjmfhg1le" path="res://art/placeholder/bloo.JPG" id="1_fixlf"]
+[ext_resource type="Script" uid="uid://cqi5l7xc1gclt" path="res://BlockData.gd" id="2_yb2qi"]
+
+[resource]
+script = ExtResource("2_yb2qi")
+tile_name = "default"
+atlas_coords = Array[Vector2i]([])
+source_id = 0
+title = "default"
+icon = ExtResource("1_fixlf")
+metadata/_custom_type_script = "uid://cqi5l7xc1gclt"

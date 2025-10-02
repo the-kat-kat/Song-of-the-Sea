@@ -26,11 +26,17 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	if touching_player:
-		health -=5
+		print("touching player")
+		velocity = velocity.normalized() * -250
+		print("vel:", velocity)
+		update_health(30)
 	
 	if player_chase && !touching_player:
+		print("chasing")
 		var direction = (player.global_position - global_position).normalized()
-		if velocity.length() == speed:
+		if velocity.length() != speed:
+			print("lerping")
+			print("vel:", velocity)
 			velocity = velocity.lerp(direction * speed, 0.8 * delta)
 		else:
 			velocity = direction * speed
@@ -58,11 +64,14 @@ func die():
 func _on_bullet_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("bullet"):
 		body.queue_free()
-		health -= 50
-		health_bar.value = max(0, health)
-		if health<=0:
-			spawn_random_item()
-			die()
+		update_health(50)
+
+func update_health(subtracted_value: float):
+	health -= subtracted_value
+	health_bar.value = max(0, health)
+	if health<=0:
+		spawn_random_item()
+		die()
 			
 func spawn_random_item():
 	var random_item = random_item_path.instantiate()

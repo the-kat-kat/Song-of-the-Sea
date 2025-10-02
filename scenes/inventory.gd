@@ -2,12 +2,15 @@ extends Control
 
 var current_scene
 
+const DEFAULT = preload("res://ui/inventory/items/default.tres")
+
 @export var hotbar: HBoxContainer
 @export var grid: GridContainer
 @onready var main = get_tree().get_nodes_in_group("main")[0]
 
 func _ready():
 	current_scene = main
+	hotbar.get_children()[0].item= DEFAULT
 
 func _on_hotbar_equip(item: Item) -> void:
 	if current_scene != null:

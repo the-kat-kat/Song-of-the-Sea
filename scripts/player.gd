@@ -117,8 +117,9 @@ func _physics_process(delta: float) -> void:
 			shoots_left = 0
 			can_shoot = false
 			
-	if Input.is_action_just_pressed("fire"):
-		if can_shoot:
+
+func fire():
+	if can_shoot:
 			shoots_left -= 1
 			shoot_timer -= shoot_delay/number_shots
 			
@@ -143,12 +144,12 @@ func _on_actionable_finder_body_exited(body: Node2D) -> void:
 	
 func touching_enemy(body: Node2D):
 	audio_node.play()
-	heart_display.take_damage()
+	heart_display.take_damage(0.2)
 	camera.start_shake(80.0, 1)
 
 	var away = (global_position - body.global_position).normalized()
 	velocity = away * bounce_force
-	body.velocity = -away * bounce_force
+	##body.velocity = -away * bounce_force
 	body.touching_player = true
 	
 func touching_random_item(body: Node2D):

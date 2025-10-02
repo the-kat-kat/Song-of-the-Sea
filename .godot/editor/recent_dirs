@@ -1,4 +1,5 @@
 res://ui/inventory/items
+res://scenes/player
 res://scenes
 res://
 /Users/henrysue/Godot/song-of-the-sea/build
@@ -7,4 +8,3 @@ res://ui
 res://scenes/singletons
 res://scenes/environment
 /Users/henrysue/Godot/song-of-the-sea
-res://scenes/player

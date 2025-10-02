@@ -23,8 +23,8 @@ func _process(delta: float) -> void:
 	pass
 	
 	
-func take_damage():
-	health -= 0.5
+func take_damage(damage: float):
+	health -= damage
 	for i in range(1, max_health+1):
 		if i <= health:
 			hearts[i-1].show()

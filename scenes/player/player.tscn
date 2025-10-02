@@ -156,7 +156,6 @@ texture = ExtResource("12_fm80t")
 [node name="FiringPosition4" type="Node2D" parent="FiringPositionHolder"]
 position = Vector2(180, -160)
 rotation = 2.50804
-scale = Vector2(1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="FiringPositionHolder/FiringPosition4"]
 visible = false

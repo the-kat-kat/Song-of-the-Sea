@@ -3,7 +3,7 @@ extends StaticBody2D
 @onready var animated_sprite = $Sprite2D
 @export var type: String = ""
 
-const HAM = preload("res://ui/inventory/items/ham.tres")
+const SHIELD = preload("res://ui/inventory/items/shield.tres")
 const CAT = preload("res://ui/inventory/items/cat.tres")
 
 var item: Item = null
@@ -14,8 +14,8 @@ func _ready() -> void:
 	var random_number = str(randi_range(1,2))
 	match random_number:
 		"1":
-			type = "ham" 
-			item = HAM
+			type = "shield" 
+			item = SHIELD
 			animated_sprite.play("1")
 		"2":
 			type = "cat"

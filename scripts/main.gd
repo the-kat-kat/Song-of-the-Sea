@@ -10,11 +10,9 @@ func get_enemy_array():
 	enemy_array = get_tree().get_nodes_in_group("enemy")
 
 func reset():
-	print("died")
 	for enemy in enemy_array:
 		if enemy:
 			enemy.queue_free()
 			enemy_spawner.enemies_spawned -= 1
 		player.global_position = Vector2(-443, -543)
-		print("main pos", player.global_position)
-	print(enemy_spawner.enemies_spawned)
+		

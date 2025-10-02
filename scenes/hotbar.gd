@@ -1,5 +1,10 @@
 extends HBoxContainer
 
+@onready var player = get_tree().get_nodes_in_group("player")[0]
+
+var shield_path = preload("res://scenes/player/shield.tscn")
+
+@export var shield_time = 1.0
 
 signal equip(item: Item)
 
@@ -43,9 +48,24 @@ func _input(event):
 		else:
 			index += 1
 		print(index)
-			
+	
+	if Input.is_action_just_pressed("fire"):
+		use_current()
+		
 func update():
 	currently_equipped = get_child(index).item
 
 func use_current():
+	print("ce", currently_equipped)
+	if currently_equipped == null || currently_equipped.title =="default":
+		player.fire()
+		return
 	get_child(index).amount -= 1
+	match currently_equipped.title:
+		"shield":
+			var new_shield = shield_path.instantiate()
+			player.add_child(new_shield)
+			await get_tree().create_timer(shield_time).timeout
+			new_shield.queue_free()
+		_:
+			print("unexpected ce title:", currently_equipped.title)
