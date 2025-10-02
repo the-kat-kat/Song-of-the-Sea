@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://dcydnjpgbxw3o"]
+
+[ext_resource type="Texture2D" uid="uid://b2wt3mqgby5ye" path="res://art/items/sparkles/s1.png" id="1_2pdx3"]
+[ext_resource type="Texture2D" uid="uid://oagoqsvkld07" path="res://art/items/sparkles/s2.png" id="2_w3u53"]
+[ext_resource type="Texture2D" uid="uid://bm07mknpsnrt3" path="res://art/items/sparkles/s3.png" id="3_whmth"]
+[ext_resource type="Texture2D" uid="uid://dde1d67ts74ir" path="res://art/items/sparkles/s4.png" id="4_gbgk7"]
+[ext_resource type="Texture2D" uid="uid://dggcp8t2d74p8" path="res://art/items/sparkles/s5.png" id="5_g6jin"]
+[ext_resource type="Texture2D" uid="uid://otfxhi0u568l" path="res://art/items/sparkles/s6.png" id="6_84g57"]
+[ext_resource type="Texture2D" uid="uid://bmc0kp6tqwhgx" path="res://art/items/sparkles/s7.png" id="7_s1n8w"]
+[ext_resource type="Script" uid="uid://cx61n205nukj5" path="res://scenes/sparkle.gd" id="8_k0x5y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_282gg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2pdx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_w3u53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_whmth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gbgk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g6jin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_84g57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_s1n8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_2pdx3")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="sparkle" type="AnimatedSprite2D"]
+scale = Vector2(1.2465, 1.06046)
+sprite_frames = SubResource("SpriteFrames_282gg")
+frame = 6
+frame_progress = 1.0
+script = ExtResource("8_k0x5y")

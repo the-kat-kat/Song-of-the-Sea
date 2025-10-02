@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfbmr1b8p0np2"]
+
+[ext_resource type="PackedScene" uid="uid://ctrj7wnrv3kil" path="res://scenes/main_full.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dnotv4gkcasbw" path="res://scenes/ui.tscn" id="4_tbgi4"]
+[ext_resource type="Shader" uid="uid://btedhdw4ym1am" path="res://scenes/shaders/sway.gdshader" id="7_85g3d"]
+[ext_resource type="AudioStream" uid="uid://bik31ypu3gsvs" path="res://audio/Brave New Ocean Loopable.mp3" id="8_ya4ey"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a8y0u"]
+shader = ExtResource("7_85g3d")
+shader_parameter/amplitude = 75.0
+shader_parameter/frequency = 1.0
+shader_parameter/speed = 1.0
+shader_parameter/strength = 0.5
+shader_parameter/ray_speed = 1.0
+shader_parameter/ray_density = 3.0
+shader_parameter/ray_width = 0.3
+shader_parameter/ray_slant = 0.5
+shader_parameter/ray_falloff = 1.0
+shader_parameter/ray_intensity = 0.5
+shader_parameter/ray_tint = Vector3(1, 1, 1)
+shader_parameter/ray_motion = 0.18
+shader_parameter/min_length = 0.001
+shader_parameter/max_length = 0.2
+shader_parameter/length_softness = 0.7
+shader_parameter/length_seed_offset = 5.0
+shader_parameter/debug_show_mask = false
+shader_parameter/tone = 4.75e-08
+shader_parameter/tint_color = Vector3(1, 0.6, 0.6)
+shader_parameter/tint_strength = 0.0
+shader_parameter/preserve_threshold = 0.92
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jyhfs"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Main" type="Node2D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="MainFull" parent="SubViewport" instance=ExtResource("2_tbgi4")]
+
+[node name="TextureRect" type="TextureRect" parent="." groups=["texture_rect"]]
+material = SubResource("ShaderMaterial_a8y0u")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("ViewportTexture_jyhfs")
+expand_mode = 2
+
+[node name="UI" parent="." instance=ExtResource("4_tbgi4")]
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ya4ey")
+volume_db = -20.0
+autoplay = true
+bus = &"music"
