@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dpvxd28eaddni" path="res://scripts/random_item.gd" id="1_v7qbb"]
 [ext_resource type="Texture2D" uid="uid://bullfdxm7yfl5" path="res://art/placeholder/bunnycool.jpg" id="2_n541a"]
-[ext_resource type="Texture2D" uid="uid://bxkvmnbl15foh" path="res://art/placeholder/cat.jpeg" id="3_8b5vx"]
-[ext_resource type="Texture2D" uid="uid://b1a71agiwiqlr" path="res://art/placeholder/heart.jpg" id="4_7rwk6"]
+[ext_resource type="Texture2D" uid="uid://cklj75fro146" path="res://art/items/shield_item2.png" id="2_v7qbb"]
+[ext_resource type="Texture2D" uid="uid://dl1nu4tk12pxq" path="res://art/items/dagger_item.png" id="3_n541a"]
 [ext_resource type="Texture2D" uid="uid://qmbnwe4r3bxn" path="res://art/placeholder/kit_yay.png" id="5_juxg1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v7qbb"]
@@ -15,7 +15,7 @@ radius = 43.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_7rwk6")
+"texture": ExtResource("2_v7qbb")
 }],
 "loop": true,
 "name": &"1",
@@ -23,7 +23,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_8b5vx")
+"texture": ExtResource("3_n541a")
 }],
 "loop": true,
 "name": &"2",
@@ -47,6 +47,7 @@ animations = [{
 }]
 
 [node name="RandomItem" type="StaticBody2D" groups=["random_item"]]
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_v7qbb")
 script = ExtResource("1_v7qbb")
 
@@ -55,6 +56,6 @@ shape = SubResource("CircleShape2D_v7qbb")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3.8147e-06, 0)
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_vu4ag")
-animation = &"3"
+animation = &"2"

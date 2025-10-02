@@ -24,7 +24,7 @@ func _ready() -> void:
 		_:
 			print("unexpected random_number:", random_number)
 	print("item spawnerd", item)
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.1).timeout
 	just_spawned = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

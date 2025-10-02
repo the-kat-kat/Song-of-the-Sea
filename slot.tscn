@@ -32,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 0.994
 offset_bottom = 0.599998
 expand_mode = 2
+stretch_mode = 5
 
 [node name="Amount" type="Label" parent="."]
 layout_mode = 1

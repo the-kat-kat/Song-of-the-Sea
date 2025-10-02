@@ -156,3 +156,7 @@ func touching_random_item(body: Node2D):
 	if !body.just_spawned:
 		inventory.add_item(body.item)
 		body.queue_free()
+	else:
+		await get_tree().create_timer(0.1).timeout
+		inventory.add_item(body.item)
+		body.queue_free()

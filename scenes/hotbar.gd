@@ -1,10 +1,11 @@
 extends HBoxContainer
 
 @onready var player = get_tree().get_nodes_in_group("player")[0]
-
+@onready var outline = get_parent().get_node("Outline")
 var shield_path = preload("res://scenes/player/shield.tscn")
+var dagger_path = preload("res://scenes/player/dagger.tscn")
 
-@export var shield_time = 1.0
+@export var shield_time = 3.0
 
 signal equip(item: Item)
 
@@ -32,14 +33,7 @@ func _draw():
 	if get_child_count() == 0:
 		return
 	var child = get_child(index)
-	var rect = child.get_global_rect()
-	rect.position = child.position
-	
-	var margin = 6.0
-	rect.position -= Vector2(margin, margin)
-	rect.size += Vector2(margin * 2.0, margin * 2.0)
-	
-	draw_rect(rect, Color.WHITE, false, 3) 
+	outline.global_position = child.global_position + Vector2(-7.5, -7.5)
 	
 func _input(event):
 	if Input.is_action_just_pressed("q"):
@@ -69,6 +63,16 @@ func use_current():
 				player.add_child(new_shield)
 				await get_tree().create_timer(shield_time).timeout
 				new_shield.queue_free()
+			"dagger":
+				var new_dagger = dagger_path.instantiate()
+				player.add_child(new_dagger)
+				if !player.playerAnim.flip_h:
+					new_dagger.position.x = 300
+					new_dagger.direction = Vector2(1,0)
+				else:
+					new_dagger.position.x = -300
+					new_dagger.direction = Vector2(-1,0)
+				new_dagger.shoot()
 			_:
 				print("unexpected ce title:", currently_equipped.title)
 				

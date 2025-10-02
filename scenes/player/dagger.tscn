@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cor8leicpvj8v"]
+
+[ext_resource type="Script" uid="uid://cbhli75hx287s" path="res://ui/inventory/items/dagger.gd" id="1_6epll"]
+[ext_resource type="Texture2D" uid="uid://dl1nu4tk12pxq" path="res://art/items/dagger_item.png" id="1_ajsc0"]
+
+[node name="dagger" type="CharacterBody2D" groups=["bullet"]]
+position = Vector2(300, 0)
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_6epll")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-84, 5, -23, -23, 26, -35, 101, -3, 31, 40, -52, 23)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ajsc0")
