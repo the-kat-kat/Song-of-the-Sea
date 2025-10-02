@@ -31,7 +31,7 @@ var cooldown_timer := 0.0
 var last_move_direction: Vector2 = Vector2.RIGHT
 var last_dir := 1
 
-var bounce_force = 1000.0
+var bounce_force = 700.0
 var invulnerable := false
 var invuln_time := 0.25
 var invuln_timer := 0.0
@@ -144,7 +144,7 @@ func _on_actionable_finder_body_exited(body: Node2D) -> void:
 	
 func touching_enemy(body: Node2D):
 	audio_node.play()
-	heart_display.take_damage(0.2)
+	heart_display.take_damage(0.5)
 	camera.start_shake(80.0, 1)
 
 	var away = (global_position - body.global_position).normalized()

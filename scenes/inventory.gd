@@ -26,3 +26,9 @@ func add_item(item: Item, amount: int = 1):
 		elif slot.item == item:
 			slot.add_amount(1)
 			return
+			
+func clear():
+	for slot in hotbar.get_children():
+		if slot.item != null && slot.item.title != "default":
+			slot.item = null
+	hotbar.index = 0

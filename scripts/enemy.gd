@@ -9,39 +9,52 @@ var active = true
 var enemy_spawner: Node2D
 
 @onready var player = get_tree().get_nodes_in_group("player")[0]
+@onready var enemyAnim = $AnimatedSprite2D
 @export var max_health = 100
 
 @onready var health_bar = $ProgressBar
 
 var touching_player = false
 
+var drift_direction := Vector2.ZERO
+var drift_timer := 0.0
+var drift_interval := 5.0
+
 func _ready():
 	enemy_spawner = get_tree().get_nodes_in_group("enemy_spawner")[0]
 	health_bar.max_value = max_health
 	health_bar.value = max_health
 	health = max_health
+	#change color
+	var r = randf_range(180, 250)
+	var g = randf_range(180, 250)
+	var b = randf_range(180, 250)
+
+	enemyAnim.modulate = Color.from_rgba8(r, g, b)
+	#change speed
+	enemyAnim.speed_scale= randf_range(0.8, 1.2)
+	enemyAnim.play()
 
 func _physics_process(delta: float) -> void:
 	if not active:
 		return
 		
 	if touching_player:
-		print("touching player")
 		velocity = velocity.normalized() * -250
-		print("vel:", velocity)
 		update_health(30)
 	
 	if player_chase && !touching_player:
-		print("chasing")
 		var direction = (player.global_position - global_position).normalized()
 		if velocity.length() != speed:
-			print("lerping")
-			print("vel:", velocity)
-			velocity = velocity.lerp(direction * speed, 0.8 * delta)
+			velocity = velocity.lerp(direction * speed, 1.2 * delta)
 		else:
 			velocity = direction * speed
-	elif velocity.length() > 0:
-		velocity = velocity.lerp(Vector2.ZERO, 0.8 * delta)
+	elif !player_chase && !touching_player:
+		drift_timer -= delta
+		if drift_timer <= 0.0:
+			drift_timer = drift_interval
+			drift_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized() * randf_range(50, 100)
+		velocity = velocity.lerp(drift_direction, 0.5 * delta)
 		
 	if velocity.length() > speed:
 		velocity = -velocity.normalized()* speed * 0.5

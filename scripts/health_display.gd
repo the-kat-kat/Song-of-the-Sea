@@ -4,6 +4,7 @@ var max_health = 3.0
 var health = 3.0
 
 @onready var hearts = get_children()
+@onready var label = $TextureRect/Label
 
 @onready var main: Node2D
 
@@ -20,7 +21,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	label.text = str(health)
 	
 	
 func take_damage(damage: float):
@@ -30,7 +31,7 @@ func take_damage(damage: float):
 			hearts[i-1].show()
 		else:
 			hearts[i-1].hide()
-	if(health == 0):
+	if(health <= 0):
 		main.reset()
 		health = max_health
 		for i in range(1, max_health+1):

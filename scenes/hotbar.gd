@@ -60,12 +60,18 @@ func use_current():
 	if currently_equipped == null || currently_equipped.title =="default":
 		player.fire()
 		return
-	get_child(index).amount -= 1
-	match currently_equipped.title:
-		"shield":
-			var new_shield = shield_path.instantiate()
-			player.add_child(new_shield)
-			await get_tree().create_timer(shield_time).timeout
-			new_shield.queue_free()
-		_:
-			print("unexpected ce title:", currently_equipped.title)
+		
+	if get_child(index).amount>0:
+		get_child(index).amount -= 1
+		match currently_equipped.title:
+			"shield":
+				var new_shield = shield_path.instantiate()
+				player.add_child(new_shield)
+				await get_tree().create_timer(shield_time).timeout
+				new_shield.queue_free()
+			_:
+				print("unexpected ce title:", currently_equipped.title)
+				
+		if get_child(index).amount <= 0:
+			index -=1
+			get_child(index+1).item = null

@@ -20,6 +20,15 @@ layout_mode = 2
 texture = ExtResource("2_7k5t6")
 expand_mode = 2
 
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 2
+anchor_left = 4.05
+anchor_right = 6.644
+anchor_bottom = 1.15
+offset_right = -1.88
+theme_override_font_sizes/font_size = 40
+text = "health"
+
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("3_cerh6")
