@@ -1,25 +1,51 @@
 extends Area2D
 
-@export var tunnel_exit: NodePath
+@export var path_node: NodePath
 @export var travel_time: float = 1.5
-@export var rotate= 15.2
-@onready var exit_node = get_parent().get_node("ExitNode")
+@export var rotate: float = 15.2
+var _pending_state := {}
 
 func _on_body_entered(body):
-	if body.is_in_group("player"): 
-		body.movement_locked = true
-		print(body)
-		print("tunnel entered!")
-		body.gravity = false
-		var start_pos = body.global_position
-		var end_pos = exit_node.global_position
-		var start_rot = body.rotation
-		rotate *= PI
-		print("rotate,", rotate)
-
-		var tween = create_tween()
-		tween.tween_property(body, "global_position", end_pos, travel_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		tween.parallel().tween_property(body, "rotation", start_rot + rotate, travel_time).set_trans(Tween.TRANS_LINEAR)
-		body.rotate = -rotate
-		body.movement_locked = false
+	if not body.is_in_group("player"):
+		return
+	
+	body.input_locked = true
 		
+	var path2d = get_node_or_null(path_node) as Path2D
+	if not path2d or not path2d.curve:
+		push_error("Path2D or Curve2D not found")
+		return
+	
+	_pending_state.body = body
+	_pending_state.curve = path2d.curve
+	_pending_state.t = 0.0
+	_pending_state.path2d = path2d
+	_pending_state.travel_time = travel_time
+	_pending_state.rotate = rotate
+	_pending_state.moving = true
+
+func _physics_process(delta):
+	if not _pending_state.get("moving", false):
+		return
+	
+	var body = _pending_state.body
+	var curve = _pending_state.curve
+	var path2d = _pending_state.path2d
+	var t = _pending_state.t
+	var travel_time = _pending_state.travel_time
+	var rotate = _pending_state.rotate
+	
+	t += delta / travel_time
+	if t >= 1.0:
+		t = 1.0
+		_pending_state.moving = false
+		body.input_locked = false
+	
+	_pending_state.t = t
+	
+	var distance = t * curve.get_baked_length()
+	var result = curve.sample_baked_with_rotation(distance)
+	
+	body.global_position = path2d.to_global(result.origin)
+	body.global_rotation = rotate * t
+	body.rotate = rotate

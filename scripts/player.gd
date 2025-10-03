@@ -77,7 +77,6 @@ func _physics_process(delta: float) -> void:
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	).normalized()
 	
-	input_vector = input_vector.rotated(rotate)
 
 	if input_vector != Vector2.ZERO:
 		last_move_direction = input_vector
@@ -89,7 +88,8 @@ func _physics_process(delta: float) -> void:
 		var dash_dir := input_vector if input_vector != Vector2.ZERO else last_move_direction
 		dash_timer = dash_time
 		cooldown_timer = dash_cooldown
-		velocity = dash_dir * dash_speed
+		var pre_rotate = dash_dir * dash_speed
+		velocity = pre_rotate.rotated(rotate)
 
 	if is_dashing:
 		dash_timer -= delta
@@ -120,6 +120,8 @@ func _physics_process(delta: float) -> void:
 		
 	if gravity:
 		input_vector.y += 0.1
+	
+	input_vector = input_vector.rotated(rotate)
 	velocity = velocity.lerp(input_vector * speed, water_resistance * delta)
 
 	if cooldown_timer > 0.0:
