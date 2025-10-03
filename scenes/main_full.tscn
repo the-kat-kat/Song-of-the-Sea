@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://ctrj7wnrv3kil"]
+[gd_scene load_steps=25 format=4 uid="uid://ctrj7wnrv3kil"]
 
 [ext_resource type="Script" uid="uid://bsyvhc4xlrfk3" path="res://scripts/main.gd" id="1_biknp"]
 [ext_resource type="Texture2D" uid="uid://bn50llk5gq115" path="res://art/environment/blobs/blob3.png" id="1_qgccg"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://4fp0qmnhu7de" path="res://art/environment/jellies.png" id="6_y7clp"]
 [ext_resource type="PackedScene" uid="uid://bok5465lpn3wk" path="res://scenes/environment/enemy.tscn" id="7_vhbye"]
 [ext_resource type="Script" uid="uid://c3bindv088m03" path="res://scripts/enemyspawner.gd" id="8_biknp"]
+[ext_resource type="Resource" uid="uid://b4k2pemnelcur" path="res://dialogue/whale.dialogue" id="9_55v7u"]
+[ext_resource type="Resource" uid="uid://c8sateb28ei0i" path="res://whale2.dialogue" id="10_tuhyb"]
 [ext_resource type="AudioStream" uid="uid://2eiki3mclfbh" path="res://audio/waves.mp3" id="10_yq0vf"]
 [ext_resource type="Script" uid="uid://vdk0w1tmwmak" path="res://scenes/wave_adio.gd" id="11_oaiiy"]
 [ext_resource type="Script" uid="uid://ci64r51is4oqc" path="res://scenes/sparkler_spawner.gd" id="13_loh53"]
@@ -3359,9 +3361,21 @@ script = ExtResource("8_biknp")
 [node name="Enemy" parent="EnemySpawner" instance=ExtResource("7_vhbye")]
 position = Vector2(-116, 526)
 
+[node name="Enemy2" parent="EnemySpawner" instance=ExtResource("7_vhbye")]
+position = Vector2(412, 247)
+
+[node name="Enemy3" parent="EnemySpawner" instance=ExtResource("7_vhbye")]
+position = Vector2(-588, 194)
+
 [node name="Whale" parent="." instance=ExtResource("5_yc7d0")]
 position = Vector2(-344, -328)
 scale = Vector2(0.5, 0.5)
+dialogue_resource = ExtResource("9_55v7u")
+
+[node name="Whale2" parent="." instance=ExtResource("5_yc7d0")]
+position = Vector2(2309, -707)
+scale = Vector2(-0.5, 0.5)
+dialogue_resource = ExtResource("10_tuhyb")
 
 [node name="WaveAudio" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, -900)

@@ -19,3 +19,5 @@ res://scripts/player.gd
 res://scripts/actionable.gd
 res://addons/dialogue_manager/dialogue_label.tscn
 res://scenes/hotbar.gd
+res://ui/white_box.tres
+res://scripts/whale.gd

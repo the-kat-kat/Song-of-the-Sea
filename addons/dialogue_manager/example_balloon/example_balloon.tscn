@@ -113,6 +113,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_kmygl")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer"]
 layout_mode = 2
+theme_override_constants/margin_top = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
@@ -125,7 +126,7 @@ mouse_filter = 1
 theme_override_colors/default_color = Color(0.189647, 0.635826, 0.741466, 1)
 theme_override_colors/font_selected_color = Color(0.222856, 0.45771, 0.504146, 1)
 theme_override_fonts/normal_font = ExtResource("2_nlsx6")
-theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -138,7 +139,7 @@ size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.189647, 0.635826, 0.741466, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_nlsx6")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 50
 text = "Dialogue..."
 
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]
@@ -169,6 +170,7 @@ theme_override_colors/font_hover_color = Color(0.189647, 0.635826, 0.741466, 1)
 theme_override_colors/font_color = Color(0.189647, 0.635826, 0.741466, 1)
 theme_override_colors/font_focus_color = Color(0.189647, 0.635826, 0.741466, 1)
 theme_override_colors/font_pressed_color = Color(0.189647, 0.635826, 0.741466, 1)
+theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = ExtResource("5_1337t")
 theme_override_styles/pressed = ExtResource("5_1337t")
 theme_override_styles/normal = ExtResource("5_1337t")
