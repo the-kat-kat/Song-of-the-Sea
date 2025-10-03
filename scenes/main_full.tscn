@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://ctrj7wnrv3kil"]
+[gd_scene load_steps=23 format=4 uid="uid://ctrj7wnrv3kil"]
 
 [ext_resource type="Script" uid="uid://bsyvhc4xlrfk3" path="res://scripts/main.gd" id="1_biknp"]
 [ext_resource type="Texture2D" uid="uid://bn50llk5gq115" path="res://art/environment/blobs/blob3.png" id="1_qgccg"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cy5vpdxiqjn7x" path="res://scenes/environment/whale.tscn" id="5_yc7d0"]
 [ext_resource type="FontFile" uid="uid://bo5ne51gkjwi0" path="res://dialogue/fonts/AdabelleHandwriting-Regular.ttf" id="6_37pa6"]
 [ext_resource type="Texture2D" uid="uid://4fp0qmnhu7de" path="res://art/environment/jellies.png" id="6_y7clp"]
+[ext_resource type="PackedScene" uid="uid://bok5465lpn3wk" path="res://scenes/environment/enemy.tscn" id="7_vhbye"]
 [ext_resource type="Script" uid="uid://c3bindv088m03" path="res://scripts/enemyspawner.gd" id="8_biknp"]
 [ext_resource type="AudioStream" uid="uid://2eiki3mclfbh" path="res://audio/waves.mp3" id="10_yq0vf"]
 [ext_resource type="Script" uid="uid://vdk0w1tmwmak" path="res://scenes/wave_adio.gd" id="11_oaiiy"]
@@ -2476,14 +2477,6 @@ tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetAtlasSource_4k05o")
 sources/2 = SubResource("TileSetAtlasSource_yc7d0")
 
-[sub_resource type="Theme" id="Theme_qse01"]
-default_font = ExtResource("6_37pa6")
-default_font_size = 40
-/font_sizes/default = 40
-/fonts/font = ExtResource("6_37pa6")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6clf"]
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_37pa6"]
 texture = ExtResource("6_y7clp")
 12:1/0 = 0
@@ -3292,6 +3285,14 @@ texture = ExtResource("6_y7clp")
 [sub_resource type="TileSet" id="TileSet_4k05o"]
 sources/0 = SubResource("TileSetAtlasSource_37pa6")
 
+[sub_resource type="Theme" id="Theme_qse01"]
+default_font = ExtResource("6_37pa6")
+default_font_size = 40
+/font_sizes/default = 40
+/fonts/font = ExtResource("6_37pa6")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6clf"]
+
 [node name="MainFull" type="Node2D" groups=["main"]]
 script = ExtResource("1_biknp")
 
@@ -3320,7 +3321,7 @@ scale = Vector2(2.77199, 3.32428)
 polygon = PackedVector2Array(-124.732, 20.0232, -24.0822, 199.912, 356.15, 252.555, 482.052, 282.035, 637.536, 403.565, 909.543, 414.094, 1107.96, 305.499, 1299.88, 194.196, 1378.88, -30.5142, 1475.56, -202.281, 1577.65, -205.891, 1478.45, 58.8286, 1301.68, 396.045, 864.81, 475.762, 333.062, 458.916, -90.4605, 256.165, -221.413, 77.4793, -210.591, -217.923, -85.7708, -192.354)
 
 [node name="EnemyPlace" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(719, -808, 806, -9, 976, 132, 1400, 152, 1348, 75, 1387, -61, 1529, -116, 1674, -41, 1750, 192, 1972, 48, 1891, -296, 1562, -497, 1325, -760, 1018, -978)
+polygon = PackedVector2Array(719, -808, 806, -9, 976, 132, 1343, 229, 1281, 75, 1330, -90, 1475, -190, 1715, -100, 1750, 192, 1972, 48, 1891, -296, 1562, -497, 1325, -760, 1018, -978)
 
 [node name="Back" type="ParallaxBackground" parent="."]
 layer = -50
@@ -3349,29 +3350,18 @@ tile_map_data = PackedByteArray("AADn/wAAAgABACYAAADo//z/AgACACIAAADo//3/AgACACM
 tile_set = ExtResource("2_y7clp")
 
 [node name="Player" parent="." instance=ExtResource("3_sv6s2")]
-position = Vector2(-443, -543)
-
-[node name="TextEdit" type="TextEdit" parent="."]
-z_index = 200
-offset_left = -502.0
-offset_top = -886.0
-offset_right = -261.0
-offset_bottom = -684.0
-theme = SubResource("Theme_qse01")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_y6clf")
-text = "WASD - Move
-E - Interact
-X - Dash
-Space - Shoot"
-metadata/_edit_use_anchors_ = true
+position = Vector2(-612, -556)
 
 [node name="EnemySpawner" type="Node2D" parent="." groups=["enemy_spawner"]]
 position = Vector2(1550, 100)
 script = ExtResource("8_biknp")
 
+[node name="Enemy" parent="EnemySpawner" instance=ExtResource("7_vhbye")]
+position = Vector2(-116, 526)
+
 [node name="Whale" parent="." instance=ExtResource("5_yc7d0")]
 position = Vector2(-344, -328)
+scale = Vector2(0.5, 0.5)
 
 [node name="WaveAudio" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, -900)
@@ -3421,3 +3411,64 @@ position = Vector2(15, -630)
 [node name="sparkler_spawner" type="Node2D" parent="."]
 script = ExtResource("13_loh53")
 sparkle_count = 30
+
+[node name="text" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="talk" type="TextEdit" parent="text"]
+z_index = 200
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.625
+anchor_top = -0.1
+anchor_right = 2.525
+anchor_bottom = 0.45
+offset_left = -161.0
+offset_top = -573.0
+offset_right = 80.0
+offset_bottom = -473.0
+theme = SubResource("Theme_qse01")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y6clf")
+text = "Talk to the whale! 
+(Press E)"
+metadata/_edit_use_anchors_ = true
+
+[node name="welcome" type="TextEdit" parent="text"]
+z_index = 200
+layout_mode = 0
+offset_left = -611.0
+offset_top = -772.0
+offset_right = -370.0
+offset_bottom = -672.0
+theme = SubResource("Theme_qse01")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y6clf")
+text = "WASD - Move
+E - Interact"
+metadata/_edit_use_anchors_ = true
+
+[node name="talk2" type="TextEdit" parent="text"]
+z_index = 200
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 13.675
+anchor_top = 20.4
+anchor_right = 13.675
+anchor_bottom = 20.4
+offset_left = -161.0
+offset_top = -573.0
+offset_right = 139.0
+offset_bottom = -373.0
+theme = SubResource("Theme_qse01")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y6clf")
+text = "Remember:
+SPACE to shoot
+X to dash
+q for inventory"
+metadata/_edit_use_anchors_ = true

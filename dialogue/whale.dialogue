@@ -1,10 +1,18 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], I'm a whale~
-Nathan: Are you feeling whale today?
+Blue: Hello, who are you?
+Blue: Kai? That's a nice name :>
+Blue: Why am I here alone? Well, I got seperated from my pod during the storm and I can't back to them.
+Blue: I tried getting past the rock formation on the right but the wobs kept on attacking me. They may look cute :3 but they can actually be deadly. 
+Blue: Could you help lead the way past the rock formation? I'm scared of going alone ;-;
 - Yess
-	Nathan: I'm doing whale as whale!
-- what??
-	Nathan: aww did you not like my pun :(
-Nathan: Anyways, there are some weird blobs around here. You can kill them by shooting them :>
-Nathan: PS If the game seems random its because I've only developed like half the mechanics :')
+	Blue: Thank you so much!
+- nah
+	Blue: Aw do you not like me.
+	Blue: Well you've got to help me just this once :> (maybe more actually)
+Blue: By the way, you can press SPACE to shoot.
+Blue: Press q to switch items in inventory. Your first item and all empty slots will by default allow you to shoot!
+Blue: The wobs are pretty fast so use X to dash.
+Blue: Good luck!
 => END
+
+~ reached_end

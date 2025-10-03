@@ -12,3 +12,10 @@ res://scenes/bullet.tscn
 res://scenes/player/shield.tscn
 res://scenes/health_display.tscn
 res://scripts/enemy.gd
+res://scenes/environment/whale.tscn
+res://scenes/boundary_collisions.tscn
+res://addons/dialogue_manager/example_balloon/example_balloon.tscn
+res://scripts/player.gd
+res://scripts/actionable.gd
+res://addons/dialogue_manager/dialogue_label.tscn
+res://scenes/hotbar.gd

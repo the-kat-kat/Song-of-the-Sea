@@ -6,9 +6,10 @@
 script = ExtResource("1_2e2yd")
 using_states = PackedStringArray()
 titles = {
+"reached_end": "19",
 "start": "1"
 }
-character_names = PackedStringArray("Nathan")
+character_names = PackedStringArray("Blue")
 first_title = "0"
 lines = {
 "0": {
@@ -17,83 +18,149 @@ lines = {
 &"type": "title"
 },
 "1": {
-&"character": "Nathan",
+&"character": "Blue",
 &"id": "1",
 &"next_id": "2",
-&"text": "[[Hi|Hello|Howdy]], I'm a whale~",
+&"text": "Hello, who are you?",
 &"type": "dialogue"
 },
 "10": {
+&"character": "Blue",
 &"id": "10",
+&"next_id": "11",
+&"text": "Well you've got to help me just this once :> (maybe more actually)",
+&"type": "dialogue"
+},
+"11": {
+&"character": "Blue",
+&"id": "11",
+&"next_id": "12",
+&"text": "By the way, you can press SPACE to shoot.",
+&"type": "dialogue"
+},
+"12": {
+&"character": "Blue",
+&"id": "12",
+&"next_id": "13",
+&"text": "Press q to switch items in inventory. Your first item and all empty slots will by default allow you to shoot!",
+&"type": "dialogue"
+},
+"13": {
+&"character": "Blue",
+&"id": "13",
+&"next_id": "14",
+&"text": "The wobs are pretty fast so use X to dash.",
+&"type": "dialogue"
+},
+"14": {
+&"character": "Blue",
+&"id": "14",
+&"next_id": "15",
+&"text": "Good luck!",
+&"type": "dialogue"
+},
+"15": {
+&"id": "15",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"16": {
+&"id": "16",
+&"next_id": "17",
+&"type": ""
+},
+"17": {
+&"id": "17",
+&"next_id": "19",
+&"type": "title"
+},
+"18": {
+&"id": "18",
+&"next_id": "19",
+&"type": ""
+},
+"19": {
+&"id": "19",
 &"is_snippet": false,
 &"next_id": "end",
 &"next_id_after": "",
 &"type": "goto"
 },
 "2": {
-&"character": "Nathan",
+&"character": "Blue",
 &"id": "2",
 &"next_id": "3",
-&"text": "Are you feeling whale today?",
+&"text": "Kai? That's a nice name :>",
 &"type": "dialogue"
 },
 "3": {
+&"character": "Blue",
 &"id": "3",
 &"next_id": "4",
-&"responses": PackedStringArray("3", "5"),
-&"text": "Yess",
-&"type": "response"
+&"text": "Why am I here alone? Well, I got seperated from my pod during the storm and I can't back to them.",
+&"type": "dialogue"
 },
 "4": {
-&"character": "Nathan",
+&"character": "Blue",
 &"id": "4",
-&"next_id": "7",
-&"text": "I'm doing whale as whale!",
+&"next_id": "5",
+&"text": "I tried getting past the rock formation on the right but the wobs kept on attacking me. They may look cute :3 but they can actually be deadly.",
 &"type": "dialogue"
 },
 "5": {
+&"character": "Blue",
 &"id": "5",
 &"next_id": "6",
-&"text": "what??",
-&"type": "response"
-},
-"6": {
-&"character": "Nathan",
-&"id": "6",
-&"next_id": "7",
-&"text": "aww did you not like my pun :(",
+&"text": "Could you help lead the way past the rock formation? I'm scared of going alone ;-;",
 &"type": "dialogue"
 },
+"6": {
+&"id": "6",
+&"next_id": "7",
+&"responses": PackedStringArray("6", "8"),
+&"text": "Yess",
+&"type": "response"
+},
 "7": {
-&"character": "Nathan",
+&"character": "Blue",
 &"id": "7",
-&"next_id": "8",
-&"text": "Anyways, there are some weird blobs around here. You can kill them by shooting them :>",
+&"next_id": "11",
+&"text": "Thank you so much!",
 &"type": "dialogue"
 },
 "8": {
-&"character": "Nathan",
 &"id": "8",
 &"next_id": "9",
-&"text": "PS If the game seems random its because I've only developed like half the mechanics :')",
-&"type": "dialogue"
+&"text": "nah",
+&"type": "response"
 },
 "9": {
+&"character": "Blue",
 &"id": "9",
-&"is_snippet": false,
-&"next_id": "end",
-&"next_id_after": "",
-&"type": "goto"
+&"next_id": "10",
+&"text": "Aw do you not like me.",
+&"type": "dialogue"
 }
 }
 raw_text = "~ start
-Nathan: [[Hi|Hello|Howdy]], I'm a whale~
-Nathan: Are you feeling whale today?
+Blue: Hello, who are you?
+Blue: Kai? That's a nice name :>
+Blue: Why am I here alone? Well, I got seperated from my pod during the storm and I can't back to them.
+Blue: I tried getting past the rock formation on the right but the wobs kept on attacking me. They may look cute :3 but they can actually be deadly. 
+Blue: Could you help lead the way past the rock formation? I'm scared of going alone ;-;
 - Yess
-	Nathan: I'm doing whale as whale!
-- what??
-	Nathan: aww did you not like my pun :(
-Nathan: Anyways, there are some weird blobs around here. You can kill them by shooting them :>
-Nathan: PS If the game seems random its because I've only developed like half the mechanics :')
-=> END"
+	Blue: Thank you so much!
+- nah
+	Blue: Aw do you not like me.
+	Blue: Well you've got to help me just this once :> (maybe more actually)
+Blue: By the way, you can press SPACE to shoot.
+Blue: Press q to switch items in inventory. Your first item and all empty slots will by default allow you to shoot!
+Blue: The wobs are pretty fast so use X to dash.
+Blue: Good luck!
+=> END
+
+~ reached_end
+"
 metadata/dialogue_manager_version = "3.7.1"

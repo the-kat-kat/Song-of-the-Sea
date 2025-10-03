@@ -36,7 +36,7 @@ func _ready():
 	enemyAnim.play()
 
 func _physics_process(delta: float) -> void:
-	if not active:
+	if not active || player.in_dialogue:
 		return
 		
 	if touching_player:

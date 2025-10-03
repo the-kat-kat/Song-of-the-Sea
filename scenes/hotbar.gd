@@ -50,7 +50,6 @@ func update():
 	currently_equipped = get_child(index).item
 
 func use_current():
-	print("ce", currently_equipped)
 	if currently_equipped == null || currently_equipped.title =="default":
 		player.fire()
 		return

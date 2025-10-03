@@ -42,12 +42,24 @@ var number_shots = 3.0
 var shoots_left = 3.0
 var shoot_delay = 3.0
 
+var in_dialogue = false
+
 
 func _ready():
 	shoots_left = number_shots
 	shoot_delay = number_shots
 
 func _physics_process(delta: float) -> void:
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		var actionables = actionable_finder.get_overlapping_areas()
+		for actionable in actionables:
+				if actionable.has_method("action"):
+					actionable.action()
+					
+	if in_dialogue:
+		velocity = Vector2.ZERO
+		return
 	
 	if velocity.length() > bounce_force:
 		velocity = velocity.normalized() * bounce_force
@@ -104,12 +116,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		var actionables = actionable_finder.get_overlapping_areas()
-		for actionable in actionables:
-				if actionable.has_method("action"):
-					actionable.action()
 			
 	if shoots_left < number_shots:
 		shoot_timer += delta
