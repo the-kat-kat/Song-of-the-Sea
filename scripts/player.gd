@@ -44,13 +44,21 @@ var shoot_delay = 3.0
 
 var in_dialogue = false
 
+var gravity = true
+var rotate = 0.0
+var input_locked = false
+
 
 func _ready():
 	shoots_left = number_shots
 	shoot_delay = number_shots
 
 func _physics_process(delta: float) -> void:
-	
+	if input_locked:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+		
 	if Input.is_action_just_pressed("ui_accept"):
 		var actionables = actionable_finder.get_overlapping_areas()
 		for actionable in actionables:
@@ -68,6 +76,8 @@ func _physics_process(delta: float) -> void:
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	).normalized()
+	
+	input_vector = input_vector.rotated(rotate)
 
 	if input_vector != Vector2.ZERO:
 		last_move_direction = input_vector
@@ -108,7 +118,8 @@ func _physics_process(delta: float) -> void:
 			actionable_finder_left.set_deferred("disabled", true)
 			actionable_finder_left.set_deferred("disabled", false)
 		
-	input_vector.y += 0.1
+	if gravity:
+		input_vector.y += 0.1
 	velocity = velocity.lerp(input_vector * speed, water_resistance * delta)
 
 	if cooldown_timer > 0.0:

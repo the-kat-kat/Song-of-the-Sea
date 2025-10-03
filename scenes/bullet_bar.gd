@@ -10,9 +10,11 @@ func _ready() -> void:
 	value = 0
 	sb.bg_color = Color("#91ffcf")
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if !player:
+		return
+		
 	value = player.shoot_timer / player.shoot_delay * 100
 	
 	if player.shoots_left == 3:

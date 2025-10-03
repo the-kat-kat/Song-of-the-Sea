@@ -4,10 +4,7 @@ var wait_time = 3.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	position = Vector2(randf()*2000-100, randf()*2000-1000)
 	randomize()
-	play()
-	await animation_finished
 	random_move()
 
 

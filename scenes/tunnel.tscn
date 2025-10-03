@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7j1tu276cmgs"]
+
+[ext_resource type="Script" uid="uid://jj0dqw2kds5a" path="res://tunnel.gd" id="1_sitcv"]
+[ext_resource type="Script" uid="uid://l7yq5rj1167q" path="res://tunnel_area.gd" id="2_mv5om"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_whfrm"]
+radius = 122.066
+
+[node name="Tunnel" type="Node2D"]
+script = ExtResource("1_sitcv")
+
+[node name="TunnelArea" type="Area2D" parent="."]
+collision_mask = 3
+script = ExtResource("2_mv5om")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TunnelArea"]
+shape = SubResource("CircleShape2D_whfrm")
+
+[node name="ExitNode" type="Marker2D" parent="."]
+position = Vector2(346, 1195)
+
+[connection signal="body_entered" from="TunnelArea" to="TunnelArea" method="_on_body_entered"]
