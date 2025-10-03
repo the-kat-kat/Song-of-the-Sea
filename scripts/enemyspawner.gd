@@ -26,6 +26,6 @@ func spawn_enemy():
 	var enemy = enemy_path.instantiate()
 	add_child(enemy)
 	enemy.add_to_group("enemy")
-	enemy.global_position = position + Vector2(randf_range(-300, 300), randf_range(-300, 300))
+	enemy.global_position = position
 	enemy.velocity = Vector2.ZERO
 	main.get_enemy_array()

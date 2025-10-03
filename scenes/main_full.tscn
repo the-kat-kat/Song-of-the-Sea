@@ -3319,6 +3319,9 @@ position = Vector2(-1242.24, -285.562)
 scale = Vector2(2.77199, 3.32428)
 polygon = PackedVector2Array(-124.732, 20.0232, -24.0822, 199.912, 356.15, 252.555, 482.052, 282.035, 637.536, 403.565, 909.543, 414.094, 1107.96, 305.499, 1299.88, 194.196, 1378.88, -30.5142, 1475.56, -202.281, 1577.65, -205.891, 1478.45, 58.8286, 1301.68, 396.045, 864.81, 475.762, 333.062, 458.916, -90.4605, 256.165, -221.413, 77.4793, -210.591, -217.923, -85.7708, -192.354)
 
+[node name="EnemyPlace" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(719, -808, 806, -9, 976, 132, 1400, 152, 1348, 75, 1387, -61, 1529, -116, 1674, -41, 1750, 192, 1972, 48, 1891, -296, 1562, -497, 1325, -760, 1018, -978)
+
 [node name="Back" type="ParallaxBackground" parent="."]
 layer = -50
 
@@ -3364,7 +3367,7 @@ Space - Shoot"
 metadata/_edit_use_anchors_ = true
 
 [node name="EnemySpawner" type="Node2D" parent="." groups=["enemy_spawner"]]
-position = Vector2(1500, 500)
+position = Vector2(1550, 100)
 script = ExtResource("8_biknp")
 
 [node name="Whale" parent="." instance=ExtResource("5_yc7d0")]

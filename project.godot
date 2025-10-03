@@ -38,6 +38,7 @@ main=""
 random_item=""
 enemy_spawner=""
 inventory=""
+dagger=""
 
 [input]
 

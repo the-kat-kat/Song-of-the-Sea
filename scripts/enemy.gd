@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 		drift_timer -= delta
 		if drift_timer <= 0.0:
 			drift_timer = drift_interval
-			drift_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized() * randf_range(50, 100)
+			drift_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized() * randf_range(100, 300)
 		velocity = velocity.lerp(drift_direction, 0.5 * delta)
 		
 	if velocity.length() > speed:
@@ -70,21 +70,22 @@ func _on_detection_area_area_exited(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		player_chase = false
 	
-func die():
-	enemy_spawner.enemies_spawned -= 1
-	queue_free()
 
 func _on_bullet_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("bullet"):
 		body.queue_free()
-		update_health(50)
+		update_health(30)
+	if body.is_in_group("dagger"):
+		body.queue_free()
+		update_health(100)
 
 func update_health(subtracted_value: float):
 	health -= subtracted_value
 	health_bar.value = max(0, health)
 	if health<=0:
 		spawn_random_item()
-		die()
+		enemy_spawner.enemies_spawned -= 1
+		queue_free()
 			
 func spawn_random_item():
 	var random_item = random_item_path.instantiate()

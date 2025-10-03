@@ -49,6 +49,9 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	
+	if velocity.length() > bounce_force:
+		velocity = velocity.normalized() * bounce_force
+	
 	var input_vector := Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")

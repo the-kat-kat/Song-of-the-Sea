@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cbhli75hx287s" path="res://ui/inventory/items/dagger.gd" id="1_6epll"]
 [ext_resource type="Texture2D" uid="uid://dl1nu4tk12pxq" path="res://art/items/dagger_item.png" id="1_ajsc0"]
 
-[node name="dagger" type="CharacterBody2D" groups=["bullet"]]
+[node name="dagger" type="CharacterBody2D" groups=["dagger"]]
 position = Vector2(300, 0)
 collision_layer = 4
 collision_mask = 8

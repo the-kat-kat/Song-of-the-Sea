@@ -22,9 +22,11 @@ func add_item(item: Item, amount: int = 1):
 		if slot.item == null:
 			slot.item = item
 			slot.set_amount(amount)
+			hotbar.update()
 			return
 		elif slot.item == item:
 			slot.add_amount(1)
+			hotbar.update()
 			return
 			
 func clear():

@@ -48,7 +48,7 @@ animations = [{
 radius = 564.1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l3fpy"]
-radius = 100.0
+radius = 184.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ys380"]
 bg_color = Color(1, 1, 1, 1)
@@ -61,7 +61,7 @@ corner_radius_bottom_left = 40
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2y6kf"]
-radius = 122.43
+radius = 204.01
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(0.5, 0.5)

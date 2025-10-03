@@ -77,5 +77,5 @@ func use_current():
 				print("unexpected ce title:", currently_equipped.title)
 				
 		if get_child(index).amount <= 0:
+			get_child(index).item = null
 			index -=1
-			get_child(index+1).item = null

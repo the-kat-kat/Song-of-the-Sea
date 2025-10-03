@@ -19,6 +19,7 @@ texture = ExtResource("2_esrnm")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="TextureRect"]
+visible = false
 layout_mode = 2
 anchor_left = 4.05
 anchor_right = 6.644
@@ -33,6 +34,16 @@ texture = ExtResource("2_esrnm")
 expand_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_esrnm")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_esrnm")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("2_esrnm")
 expand_mode = 2

@@ -1,7 +1,7 @@
 extends HBoxContainer
-
-var max_health = 3.0
-var health = 3.0
+ 
+var max_health = 5.0
+var health = 5.0
 
 @onready var hearts = get_children()
 @onready var label = $TextureRect/Label
@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 	
 func take_damage(damage: float):
 	health -= damage
-	for i in range(1, max_health+1):
+	for i in range(1, 6):
 		if i <= health:
 			hearts[i-1].show()
 		else:
@@ -34,6 +34,6 @@ func take_damage(damage: float):
 	if(health <= 0):
 		main.reset()
 		health = max_health
-		for i in range(1, max_health+1):
+		for i in range(1, 6):
 			hearts[i-1].show()
 		
