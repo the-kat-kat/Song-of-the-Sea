@@ -9,10 +9,7 @@ b = Vector2(-292, -3)
 [node name="TunnelArea" type="Area2D"]
 collision_mask = 3
 script = ExtResource("2_mv5om")
-path_node = null
 travel_time = 1.0
-rotate = Callable()
-make_dark = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("SegmentShape2D_sitcv")
