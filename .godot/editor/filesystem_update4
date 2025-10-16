@@ -14,3 +14,6 @@ res://scenes/bullet_bar.gd
 res://scenes/ui.tscn
 res://tunnel_area.gd
 res://scenes/default_main.gd
+res://scripts/player.gd
+res://scripts/enemy.gd
+res://scripts/health_display.gd

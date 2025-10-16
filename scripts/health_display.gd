@@ -11,6 +11,7 @@ var health = 5.0
 func _ready():
 	var mains = get_tree().get_nodes_in_group("main")
 	if mains.size() > 0:
+		print(main)
 		main = mains[0]
 	else:
 		await get_tree().process_frame

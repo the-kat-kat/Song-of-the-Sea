@@ -279,7 +279,7 @@ texture = ExtResource("13_bm0my")
 position = Vector2(102, 346)
 path_node = NodePath("../Path2D")
 travel_time = 2.0
-rotate = 4.0
+rotate = 10.0
 
 [node name="Path2D" type="Path2D" parent="Environment/TunnelStuff"]
 modulate = Color(0.288518, 0.288518, 0.288518, 1)
@@ -304,3 +304,9 @@ position = Vector2(184, 3372)
 
 [node name="Enemy4" parent="Environment/EnemySpawner" instance=ExtResource("4_5i0hr")]
 position = Vector2(-4664, 1525)
+
+[node name="Enemy5" parent="Environment/EnemySpawner" instance=ExtResource("4_5i0hr")]
+position = Vector2(-1687, -706)
+
+[node name="Enemy6" parent="Environment/EnemySpawner" instance=ExtResource("4_5i0hr")]
+position = Vector2(-2716, 2311)

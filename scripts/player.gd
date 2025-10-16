@@ -167,10 +167,11 @@ func _on_actionable_finder_body_exited(body: Node2D) -> void:
 func touching_enemy(body: Node2D):
 	audio_node.play()
 	heart_display.take_damage(0.5)
-	camera.start_shake(80.0, 1)
+	camera.start_shake(2.0, 0.5)
 
 	var away = (global_position - body.global_position).normalized()
 	velocity = away * bounce_force
+	velocity = velocity.rotated(rotate)
 	##body.velocity = -away * bounce_force
 	body.touching_player = true
 	

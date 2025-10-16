@@ -1,6 +1,8 @@
 extends CharacterBody2D
 var random_item_path = preload("res://scenes/random_item.tscn")
 
+var rotate = 0.0
+
 var speed = 280
 var player_chase = false
 var health = 100
@@ -40,11 +42,11 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	if touching_player:
-		velocity = velocity.normalized() * -250
+		velocity = velocity.normalized().rotated(rotate) * -250
 		update_health(30)
 	
 	if player_chase && !touching_player:
-		var direction = (player.global_position - global_position).normalized()
+		var direction = (player.global_position - global_position).normalized().rotated(rotate)
 		if velocity.length() != speed:
 			velocity = velocity.lerp(direction * speed, 1.2 * delta)
 		else:
@@ -57,13 +59,14 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.lerp(drift_direction, 0.5 * delta)
 		
 	if velocity.length() > speed:
-		velocity = -velocity.normalized()* speed * 0.5
+		velocity = -velocity.normalized().rotated(rotate)* speed * 0.5
 		player_chase = true
 		touching_player = false
 	move_and_slide()
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
+		print("chasing")
 		player_chase = true
 
 func _on_detection_area_area_exited(area: Area2D) -> void:
