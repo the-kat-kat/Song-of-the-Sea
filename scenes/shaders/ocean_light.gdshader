@@ -9,18 +9,15 @@ uniform float alpha = 0.25;      // transparency of the effect
 void fragment() {
     vec2 uv = UV * density;
 
-    // animate UV
     uv.x += TIME * speed * 0.3;
     uv.y += TIME * speed * 0.5;
 
-    // generate sparkle pattern
     float sparkle = sin(uv.x) * cos(uv.y);
     sparkle = pow(abs(sparkle), size);
 
-    // make sparkles flash over time
     float flicker = 0.5 + 0.5 * sin(TIME * speed * 2.0 + uv.x * 3.0);
 
     float intensity = sparkle * flicker * brightness;
 
-    COLOR = vec4(vec3(1.0), intensity * alpha); // white sparkles
+    COLOR = vec4(vec3(1.0), intensity * alpha);
 }

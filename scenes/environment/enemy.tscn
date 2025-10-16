@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bok5465lpn3wk"]
+[gd_scene load_steps=19 format=3 uid="uid://bok5465lpn3wk"]
 
 [ext_resource type="Script" uid="uid://g5m48rcix8km" path="res://scripts/enemy.gd" id="1_fq8u7"]
 [ext_resource type="Texture2D" uid="uid://bsqjhka4pjn3f" path="res://art/other_ppl/blob_blue/b1.png" id="2_v8sga"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bfc0ol0l6igmt" path="res://art/other_ppl/blob_blue/b7.png" id="8_wmghr"]
 [ext_resource type="Texture2D" uid="uid://b7vcecroecr72" path="res://art/other_ppl/blob_blue/b8.png" id="9_pixgs"]
 [ext_resource type="FontFile" uid="uid://bo5ne51gkjwi0" path="res://dialogue/fonts/AdabelleHandwriting-Regular.ttf" id="11_46ct1"]
+[ext_resource type="AudioStream" uid="uid://eas6kxlybiqn" path="res://audio/ambient3(ominous).mp3" id="12_ys380"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_120wc"]
 animations = [{
@@ -124,6 +125,10 @@ collision_mask = 21
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletArea"]
 shape = SubResource("CircleShape2D_2y6kf")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_ys380")
+autoplay = true
 
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]

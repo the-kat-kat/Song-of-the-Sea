@@ -1,9 +1,14 @@
 extends Area2D
 
+@onready var main = get_tree().get_nodes_in_group("main")[0]
+
 @export var path_node: NodePath
 @export var travel_time: float = 1.5
 @export var rotate: float = 15.2
 var _pending_state := {}
+
+@export var make_dark: bool
+@export var texture_rect = main.$TextureRect
 
 func _on_body_entered(body):
 	if not body.is_in_group("player"):
@@ -13,7 +18,6 @@ func _on_body_entered(body):
 		
 	var path2d = get_node_or_null(path_node) as Path2D
 	if not path2d or not path2d.curve:
-		push_error("Path2D or Curve2D not found")
 		return
 	
 	_pending_state.body = body

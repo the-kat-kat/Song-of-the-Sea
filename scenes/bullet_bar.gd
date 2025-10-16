@@ -7,7 +7,7 @@ var sb: StyleBoxFlat
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sb = get_theme_stylebox("fill")
-	value = 0
+	value = 3
 	sb.bg_color = Color("#91ffcf")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
