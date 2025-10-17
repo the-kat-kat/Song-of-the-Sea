@@ -12,6 +12,7 @@ var new_scene_path: NodePath
 func _ready() -> void:
 	black_out.visible = false
 	black_out.color = Color("BLACK", 0.0)
+	print("blackout_path", black_out.get_path())
 	
 func switch_scene(path: NodePath):
 	black_out.visible = true
@@ -29,10 +30,10 @@ func new_scene_reset():
 	#reset references to nodes
 	$UI/BulletBar.player = get_tree().get_nodes_in_group("player")[0]
 	$UI/Inventory/Hotbar.player = get_tree().get_nodes_in_group("player")[0]
+	$UI/HorizontalHearts.main = get_tree().get_nodes_in_group("main")[0]
 	
 	#reset shader
-	texture_rect.material.set_shader_parameter("tint_color", Vector3(1, 1, 1))
-	texture_rect.material.set_shader_parameter("tint_strength", 0.0)
+	reset_shader()
 	
 	fade_in = false
 	switching = true
@@ -54,4 +55,8 @@ func _physics_process(delta: float) -> void:
 			
 func level1():
 	switch_scene("res://scenes/level1_full.tscn")
+	
+func reset_shader():
+	texture_rect.material.set_shader_parameter("tint_color", Vector3(1, 1, 1))
+	texture_rect.material.set_shader_parameter("tint_strength", 0.0)
 	

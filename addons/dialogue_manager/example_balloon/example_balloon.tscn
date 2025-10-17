@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=14 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" uid="uid://d1wt4ma6055l8" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="FontFile" uid="uid://bo5ne51gkjwi0" path="res://dialogue/fonts/AdabelleHandwriting-Regular.ttf" id="2_nlsx6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="StyleBox" uid="uid://c8ibx1s7hj0qe" path="res://ui/white_box.tres" id="5_1337t"]
+[ext_resource type="Texture2D" uid="uid://1ncqg88phgk1" path="res://art/player/swim_anim/Untitled_Artwork-1.png" id="6_r5ei8"]
+[ext_resource type="Texture2D" uid="uid://b83l6sssj2lej" path="res://art/environment/enemyBlob.png" id="7_v42gu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(1, 1, 1, 1)
@@ -175,6 +177,23 @@ theme_override_styles/hover = ExtResource("5_1337t")
 theme_override_styles/pressed = ExtResource("5_1337t")
 theme_override_styles/normal = ExtResource("5_1337t")
 text = "Response example"
+
+[node name="Yapper1" type="TextureRect" parent="Balloon"]
+z_index = -1
+offset_left = -112.0
+offset_top = 143.0
+offset_right = 385.0
+offset_bottom = 577.0
+texture = ExtResource("6_r5ei8")
+expand_mode = 1
+
+[node name="Yapper2" type="TextureRect" parent="Balloon"]
+z_index = -1
+offset_left = 711.0
+offset_top = 131.0
+offset_right = 1182.0
+offset_bottom = 550.0
+texture = ExtResource("7_v42gu")
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

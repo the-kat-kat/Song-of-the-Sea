@@ -74,6 +74,7 @@ frame = 1
 frame_progress = 0.866328
 
 [node name="CollisionRight" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(-48, -4)
 scale = Vector2(14, 10.025)
 polygon = PackedVector2Array(-6.71429, -17.9551, 14, -18.9526, 17.5714, -9.77556, 12.4286, 12.1696, 7.71429, 18.9526, -3, 16.3591, -7.71429, 9.57606, -10.4286, -0.399003, -9.42857, -11.1721)

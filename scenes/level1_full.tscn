@@ -294,7 +294,7 @@ position = Vector2(1550, 100)
 script = ExtResource("6_3xnes")
 
 [node name="Enemy" parent="Environment/EnemySpawner" instance=ExtResource("4_5i0hr")]
-position = Vector2(-4768, 2225)
+position = Vector2(-1942, 2381)
 
 [node name="Enemy2" parent="Environment/EnemySpawner" instance=ExtResource("4_5i0hr")]
 position = Vector2(-191, 2113)
@@ -303,7 +303,7 @@ position = Vector2(-191, 2113)
 position = Vector2(184, 3372)
 
 [node name="Enemy4" parent="Environment/EnemySpawner" instance=ExtResource("4_5i0hr")]
-position = Vector2(-4664, 1525)
+position = Vector2(-2478, 1821)
 
 [node name="Enemy5" parent="Environment/EnemySpawner" instance=ExtResource("4_5i0hr")]
 position = Vector2(-1687, -706)

@@ -24,6 +24,10 @@ var locals: Dictionary = {}
 
 var _locale: String = TranslationServer.get_locale()
 
+## The yapper images
+var yapper1: Object 
+var yapper2: Object 
+
 ## The current line
 var dialogue_line: DialogueLine:
 	set(value):
@@ -54,6 +58,7 @@ var mutation_cooldown: Timer = Timer.new()
 
 func _ready() -> void:
 	balloon.hide()
+	balloon.z_index = -100
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
 	# If the responses menu doesn't have a next action set, use this one

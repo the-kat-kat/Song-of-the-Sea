@@ -465,7 +465,9 @@ func static_id_to_line_ids(resource: DialogueResource, static_id: String) -> Pac
 func _start_balloon(balloon: Node, resource: DialogueResource, title: String, extra_game_states: Array) -> void:
 	#get_current_scene.call().add_child(balloon)
 	var ui_layer = get_current_scene.call().get_node("UI")
+	print("ui", ui_layer)
 	ui_layer.add_child(balloon)
+	print("balloon path", balloon.get_path())
 
 	if balloon.has_method(&"start"):
 		balloon.start(resource, title, extra_game_states)

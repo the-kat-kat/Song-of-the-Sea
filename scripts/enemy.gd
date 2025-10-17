@@ -22,6 +22,8 @@ var drift_direction := Vector2.ZERO
 var drift_timer := 0.0
 var drift_interval := 5.0
 
+var can_take_damage = false
+
 func _ready():
 	player = get_tree().get_nodes_in_group("player")[0]
 	
@@ -45,16 +47,23 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	if touching_player:
+		var direction = (player.global_position - global_position).normalized().rotated(rotate)
 		print("touching player")
-		velocity = velocity.normalized().rotated(rotate) * -250
-		update_health(30)
+		velocity = direction * -1 * speed
+		print("enemy_velocity", velocity)
+		if can_take_damage:
+			update_health(30)
+			can_take_damage = false
+	else:
+		if !can_take_damage:
+			can_take_damage = true
 	
 	if player_chase && !touching_player:
 		var direction = (player.global_position - global_position).normalized().rotated(rotate)
 		if velocity.length() != speed:
 			velocity = velocity.lerp(direction * speed, 1.2 * delta)
 		else:
-			velocity = direction * speed
+			velocity = direction * speed 
 	elif !player_chase && !touching_player:
 		drift_timer -= delta
 		if drift_timer <= 0.0:
@@ -63,7 +72,8 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.lerp(drift_direction, 0.5 * delta)
 		
 	if velocity.length() > speed:
-		velocity = -velocity.normalized().rotated(rotate)* speed * 0.5
+		print("large vel")
+		velocity = velocity.normalized()* speed
 		player_chase = true
 		touching_player = false
 	move_and_slide()
@@ -76,7 +86,6 @@ func _on_detection_area_area_exited(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		player_chase = false
 	
-
 func _on_bullet_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("bullet"):
 		body.queue_free()

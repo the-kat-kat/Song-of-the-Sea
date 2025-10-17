@@ -14,13 +14,12 @@ var bullet_path = preload("res://scenes/bullet.tscn")
 @onready var inventory: Control = get_tree().get_nodes_in_group("inventory")[0]
 
 @onready var playerAnim = $Sprite2D
-@onready var camera = $Camera2D
+@onready var camera: Camera2D = $Camera2D
 @onready var viewport = get_viewport()
 @export var audio_node: AudioStreamPlayer
 @onready var display_control = get_tree().get_nodes_in_group("texture_rect")[0]
 
 @export var actionable_finder: Area2D
-@export var collision_poly: CollisionPolygon2D
 
 var is_dashing := false
 var dash_timer := 0.0
@@ -28,7 +27,7 @@ var cooldown_timer := 0.0
 var last_move_direction: Vector2 = Vector2.RIGHT
 var last_dir := 1
 
-var bounce_force = 1000.0
+var bounce_force = 1200.0
 var invulnerable := false
 var invuln_time := 0.25
 var invuln_timer := 0.0
@@ -166,6 +165,7 @@ func touching_enemy(body: Node2D):
 	velocity = away * bounce_force
 	body.velocity = -away.rotated(rotate) * bounce_force
 	body.touching_player = true
+	body.can_take_damage = true
 	
 func touching_random_item(body: Node2D):
 	if !body.just_spawned:

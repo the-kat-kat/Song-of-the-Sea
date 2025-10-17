@@ -17,3 +17,8 @@ res://scenes/default_main.gd
 res://addons/dialogue_manager/dialogue_manager.gd
 res://addons/dialogue_manager/test_scene.gd
 res://addons/dialogue_manager/test_scene.tscn
+res://addons/dialogue_manager/example_balloon/example_balloon.tscn
+res://ui/white_box.tres
+res://addons/dialogue_manager/example_balloon/example_balloon.gd
+res://scripts/enemy.gd
+res://scripts/main.gd
