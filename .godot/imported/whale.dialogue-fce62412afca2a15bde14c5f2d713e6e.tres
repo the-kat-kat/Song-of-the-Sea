@@ -8,7 +8,7 @@ using_states = PackedStringArray()
 titles = {
 "start": "1"
 }
-character_names = PackedStringArray("Blue")
+character_names = PackedStringArray("Blue", "Umi")
 first_title = "0"
 lines = {
 "0": {
@@ -24,124 +24,148 @@ lines = {
 &"type": "dialogue"
 },
 "10": {
-&"character": "Blue",
 &"id": "10",
 &"next_id": "11",
-&"text": "Well you've got to help me just this once :> (maybe more actually)",
-&"type": "dialogue"
+&"text": "nah",
+&"type": "response"
 },
 "11": {
-&"character": "Blue",
+&"character": "Umi",
 &"id": "11",
 &"next_id": "12",
-&"text": "By the way, you can press SPACE to shoot.",
+&"text": "nah",
 &"type": "dialogue"
 },
 "12": {
 &"character": "Blue",
 &"id": "12",
 &"next_id": "13",
-&"text": "Press q to switch items in inventory. Your first item and all empty slots will by default allow you to shoot!",
+&"text": "Aw do you not like me.",
 &"type": "dialogue"
 },
 "13": {
 &"character": "Blue",
 &"id": "13",
 &"next_id": "14",
-&"text": "The wobs are pretty fast so use X to dash.",
+&"text": "Well you've got to help me just this once :> (maybe more actually)",
 &"type": "dialogue"
 },
 "14": {
 &"character": "Blue",
 &"id": "14",
 &"next_id": "15",
-&"text": "Good luck!",
+&"text": "By the way, you can press SPACE to shoot.",
 &"type": "dialogue"
 },
 "15": {
+&"character": "Blue",
 &"id": "15",
-&"is_snippet": false,
-&"next_id": "end",
-&"next_id_after": "",
-&"type": "goto"
+&"next_id": "16",
+&"text": "Press q to switch items in inventory. Your first item and all empty slots will by default allow you to shoot!",
+&"type": "dialogue"
+},
+"16": {
+&"character": "Blue",
+&"id": "16",
+&"next_id": "17",
+&"text": "The wobs are pretty fast so use X to dash.",
+&"type": "dialogue"
+},
+"17": {
+&"character": "Blue",
+&"id": "17",
+&"next_id": "18",
+&"text": "Good luck!",
+&"type": "dialogue"
 },
 "18": {
 &"id": "18",
-&"next_id": "19",
-&"type": ""
-},
-"19": {
-&"id": "19",
 &"is_snippet": false,
 &"next_id": "end",
 &"next_id_after": "",
 &"type": "goto"
 },
 "2": {
-&"character": "Blue",
+&"character": "Umi",
 &"id": "2",
 &"next_id": "3",
-&"text": "Kai? That's a nice name :>",
+&"text": "Hey there I'm Umi",
 &"type": "dialogue"
+},
+"21": {
+&"id": "21",
+&"next_id": "22",
+&"type": ""
+},
+"22": {
+&"id": "22",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
 },
 "3": {
 &"character": "Blue",
 &"id": "3",
 &"next_id": "4",
-&"text": "Why am I here alone? Well, I got seperated from my pod during the storm and I can't back to them.",
+&"text": "Umi? That's a nice name :> I'm Blue!",
 &"type": "dialogue"
 },
 "4": {
 &"character": "Blue",
 &"id": "4",
 &"next_id": "5",
-&"text": "I tried getting past the rock formation on the right but the wobs kept on attacking me. They may look cute :3 but they can actually be deadly.",
+&"text": "Why am I here alone? Well, I got seperated from my pod during the storm and I can't back to them.",
 &"type": "dialogue"
 },
 "5": {
 &"character": "Blue",
 &"id": "5",
 &"next_id": "6",
-&"text": "Could you help lead the way past the rock formation? I'm scared of going alone ;-;",
+&"text": "I tried getting past the rock formation on the right but the wobs kept on attacking me. They may look cute :3 but they can actually be deadly.",
 &"type": "dialogue"
 },
 "6": {
+&"character": "Blue",
 &"id": "6",
 &"next_id": "7",
-&"responses": PackedStringArray("6", "8"),
+&"text": "Could you help lead the way past the rock formation? I'm scared of going alone ;-;",
+&"type": "dialogue"
+},
+"7": {
+&"id": "7",
+&"next_id": "8",
+&"responses": PackedStringArray("7", "10"),
 &"text": "Yess",
 &"type": "response"
 },
-"7": {
-&"character": "Blue",
-&"id": "7",
-&"next_id": "11",
-&"text": "Thank you so much!",
-&"type": "dialogue"
-},
 "8": {
+&"character": "Umi",
 &"id": "8",
 &"next_id": "9",
-&"text": "nah",
-&"type": "response"
+&"text": "Yess :>",
+&"type": "dialogue"
 },
 "9": {
 &"character": "Blue",
 &"id": "9",
-&"next_id": "10",
-&"text": "Aw do you not like me.",
+&"next_id": "14",
+&"text": "Thank you so much!",
 &"type": "dialogue"
 }
 }
 raw_text = "~ start
 Blue: Hello, who are you?
-Blue: Kai? That's a nice name :>
+Umi: Hey there I'm Umi
+Blue: Umi? That's a nice name :> I'm Blue!
 Blue: Why am I here alone? Well, I got seperated from my pod during the storm and I can't back to them.
 Blue: I tried getting past the rock formation on the right but the wobs kept on attacking me. They may look cute :3 but they can actually be deadly. 
 Blue: Could you help lead the way past the rock formation? I'm scared of going alone ;-;
 - Yess
+	Umi: Yess :>
 	Blue: Thank you so much!
 - nah
+	Umi: nah
 	Blue: Aw do you not like me.
 	Blue: Well you've got to help me just this once :> (maybe more actually)
 Blue: By the way, you can press SPACE to shoot.

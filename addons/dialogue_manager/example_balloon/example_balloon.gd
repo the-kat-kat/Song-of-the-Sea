@@ -1,6 +1,8 @@
 class_name DialogueManagerExampleBalloon extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
+@onready var default_main = get_tree().get_nodes_in_group("default_main")[0]
+
 ## The action to use for advancing the dialogue
 @export var next_action: StringName = &"ui_accept"
 
@@ -25,8 +27,10 @@ var locals: Dictionary = {}
 var _locale: String = TranslationServer.get_locale()
 
 ## The yapper images
-var yapper1: Object 
-var yapper2: Object 
+@onready var yapper1: TextureRect = $Balloon/Yapper1
+@onready var yapper2: TextureRect = $Balloon/Yapper2
+@export var yapper_images: Dictionary = {}
+@export var player_name: String = "Umi"
 
 ## The current line
 var dialogue_line: DialogueLine:
@@ -55,7 +59,6 @@ var mutation_cooldown: Timer = Timer.new()
 ## The menu of responses
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
-
 func _ready() -> void:
 	balloon.hide()
 	balloon.z_index = -100
@@ -68,6 +71,9 @@ func _ready() -> void:
 	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
 	add_child(mutation_cooldown)
 
+func _physics_process(delta: float) -> void:
+	if default_main.switching:
+		balloon.hide()
 
 func _unhandled_input(_event: InputEvent) -> void:
 	# Only the balloon is allowed to handle input while it's showing
@@ -102,6 +108,18 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
+	
+	if yapper_images.has(character_label.text):
+		print(character_label.text)
+		if character_label.text == player_name:
+			yapper1.visible = true
+			yapper1.modulate.a = 1.0
+			yapper2.modulate.a = 0.4
+		else:
+			yapper1.modulate.a = 0.4 
+			yapper2.texture = yapper_images.get(character_label.text)
+			yapper2.modulate.a = 1.0
+			yapper2.visible = true
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line

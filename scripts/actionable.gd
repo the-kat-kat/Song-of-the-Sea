@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var default_main = get_tree().get_nodes_in_group("default_main")[0]
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start: String = "start"
 @export var player_path: NodePath
@@ -26,7 +27,8 @@ func action() -> void:
 	if not dialogue_started and connected_to_manager: 
 		player.in_dialogue = true
 		dialogue_started = true
-		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_start)
+		if !default_main.switching:
+			DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_start)
 
 func _on_dialogue_ended(resource: DialogueResource) -> void:
 	dialogue_started = false

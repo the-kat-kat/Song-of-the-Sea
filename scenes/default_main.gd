@@ -1,5 +1,6 @@
 extends Node2D
 
+#@onready var player = get_tree().get_nodes_in_group("player")[0]
 @onready var texture_rect = $TextureRect
 @onready var black_out: ColorRect = $CanvasLayer/BlackOut
 
@@ -21,6 +22,7 @@ func switch_scene(path: NodePath):
 
 func new_scene_reset():
 	#queue free old scene
+	
 	for child in $SubViewport.get_children():
 		child.queue_free()
 	await get_tree().process_frame
@@ -49,7 +51,8 @@ func _physics_process(delta: float) -> void:
 			if fade_in:
 				switching = false
 				new_scene_reset()
-			else:
+		elif t<=0:
+			if !fade_in:
 				switching = false
 				black_out.visible = false
 			

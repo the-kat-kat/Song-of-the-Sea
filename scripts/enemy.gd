@@ -17,6 +17,7 @@ var enemy_spawner: Node2D
 @onready var health_bar = $ProgressBar
 
 var touching_player = false
+var bouncing_back = false
 
 var drift_direction := Vector2.ZERO
 var drift_timer := 0.0
@@ -45,10 +46,17 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if !active || !player || player.in_dialogue:
 		return
+	
+	#await get_tree().create_timer(0.1).timeout
+	
+	if bouncing_back:
+		move_and_slide()
+		return
 		
 	if touching_player:
+		print("player_pos", player.global_position)
+		print("enemy_pos", global_position)
 		var direction = (player.global_position - global_position).normalized().rotated(rotate)
-		print("touching player")
 		velocity = direction * -1 * speed
 		print("enemy_velocity", velocity)
 		if can_take_damage:
@@ -72,9 +80,8 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.lerp(drift_direction, 0.5 * delta)
 		
 	if velocity.length() > speed:
-		print("large vel")
 		velocity = velocity.normalized()* speed
-		player_chase = true
+		#player_chase = true
 		touching_player = false
 	move_and_slide()
 
@@ -106,3 +113,11 @@ func spawn_random_item():
 	var random_item = random_item_path.instantiate()
 	random_item.position = position
 	get_parent().call_deferred("add_child", random_item)
+
+func start_bounce_delay() -> void:
+	bouncing_back = true
+	await get_tree().create_timer(0.1).timeout
+	bouncing_back = false
+	player_chase = true
+	# clear touching flag
+	touching_player = false

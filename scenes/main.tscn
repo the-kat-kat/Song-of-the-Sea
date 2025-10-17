@@ -68,7 +68,7 @@ volume_db = -20.0
 bus = &"music"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 3
+layer = 101
 
 [node name="BlackOut" type="ColorRect" parent="CanvasLayer"]
 z_index = 100

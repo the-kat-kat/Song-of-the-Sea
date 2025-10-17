@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="StyleBox" uid="uid://c8ibx1s7hj0qe" path="res://ui/white_box.tres" id="5_1337t"]
 [ext_resource type="Texture2D" uid="uid://1ncqg88phgk1" path="res://art/player/swim_anim/Untitled_Artwork-1.png" id="6_r5ei8"]
-[ext_resource type="Texture2D" uid="uid://b83l6sssj2lej" path="res://art/environment/enemyBlob.png" id="7_v42gu"]
+[ext_resource type="Texture2D" uid="uid://dim2nf2ttlw0f" path="res://art/other_ppl/whale_cropped.png" id="8_v42gu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(1, 1, 1, 1)
@@ -86,6 +86,10 @@ corner_radius_bottom_left = 40
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_36de5")
+yapper_images = {
+"Blue": ExtResource("8_v42gu"),
+"Umi": ExtResource("6_r5ei8")
+}
 
 [node name="Balloon" type="Control" parent="."]
 unique_name_in_owner = true
@@ -193,7 +197,6 @@ offset_left = 711.0
 offset_top = 131.0
 offset_right = 1182.0
 offset_bottom = 550.0
-texture = ExtResource("7_v42gu")
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

@@ -166,6 +166,7 @@ func touching_enemy(body: Node2D):
 	body.velocity = -away.rotated(rotate) * bounce_force
 	body.touching_player = true
 	body.can_take_damage = true
+	body.start_bounce_delay()
 	
 func touching_random_item(body: Node2D):
 	if !body.just_spawned:
