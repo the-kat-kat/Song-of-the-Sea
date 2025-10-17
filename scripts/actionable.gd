@@ -31,3 +31,4 @@ func action() -> void:
 func _on_dialogue_ended(resource: DialogueResource) -> void:
 	dialogue_started = false
 	player.in_dialogue = false
+	

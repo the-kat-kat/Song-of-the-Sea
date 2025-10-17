@@ -80,7 +80,6 @@ func _ready() -> void:
 	if not Engine.has_singleton("DialogueManager"):
 		Engine.register_singleton("DialogueManager", self)
 
-
 ## Step through lines and run any mutations until we either hit some dialogue or the end of the conversation
 func get_next_dialogue_line(resource: DialogueResource, key: String = "", extra_game_states: Array = [], mutation_behaviour: DMConstants.MutationBehaviour = DMConstants.MutationBehaviour.Wait) -> DialogueLine:
 	# You have to provide a valid dialogue resource
@@ -464,7 +463,9 @@ func static_id_to_line_ids(resource: DialogueResource, static_id: String) -> Pac
 
 # Call "start" on the given balloon.
 func _start_balloon(balloon: Node, resource: DialogueResource, title: String, extra_game_states: Array) -> void:
-	get_current_scene.call().add_child(balloon)
+	#get_current_scene.call().add_child(balloon)
+	var ui_layer = get_current_scene.call().get_node("UI")
+	ui_layer.add_child(balloon)
 
 	if balloon.has_method(&"start"):
 		balloon.start(resource, title, extra_game_states)
@@ -1481,3 +1482,8 @@ func _resolve_thing_method(thing, method: String, args: Array):
 	var dotnet_dialogue_manager = _get_dotnet_dialogue_manager()
 	dotnet_dialogue_manager.ResolveThingMethod(thing, method, args)
 	return await dotnet_dialogue_manager.Resolved
+
+func level1():
+	var default_main = get_tree().get_nodes_in_group("default_main")[0]
+	default_main.switch_scene("res://scenes/level1_full.tscn")
+	

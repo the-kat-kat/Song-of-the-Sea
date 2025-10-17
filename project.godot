@@ -39,6 +39,7 @@ random_item=""
 enemy_spawner=""
 inventory=""
 dagger=""
+default_main=""
 
 [input]
 

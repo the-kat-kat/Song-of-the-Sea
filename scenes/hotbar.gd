@@ -1,18 +1,16 @@
 extends HBoxContainer
 
-@onready var player = get_tree().get_nodes_in_group("player")[0]
+@onready var player
 @onready var outline = get_parent().get_node("Outline")
+
 var shield_path = preload("res://scenes/player/shield.tscn")
 var dagger_path = preload("res://scenes/player/dagger.tscn")
 
 @export var shield_time = 3.0
 
-signal equip(item: Item)
-
 var currently_equipped: Item:
 	set(value):
 		currently_equipped = value
-		equip.emit(value)
 		
 var index = 0:
 	set(value):
@@ -25,8 +23,9 @@ var index = 0:
 		
 		currently_equipped = get_child(index).item
 		queue_redraw()
-
+		
 func _ready():
+	player = get_tree().get_nodes_in_group("player")[0]
 	call_deferred("queue_redraw")
 	
 func _draw():

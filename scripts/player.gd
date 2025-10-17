@@ -20,10 +20,7 @@ var bullet_path = preload("res://scenes/bullet.tscn")
 @onready var display_control = get_tree().get_nodes_in_group("texture_rect")[0]
 
 @export var actionable_finder: Area2D
-@export var actionable_finder_left: CollisionShape2D
-@export var actionable_finder_right: CollisionShape2D
-@export var collision_poly_left: CollisionPolygon2D
-@export var collision_poly_right: CollisionPolygon2D
+@export var collision_poly: CollisionPolygon2D
 
 var is_dashing := false
 var dash_timer := 0.0
@@ -31,7 +28,7 @@ var cooldown_timer := 0.0
 var last_move_direction: Vector2 = Vector2.RIGHT
 var last_dir := 1
 
-var bounce_force = 700.0
+var bounce_force = 1000.0
 var invulnerable := false
 var invuln_time := 0.25
 var invuln_timer := 0.0
@@ -52,6 +49,10 @@ var input_locked = false
 func _ready():
 	shoots_left = number_shots
 	shoot_delay = number_shots
+	
+func _notification(what):
+	if what == NOTIFICATION_PREDELETE:
+		print("player is being freed:", self)
 
 func _physics_process(delta: float) -> void:
 	if input_locked:
@@ -105,18 +106,10 @@ func _physics_process(delta: float) -> void:
 			for firing_pos in firing_pos_array:
 				firing_pos.position.x = abs(firing_pos.position.x)
 				firing_pos.rotation = abs(firing_pos.rotation)
-			collision_poly_left.set_deferred("disabled", false)
-			collision_poly_right.set_deferred("disabled", true)
-			actionable_finder_left.set_deferred("disabled", false)
-			actionable_finder_left.set_deferred("disabled", true)
 		else:
 			for firing_pos in firing_pos_array:
 				firing_pos.rotation = -abs(firing_pos.rotation)
 				firing_pos.position.x = -abs(firing_pos.position.x)
-			collision_poly_left.set_deferred("disabled",  true)
-			collision_poly_right.set_deferred("disabled", false)
-			actionable_finder_left.set_deferred("disabled", true)
-			actionable_finder_left.set_deferred("disabled", false)
 		
 	if gravity:
 		input_vector.y += 0.1
@@ -171,8 +164,7 @@ func touching_enemy(body: Node2D):
 
 	var away = (global_position - body.global_position).normalized()
 	velocity = away * bounce_force
-	velocity = velocity.rotated(rotate)
-	##body.velocity = -away * bounce_force
+	body.velocity = -away.rotated(rotate) * bounce_force
 	body.touching_player = true
 	
 func touching_random_item(body: Node2D):

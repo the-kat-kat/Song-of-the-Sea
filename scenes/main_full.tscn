@@ -3373,7 +3373,7 @@ scale = Vector2(0.5, 0.5)
 dialogue_resource = ExtResource("9_55v7u")
 
 [node name="Whale2" parent="." instance=ExtResource("5_yc7d0")]
-position = Vector2(2309, -707)
+position = Vector2(-236, -785)
 scale = Vector2(-0.5, 0.5)
 dialogue_resource = ExtResource("10_tuhyb")
 

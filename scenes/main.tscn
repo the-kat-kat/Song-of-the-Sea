@@ -33,7 +33,7 @@ shader_parameter/preserve_threshold = 0.92
 [sub_resource type="ViewportTexture" id="ViewportTexture_jyhfs"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" groups=["default_main"]]
 script = ExtResource("1_tbgi4")
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -65,5 +65,16 @@ expand_mode = 2
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ya4ey")
 volume_db = -20.0
-autoplay = true
 bus = &"music"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="BlackOut" type="ColorRect" parent="CanvasLayer"]
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

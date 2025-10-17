@@ -1,16 +1,57 @@
 extends Node2D
 
 @onready var texture_rect = $TextureRect
+@onready var black_out: ColorRect = $CanvasLayer/BlackOut
 
-# Called when the node enters the scene tree for the first time.
+var black_out_time = 1.0
+var t = 0.0
+var switching = false #switching to new scene
+var fade_in = true #fade in black out panel
+var new_scene_path: NodePath
+
 func _ready() -> void:
+	black_out.visible = false
+	black_out.color = Color("BLACK", 0.0)
+	
+func switch_scene(path: NodePath):
+	black_out.visible = true
+	new_scene_path = path
+	switching = true
+
+func new_scene_reset():
+	#queue free old scene
 	for child in $SubViewport.get_children():
 		child.queue_free()
-	var new_scene = load("res://scenes/level1_full.tscn").instantiate()
+	await get_tree().process_frame
+	var new_scene = load(new_scene_path).instantiate()
 	$SubViewport.add_child(new_scene)
+	
+	#reset references to nodes
+	$UI/BulletBar.player = get_tree().get_nodes_in_group("player")[0]
+	$UI/Inventory/Hotbar.player = get_tree().get_nodes_in_group("player")[0]
+	
+	#reset shader
 	texture_rect.material.set_shader_parameter("tint_color", Vector3(1, 1, 1))
 	texture_rect.material.set_shader_parameter("tint_strength", 0.0)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	
+	fade_in = false
+	switching = true
+		
+func _physics_process(delta: float) -> void:
+	if switching:
+		if fade_in:
+			t += delta / black_out_time
+		else:
+			t -= delta / black_out_time
+		black_out.color = Color("BLACK", t)
+		if t >= 1:
+			if fade_in:
+				switching = false
+				new_scene_reset()
+			else:
+				switching = false
+				black_out.visible = false
+			
+func level1():
+	switch_scene("res://scenes/level1_full.tscn")
+	

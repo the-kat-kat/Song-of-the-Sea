@@ -22,7 +22,6 @@ func _ready():
 	dialogue_manager.dialogue_ended.connect(_on_dialogue_ended)
 	dialogue_manager.show_dialogue_balloon(resource, title if not title.is_empty() else resource.first_title)
 
-
 func _enter_tree() -> void:
 	DialogueSettings.set_user_value("is_running_test_scene", false)
 

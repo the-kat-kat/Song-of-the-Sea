@@ -10,7 +10,7 @@ var active = true
 
 var enemy_spawner: Node2D
 
-@onready var player = get_tree().get_nodes_in_group("player")[0]
+@onready var player
 @onready var enemyAnim = $AnimatedSprite2D
 @export var max_health = 100
 
@@ -23,6 +23,8 @@ var drift_timer := 0.0
 var drift_interval := 5.0
 
 func _ready():
+	player = get_tree().get_nodes_in_group("player")[0]
+	
 	enemy_spawner = get_tree().get_nodes_in_group("enemy_spawner")[0]
 	health_bar.max_value = max_health
 	health_bar.value = max_health
@@ -37,11 +39,13 @@ func _ready():
 	enemyAnim.speed_scale= randf_range(0.8, 1.2)
 	enemyAnim.play()
 
+
 func _physics_process(delta: float) -> void:
-	if not active || !player || player.in_dialogue:
+	if !active || !player || player.in_dialogue:
 		return
 		
 	if touching_player:
+		print("touching player")
 		velocity = velocity.normalized().rotated(rotate) * -250
 		update_health(30)
 	
@@ -66,7 +70,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		print("chasing")
 		player_chase = true
 
 func _on_detection_area_area_exited(area: Area2D) -> void:

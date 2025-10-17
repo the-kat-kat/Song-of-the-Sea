@@ -59,17 +59,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_fm80t"]
 radius = 242.002
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("firing_pos_array", "audio_node", "actionable_finder", "actionable_finder_left", "actionable_finder_right", "collision_poly_left", "collision_poly_right") groups=["player"]]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("firing_pos_array", "audio_node", "actionable_finder") groups=["player"]]
 scale = Vector2(0.5, 0.5)
 collision_mask = 3
 script = ExtResource("1_5gtgg")
 firing_pos_array = [NodePath("FiringPositionHolder/FiringPosition"), NodePath("FiringPositionHolder/FiringPosition2"), NodePath("FiringPositionHolder/FiringPosition3"), NodePath("FiringPositionHolder/FiringPosition4"), NodePath("FiringPositionHolder/FiringPosition5")]
 audio_node = NodePath("Bubbles")
 actionable_finder = NodePath("ActionableFinder")
-actionable_finder_left = NodePath("ActionableFinder/Area")
-actionable_finder_right = NodePath("ActionableFinder/Area")
-collision_poly_left = NodePath("CollisionLeft")
-collision_poly_right = NodePath("CollisionRight")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -125,7 +121,7 @@ playback_type = 1
 
 [node name="Bubbles" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_5gtgg")
-volume_db = -32.584
+volume_db = -60.0
 
 [node name="FiringPositionHolder" type="Node2D" parent="."]
 
