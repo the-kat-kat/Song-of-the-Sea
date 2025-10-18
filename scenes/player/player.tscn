@@ -69,7 +69,7 @@ actionable_finder = NodePath("ActionableFinder")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
-frame_progress = 0.228869
+frame_progress = 0.969479
 
 [node name="CollisionRight" type="CollisionPolygon2D" parent="."]
 visible = false
@@ -109,7 +109,6 @@ shape = SubResource("CircleShape2D_fm80t")
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 7
 ignore_rotation = false
-zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("9_h17s1")

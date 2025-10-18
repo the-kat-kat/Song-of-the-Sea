@@ -23,7 +23,7 @@ var drift_direction := Vector2.ZERO
 var drift_timer := 0.0
 var drift_interval := 5.0
 
-var can_take_damage = false
+var can_take_damage = true
 
 func _ready():
 	player = get_tree().get_nodes_in_group("player")[0]
@@ -49,20 +49,16 @@ func _physics_process(delta: float) -> void:
 	
 	#await get_tree().create_timer(0.1).timeout
 	
+	if touching_player:
+		if can_take_damage:
+			print("take damage")
+			update_health(10)
+			can_take_damage = false
+			
 	if bouncing_back:
 		move_and_slide()
 		return
 		
-	if touching_player:
-		print("player_pos", player.global_position)
-		print("enemy_pos", global_position)
-		var direction = (player.global_position - global_position).normalized().rotated(rotate)
-		velocity = direction * -1 * speed
-		print("enemy_velocity", velocity)
-		if can_take_damage:
-			print("take damage")
-			update_health(30)
-			can_take_damage = false
 	else:
 		if !can_take_damage:
 			can_take_damage = true
@@ -116,8 +112,9 @@ func spawn_random_item():
 	get_parent().call_deferred("add_child", random_item)
 
 func start_bounce_delay() -> void:
+	touching_player = true
 	bouncing_back = true
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.05).timeout
 	bouncing_back = false
 	player_chase = true
 	# clear touching flag

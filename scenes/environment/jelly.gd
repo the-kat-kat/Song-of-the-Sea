@@ -13,7 +13,7 @@ func random_move() -> void:
 	await animation_finished
 	
 	wait_time = randf_range(1.0, 5.0)
-	position = Vector2(randf_range(-1500,1500),randf_range(-800,800))
+	global_position = Vector2(randf_range(-1000,1000),randf_range(-800,100))
 	var scaler = randf_range(0.1, 0.7)
 	scale = Vector2(scaler, scaler)
 	

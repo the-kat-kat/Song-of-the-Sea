@@ -3489,5 +3489,6 @@ q for inventory"
 metadata/_edit_use_anchors_ = true
 
 [node name="Jellies" type="Node2D" parent="."]
-position = Vector2(-110, -407)
+position = Vector2(998, -186)
 script = ExtResource("17_kq31c")
+jelly_count = 7
