@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6s6oy76c5ekl"]
+[gd_scene load_steps=18 format=3 uid="uid://b6s6oy76c5ekl"]
 
 [ext_resource type="Texture2D" uid="uid://cjo8nspwavow3" path="res://art/other_ppl/Jelly/Untitled_Artwork-1 3.png" id="1_1helb"]
 [ext_resource type="Texture2D" uid="uid://ot4uqwk1fs2c" path="res://art/other_ppl/Jelly/Untitled_Artwork-3 2.png" id="2_oqivo"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bw15celsnqwb7" path="res://art/other_ppl/Jelly/Untitled_Artwork-14.png" id="13_7xsxf"]
 [ext_resource type="Texture2D" uid="uid://bawxfykx44k4p" path="res://art/other_ppl/Jelly/Untitled_Artwork-15.png" id="14_ipvux"]
 [ext_resource type="Texture2D" uid="uid://62313s3wh5rt" path="res://art/empty.png" id="15_4fu6n"]
+[ext_resource type="Script" uid="uid://bgqhniveht8ld" path="res://scenes/environment/jelly.gd" id="16_oqivo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3t8u3"]
 animations = [{
@@ -73,7 +74,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15_4fu6n")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 4.0
 }]
@@ -81,3 +82,5 @@ animations = [{
 [node name="Jelly" type="AnimatedSprite2D"]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_3t8u3")
+frame = 16
+script = ExtResource("16_oqivo")

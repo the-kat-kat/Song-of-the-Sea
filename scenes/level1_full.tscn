@@ -400,4 +400,4 @@ position = Vector2(-2716, 2311)
 [node name="Jelly" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ef8bh")
-frame_progress = 0.488619
+frame_progress = 0.795775

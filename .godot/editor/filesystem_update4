@@ -30,3 +30,4 @@ res://scenes/blue_button.tres
 res://scenes/environment/jelly.gd
 res://scenes/jelly_spawner.gd
 res://sparkle.tscn
+res://scenes/environment/jelly.tscn

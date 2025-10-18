@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://ctrj7wnrv3kil"]
+[gd_scene load_steps=26 format=4 uid="uid://ctrj7wnrv3kil"]
 
 [ext_resource type="Script" uid="uid://bsyvhc4xlrfk3" path="res://scripts/main.gd" id="1_biknp"]
 [ext_resource type="Texture2D" uid="uid://bn50llk5gq115" path="res://art/environment/blobs/blob3.png" id="1_qgccg"]
@@ -17,8 +17,6 @@
 [ext_resource type="Script" uid="uid://vdk0w1tmwmak" path="res://scenes/wave_adio.gd" id="11_oaiiy"]
 [ext_resource type="Script" uid="uid://ci64r51is4oqc" path="res://scenes/sparkler_spawner.gd" id="13_loh53"]
 [ext_resource type="Script" uid="uid://3ujdk7wl5vxj" path="res://scenes/jelly_spawner.gd" id="17_kq31c"]
-[ext_resource type="PackedScene" uid="uid://b6s6oy76c5ekl" path="res://scenes/environment/jelly.tscn" id="18_d2o2a"]
-[ext_resource type="Script" uid="uid://bgqhniveht8ld" path="res://scenes/environment/jelly.gd" id="19_d2o2a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_biknp"]
 
@@ -3358,14 +3356,14 @@ tile_set = ExtResource("2_y7clp")
 position = Vector2(-612, -556)
 
 [node name="EnemySpawner" type="Node2D" parent="." groups=["enemy_spawner"]]
-position = Vector2(1550, 100)
+position = Vector2(2378, 420)
 script = ExtResource("8_biknp")
 
 [node name="Enemy" parent="EnemySpawner" instance=ExtResource("7_vhbye")]
-position = Vector2(-2000, -645)
+position = Vector2(-2089, -688)
 
 [node name="Enemy2" parent="EnemySpawner" instance=ExtResource("7_vhbye")]
-position = Vector2(412, 247)
+position = Vector2(-1234, -39)
 
 [node name="Enemy3" parent="EnemySpawner" instance=ExtResource("7_vhbye")]
 position = Vector2(-588, 194)
@@ -3493,7 +3491,3 @@ metadata/_edit_use_anchors_ = true
 [node name="Jellies" type="Node2D" parent="."]
 position = Vector2(-110, -407)
 script = ExtResource("17_kq31c")
-
-[node name="Jelly" parent="Jellies" instance=ExtResource("18_d2o2a")]
-frame = 16
-script = ExtResource("19_d2o2a")
