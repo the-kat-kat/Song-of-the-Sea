@@ -69,7 +69,7 @@ actionable_finder = NodePath("ActionableFinder")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
-frame_progress = 0.631095
+frame_progress = 0.871451
 
 [node name="CollisionRight" type="CollisionPolygon2D" parent="."]
 visible = false

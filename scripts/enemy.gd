@@ -37,7 +37,7 @@ func _ready():
 	var g = randf_range(180, 250)
 	var b = randf_range(180, 250)
 
-	enemyAnim.modulate = Color.from_rgba8(r, g, b)
+	#enemyAnim.modulate = Color.from_rgba8(r, g, b)
 	#change speed
 	enemyAnim.speed_scale= randf_range(0.8, 1.2)
 	enemyAnim.play()
@@ -60,6 +60,7 @@ func _physics_process(delta: float) -> void:
 		velocity = direction * -1 * speed
 		print("enemy_velocity", velocity)
 		if can_take_damage:
+			print("take damage")
 			update_health(30)
 			can_take_damage = false
 	else:

@@ -1,0 +1,83 @@
+[gd_scene load_steps=17 format=3 uid="uid://b6s6oy76c5ekl"]
+
+[ext_resource type="Texture2D" uid="uid://cjo8nspwavow3" path="res://art/other_ppl/Jelly/Untitled_Artwork-1 3.png" id="1_1helb"]
+[ext_resource type="Texture2D" uid="uid://ot4uqwk1fs2c" path="res://art/other_ppl/Jelly/Untitled_Artwork-3 2.png" id="2_oqivo"]
+[ext_resource type="Texture2D" uid="uid://cu78jtsiabjwg" path="res://art/other_ppl/Jelly/Untitled_Artwork-4 2.png" id="3_jj11l"]
+[ext_resource type="Texture2D" uid="uid://cbgjm4s32l40s" path="res://art/other_ppl/Jelly/Untitled_Artwork-5 2.png" id="4_5ycjo"]
+[ext_resource type="Texture2D" uid="uid://c37yxnivs3vh0" path="res://art/other_ppl/Jelly/Untitled_Artwork-6 2.png" id="5_ybqgt"]
+[ext_resource type="Texture2D" uid="uid://xtu5skx70lq6" path="res://art/other_ppl/Jelly/Untitled_Artwork-7 2.png" id="6_blpy5"]
+[ext_resource type="Texture2D" uid="uid://jtsysmw18h2h" path="res://art/other_ppl/Jelly/Untitled_Artwork-8.png" id="7_bf56e"]
+[ext_resource type="Texture2D" uid="uid://bxm6mklvatrbp" path="res://art/other_ppl/Jelly/Untitled_Artwork-9.png" id="8_7ge2k"]
+[ext_resource type="Texture2D" uid="uid://bs32k377wq2ra" path="res://art/other_ppl/Jelly/Untitled_Artwork-10.png" id="9_1kafr"]
+[ext_resource type="Texture2D" uid="uid://c8ob0n4iypvrd" path="res://art/other_ppl/Jelly/Untitled_Artwork-11.png" id="10_wf6fs"]
+[ext_resource type="Texture2D" uid="uid://cd8esugia267x" path="res://art/other_ppl/Jelly/Untitled_Artwork-12.png" id="11_3pocb"]
+[ext_resource type="Texture2D" uid="uid://k3uc00s2u16u" path="res://art/other_ppl/Jelly/Untitled_Artwork-13.png" id="12_3okw5"]
+[ext_resource type="Texture2D" uid="uid://bw15celsnqwb7" path="res://art/other_ppl/Jelly/Untitled_Artwork-14.png" id="13_7xsxf"]
+[ext_resource type="Texture2D" uid="uid://bawxfykx44k4p" path="res://art/other_ppl/Jelly/Untitled_Artwork-15.png" id="14_ipvux"]
+[ext_resource type="Texture2D" uid="uid://62313s3wh5rt" path="res://art/empty.png" id="15_4fu6n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3t8u3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1helb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_oqivo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jj11l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5ycjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ybqgt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_blpy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bf56e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7ge2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1kafr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wf6fs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3pocb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_3okw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7xsxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ipvux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_4fu6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_4fu6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_4fu6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_4fu6n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Jelly" type="AnimatedSprite2D"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_3t8u3")

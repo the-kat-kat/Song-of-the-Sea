@@ -1,4 +1,6 @@
 Node2D
+Node
+AnimatedSprite2D
 ParallaxLayer
 ParallaxBackground
 Sprite2D
@@ -10,5 +12,3 @@ AudioStreamPlayer2D
 PathFollow2D
 Path2D
 Marker2D
-CollisionShape2D
-Area2D

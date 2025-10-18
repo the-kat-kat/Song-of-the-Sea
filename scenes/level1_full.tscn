@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cgrfe01wegji4"]
+[gd_scene load_steps=42 format=3 uid="uid://cgrfe01wegji4"]
 
 [ext_resource type="Script" uid="uid://bsyvhc4xlrfk3" path="res://scripts/main.gd" id="1_o2mis"]
 [ext_resource type="PackedScene" uid="uid://bok5465lpn3wk" path="res://scenes/environment/enemy.tscn" id="4_5i0hr"]
@@ -21,6 +21,21 @@
 [ext_resource type="Texture2D" uid="uid://cqlutk6c267ve" path="res://art/environment/level_blobs/Untitled_Artwork-1 3.png" id="17_c1wvr"]
 [ext_resource type="Texture2D" uid="uid://c15qjobwieo4c" path="res://art/ui/circleBlue.png" id="18_3xnes"]
 [ext_resource type="Texture2D" uid="uid://c46nsndhse13j" path="res://art/environment/level_blobs/current.png" id="18_bm0my"]
+[ext_resource type="Texture2D" uid="uid://cjo8nspwavow3" path="res://art/other_ppl/Jelly/Untitled_Artwork-1 3.png" id="22_qcdu6"]
+[ext_resource type="Texture2D" uid="uid://ot4uqwk1fs2c" path="res://art/other_ppl/Jelly/Untitled_Artwork-3 2.png" id="23_pgune"]
+[ext_resource type="Texture2D" uid="uid://cu78jtsiabjwg" path="res://art/other_ppl/Jelly/Untitled_Artwork-4 2.png" id="24_jsig8"]
+[ext_resource type="Texture2D" uid="uid://cbgjm4s32l40s" path="res://art/other_ppl/Jelly/Untitled_Artwork-5 2.png" id="25_asvjk"]
+[ext_resource type="Texture2D" uid="uid://c37yxnivs3vh0" path="res://art/other_ppl/Jelly/Untitled_Artwork-6 2.png" id="26_0ydkw"]
+[ext_resource type="Texture2D" uid="uid://xtu5skx70lq6" path="res://art/other_ppl/Jelly/Untitled_Artwork-7 2.png" id="27_ps6f2"]
+[ext_resource type="Texture2D" uid="uid://jtsysmw18h2h" path="res://art/other_ppl/Jelly/Untitled_Artwork-8.png" id="28_xyips"]
+[ext_resource type="Texture2D" uid="uid://bxm6mklvatrbp" path="res://art/other_ppl/Jelly/Untitled_Artwork-9.png" id="29_dvb6s"]
+[ext_resource type="Texture2D" uid="uid://bs32k377wq2ra" path="res://art/other_ppl/Jelly/Untitled_Artwork-10.png" id="30_n7wmp"]
+[ext_resource type="Texture2D" uid="uid://c8ob0n4iypvrd" path="res://art/other_ppl/Jelly/Untitled_Artwork-11.png" id="31_11f78"]
+[ext_resource type="Texture2D" uid="uid://cd8esugia267x" path="res://art/other_ppl/Jelly/Untitled_Artwork-12.png" id="32_c6dmt"]
+[ext_resource type="Texture2D" uid="uid://k3uc00s2u16u" path="res://art/other_ppl/Jelly/Untitled_Artwork-13.png" id="33_upm51"]
+[ext_resource type="Texture2D" uid="uid://bw15celsnqwb7" path="res://art/other_ppl/Jelly/Untitled_Artwork-14.png" id="34_la0h4"]
+[ext_resource type="Texture2D" uid="uid://bawxfykx44k4p" path="res://art/other_ppl/Jelly/Untitled_Artwork-15.png" id="35_6rr0c"]
+[ext_resource type="Texture2D" uid="uid://62313s3wh5rt" path="res://art/empty.png" id="36_pj1bh"]
 
 [sub_resource type="Theme" id="Theme_qse01"]
 default_font = ExtResource("16_w7eol")
@@ -38,6 +53,68 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 100, 345, 0, 0, 0, 0, 261, 844, 0, 0, 0, 0, 183, 1378, 0, 0, 0, 0, -355, 2272, 0, 0, 0, 0, -1076, 2286)
 }
 point_count = 5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ef8bh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_qcdu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_pgune")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_jsig8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_asvjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_0ydkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ps6f2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_xyips")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_dvb6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_n7wmp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_11f78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_c6dmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_upm51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_la0h4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_6rr0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_pj1bh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_pj1bh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_pj1bh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_pj1bh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [node name="MainFull" type="Node2D" groups=["main"]]
 script = ExtResource("1_o2mis")
@@ -319,3 +396,8 @@ position = Vector2(-1687, -706)
 
 [node name="Enemy6" parent="Environment/EnemySpawner" instance=ExtResource("4_5i0hr")]
 position = Vector2(-2716, 2311)
+
+[node name="Jelly" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ef8bh")
+frame_progress = 0.488619

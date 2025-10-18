@@ -1,15 +1,15 @@
 [gd_scene load_steps=19 format=3 uid="uid://bok5465lpn3wk"]
 
 [ext_resource type="Script" uid="uid://g5m48rcix8km" path="res://scripts/enemy.gd" id="1_fq8u7"]
-[ext_resource type="Texture2D" uid="uid://bsqjhka4pjn3f" path="res://art/other_ppl/blob_blue/b1.png" id="2_v8sga"]
+[ext_resource type="Texture2D" uid="uid://d0kqvxp24lahf" path="res://art/other_ppl/blob_blue/Untitled_Artwork-1 3.png" id="2_ys380"]
 [ext_resource type="Texture2D" uid="uid://c15qjobwieo4c" path="res://art/ui/circleBlue.png" id="3_2y6kf"]
-[ext_resource type="Texture2D" uid="uid://415konn8vmqw" path="res://art/other_ppl/blob_blue/b2.png" id="3_46ct1"]
-[ext_resource type="Texture2D" uid="uid://lk8bkcppa7cy" path="res://art/other_ppl/blob_blue/b3.png" id="4_ys380"]
-[ext_resource type="Texture2D" uid="uid://jtjha5ej3v6t" path="res://art/other_ppl/blob_blue/b4.png" id="5_vcvc0"]
-[ext_resource type="Texture2D" uid="uid://co043nlx8bbx" path="res://art/other_ppl/blob_blue/b5.png" id="6_ul7kk"]
-[ext_resource type="Texture2D" uid="uid://cii73thtyro7a" path="res://art/other_ppl/blob_blue/b6.png" id="7_jbdvg"]
-[ext_resource type="Texture2D" uid="uid://bfc0ol0l6igmt" path="res://art/other_ppl/blob_blue/b7.png" id="8_wmghr"]
-[ext_resource type="Texture2D" uid="uid://b7vcecroecr72" path="res://art/other_ppl/blob_blue/b8.png" id="9_pixgs"]
+[ext_resource type="Texture2D" uid="uid://bhj1v1iovt6we" path="res://art/other_ppl/blob_blue/Untitled_Artwork-2 2.png" id="3_vcvc0"]
+[ext_resource type="Texture2D" uid="uid://08jggaiqdlsw" path="res://art/other_ppl/blob_blue/Untitled_Artwork-3 2.png" id="4_ul7kk"]
+[ext_resource type="Texture2D" uid="uid://de8f1kjq72ym3" path="res://art/other_ppl/blob_blue/Untitled_Artwork-4 2.png" id="5_jbdvg"]
+[ext_resource type="Texture2D" uid="uid://x7f8sqbs8has" path="res://art/other_ppl/blob_blue/Untitled_Artwork-5 2.png" id="6_wmghr"]
+[ext_resource type="Texture2D" uid="uid://erpharqsi7as" path="res://art/other_ppl/blob_blue/Untitled_Artwork-6 2.png" id="7_pixgs"]
+[ext_resource type="Texture2D" uid="uid://qxq45b3gv1pj" path="res://art/other_ppl/blob_blue/Untitled_Artwork-7 2.png" id="8_xq0y4"]
+[ext_resource type="Texture2D" uid="uid://37c068w6co44" path="res://art/other_ppl/blob_blue/Untitled_Artwork-8.png" id="9_jc82y"]
 [ext_resource type="FontFile" uid="uid://bo5ne51gkjwi0" path="res://dialogue/fonts/AdabelleHandwriting-Regular.ttf" id="11_46ct1"]
 [ext_resource type="AudioStream" uid="uid://eas6kxlybiqn" path="res://audio/ambient3(ominous).mp3" id="12_ys380"]
 
@@ -17,28 +17,28 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_v8sga")
+"texture": ExtResource("2_ys380")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_46ct1")
+"texture": ExtResource("3_vcvc0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_ys380")
+"texture": ExtResource("4_ul7kk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_vcvc0")
+"texture": ExtResource("5_jbdvg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_ul7kk")
+"texture": ExtResource("6_wmghr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_jbdvg")
+"texture": ExtResource("7_pixgs")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_wmghr")
+"texture": ExtResource("8_xq0y4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_pixgs")
+"texture": ExtResource("9_jc82y")
 }],
 "loop": true,
 "name": &"default",
@@ -71,12 +71,10 @@ collision_mask = 5
 script = ExtResource("1_fq8u7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.627392, 0.9359, 0.726379, 1)
-position = Vector2(60, 0)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_120wc")
-frame = 3
-frame_progress = 0.951959
+frame = 1
+frame_progress = 0.524033
 
 [node name="DetectionArea" type="Area2D" parent="."]
 modulate = Color(0.637843, 0.637843, 0.637843, 1)
@@ -84,6 +82,7 @@ collision_layer = 8
 collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
 shape = SubResource("CircleShape2D_gtyae")
 one_way_collision_margin = 11.4
 debug_color = Color(0, 0.6, 0.701961, 0.152941)
@@ -94,6 +93,7 @@ scale = Vector2(1.6, 1.6)
 texture = ExtResource("3_2y6kf")
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
+visible = false
 light_mask = 8
 shape = SubResource("CircleShape2D_l3fpy")
 one_way_collision_margin = 6.8
@@ -124,6 +124,7 @@ collision_layer = 16
 collision_mask = 21
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletArea"]
+visible = false
 shape = SubResource("CircleShape2D_2y6kf")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

@@ -29,6 +29,9 @@ func spawn_loop():
 	spawn_loop()
 
 func spawn_enemy(pos: Vector2):
+	call_deferred("_spawn_enemy_safe", pos)
+
+func _spawn_enemy_safe(pos: Vector2):
 	enemies_spawned += 1
 	var enemy = enemy_path.instantiate()
 	add_child(enemy)
