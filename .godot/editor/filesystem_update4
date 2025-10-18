@@ -32,3 +32,4 @@ res://scenes/jelly_spawner.gd
 res://sparkle.tscn
 res://scenes/environment/jelly.tscn
 res://scenes/random_item.tscn
+res://scenes/inventory.gd

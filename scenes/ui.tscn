@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnotv4gkcasbw"]
+[gd_scene load_steps=9 format=3 uid="uid://dnotv4gkcasbw"]
 
 [ext_resource type="PackedScene" uid="uid://o08ql3nhny56" path="res://scenes/health_display.tscn" id="1_nt7q6"]
 [ext_resource type="Script" uid="uid://ck1gu7hng7yk" path="res://scenes/bullet_bar.gd" id="2_x4jx1"]
 [ext_resource type="StyleBox" uid="uid://0cje81sfp0ft" path="res://ui/inside_bar.tres" id="2_yev5y"]
 [ext_resource type="PackedScene" uid="uid://bb545e5l5xd2p" path="res://scenes/inventory.tscn" id="4_gdt2y"]
+[ext_resource type="FontFile" uid="uid://bo5ne51gkjwi0" path="res://dialogue/fonts/AdabelleHandwriting-Regular.ttf" id="5_p7vwb"]
+[ext_resource type="StyleBox" uid="uid://bybs62ef0kuei" path="res://scenes/blue_button.tres" id="6_ktti3"]
+[ext_resource type="StyleBox" uid="uid://c8ibx1s7hj0qe" path="res://ui/white_box.tres" id="7_cgfq5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4jx1"]
 bg_color = Color(1, 1, 1, 1)
@@ -39,3 +42,25 @@ show_percentage = false
 script = ExtResource("2_x4jx1")
 
 [node name="Inventory" parent="." instance=ExtResource("4_gdt2y")]
+
+[node name="InventoryButton" type="Button" parent="."]
+offset_left = 120.0
+offset_top = 600.0
+offset_right = 200.0
+offset_bottom = 630.0
+theme_override_colors/font_hover_pressed_color = Color(0.189647, 0.635826, 0.741466, 1)
+theme_override_colors/font_hover_color = Color(0.189647, 0.635826, 0.741466, 1)
+theme_override_colors/font_color = Color(0.189647, 0.635826, 0.741466, 1)
+theme_override_colors/font_focus_color = Color(0.189647, 0.635826, 0.741466, 1)
+theme_override_colors/font_pressed_color = Color(0.189647, 0.635826, 0.741466, 1)
+theme_override_fonts/font = ExtResource("5_p7vwb")
+theme_override_styles/focus = ExtResource("7_cgfq5")
+theme_override_styles/hover_pressed = ExtResource("7_cgfq5")
+theme_override_styles/hover = ExtResource("6_ktti3")
+theme_override_styles/pressed_mirrored = ExtResource("6_ktti3")
+theme_override_styles/pressed = ExtResource("6_ktti3")
+theme_override_styles/normal_mirrored = ExtResource("7_cgfq5")
+theme_override_styles/normal = ExtResource("7_cgfq5")
+text = "inventory"
+
+[connection signal="pressed" from="InventoryButton" to="Inventory" method="_on_inventory_button_pressed"]

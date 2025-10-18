@@ -9,8 +9,13 @@ const DEFAULT = preload("res://ui/inventory/items/default.tres")
 @onready var main = get_tree().get_nodes_in_group("main")[0]
 
 func _ready():
+	visible = false
 	current_scene = main
 	hotbar.get_children()[0].item= DEFAULT
+	
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("i"):
+		visible = !visible
 
 func _on_hotbar_equip(item: Item) -> void:
 	if current_scene != null:
@@ -34,3 +39,7 @@ func clear():
 		if slot.item != null && slot.item.title != "default":
 			slot.item = null
 	hotbar.index = 0
+
+
+func _on_inventory_button_pressed() -> void:
+	visible = !visible
