@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cgrfe01wegji4"]
+[gd_scene load_steps=26 format=3 uid="uid://cgrfe01wegji4"]
 
 [ext_resource type="Script" uid="uid://bsyvhc4xlrfk3" path="res://scripts/main.gd" id="1_o2mis"]
 [ext_resource type="PackedScene" uid="uid://bok5465lpn3wk" path="res://scenes/environment/enemy.tscn" id="4_5i0hr"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://krakpv7dri0u" path="res://art/environment/level_blobs/Untitled_Artwork-2 2.png" id="16_tv2nk"]
 [ext_resource type="FontFile" uid="uid://bo5ne51gkjwi0" path="res://dialogue/fonts/AdabelleHandwriting-Regular.ttf" id="16_w7eol"]
 [ext_resource type="Texture2D" uid="uid://cqlutk6c267ve" path="res://art/environment/level_blobs/Untitled_Artwork-1 3.png" id="17_c1wvr"]
+[ext_resource type="Texture2D" uid="uid://c15qjobwieo4c" path="res://art/ui/circleBlue.png" id="18_3xnes"]
 [ext_resource type="Texture2D" uid="uid://c46nsndhse13j" path="res://art/environment/level_blobs/current.png" id="18_bm0my"]
 
 [sub_resource type="Theme" id="Theme_qse01"]
@@ -160,14 +161,15 @@ scale = Vector2(1.54444, 1.57531)
 texture = ExtResource("14_5i0hr")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Environment/Back2"]
-position = Vector2(-624, 3526)
+position = Vector2(-2145, 5023)
+rotation = -0.309199
 scale = Vector2(1.54444, 1.57531)
 texture = ExtResource("15_3xnes")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Environment/Back2"]
-position = Vector2(-502, 4023)
-rotation = 0.767189
-scale = Vector2(1.54444, 1.57531)
+position = Vector2(-3925, 4428)
+rotation = 8.2016e-05
+scale = Vector2(1.67564, 1.81042)
 texture = ExtResource("16_tv2nk")
 
 [node name="Sprite2D6" type="Sprite2D" parent="Environment/Back2"]
@@ -183,13 +185,13 @@ scale = Vector2(2.32548, 2.24455)
 texture = ExtResource("17_c1wvr")
 
 [node name="Sprite2D8" type="Sprite2D" parent="Environment/Back2"]
-position = Vector2(-2872.3, 2131.21)
-rotation = 0.398114
+position = Vector2(-3224, 1864)
+rotation = 0.798236
 scale = Vector2(2.16982, 2.07173)
 texture = ExtResource("15_3xnes")
 
-[node name="Sprite2D9" type="Sprite2D" parent="Environment/Back2"]
-position = Vector2(1746, 3923)
+[node name="L" type="Sprite2D" parent="Environment/Back2"]
+position = Vector2(937, 3766)
 rotation = -1.03175
 scale = Vector2(2.16982, 2.07173)
 texture = ExtResource("13_bm0my")
@@ -207,6 +209,13 @@ position = Vector2(197, 517)
 rotation = -0.206301
 scale = Vector2(2.28125, 2.93395)
 texture = ExtResource("18_bm0my")
+
+[node name="Circle" type="Sprite2D" parent="Environment/Back2"]
+modulate = Color(1.912, 1.366, 0.99, 0.478)
+z_index = -30
+position = Vector2(2733, 2420)
+scale = Vector2(3.47135, 3.36026)
+texture = ExtResource("18_3xnes")
 
 [node name="Front2" type="Node2D" parent="Environment"]
 
@@ -226,15 +235,15 @@ texture = ExtResource("14_5i0hr")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Environment/Front2"]
 modulate = Color(1, 1.3, 1.3, 0.724)
-position = Vector2(-720, 3295)
+position = Vector2(-1880, 4720)
 rotation = -0.483999
 scale = Vector2(1.54444, 1.57531)
 texture = ExtResource("15_3xnes")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Environment/Front2"]
 modulate = Color(1, 1.3, 1.3, 0.795)
-position = Vector2(-294, 3975)
-rotation = 0.91479
+position = Vector2(-3819, 4639)
+rotation = -0.0179401
 scale = Vector2(1.54444, 1.57531)
 texture = ExtResource("16_tv2nk")
 
@@ -268,7 +277,7 @@ texture = ExtResource("16_tv2nk")
 
 [node name="Sprite2D9" type="Sprite2D" parent="Environment/Front2"]
 modulate = Color(1, 1.2, 1.2, 0.7)
-position = Vector2(1746, 3923)
+position = Vector2(889, 3935)
 rotation = -1.03175
 scale = Vector2(1.85649, 2.54603)
 texture = ExtResource("13_bm0my")

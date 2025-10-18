@@ -1,13 +1,44 @@
-[gd_scene load_steps=11 format=3 uid="uid://boem5i1cboxfk"]
+[gd_scene load_steps=19 format=3 uid="uid://boem5i1cboxfk"]
 
 [ext_resource type="Script" uid="uid://rvsvltaft3r7" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://bo5ne51gkjwi0" path="res://dialogue/fonts/AdabelleHandwriting-Regular.ttf" id="2_bqqt6"]
-[ext_resource type="PackedScene" uid="uid://c5lrlb3pexup5" path="res://scenes/main_full_copy.tscn" id="4_8ln24"]
+[ext_resource type="StyleBox" uid="uid://bybs62ef0kuei" path="res://scenes/blue_button.tres" id="3_5dd4i"]
 [ext_resource type="Shader" uid="uid://btedhdw4ym1am" path="res://scenes/shaders/sway.gdshader" id="4_wu84c"]
+[ext_resource type="Texture2D" uid="uid://tb48w65aqgd7" path="res://art/title_screen/Untitled_Artwork-1 3.png" id="5_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://b3c3f5lvg75dh" path="res://art/title_screen/Untitled_Artwork-2 2.png" id="6_flqon"]
+[ext_resource type="Texture2D" uid="uid://bfhki3cweukq7" path="res://art/title_screen/Untitled_Artwork-3 2.png" id="7_rcqid"]
+[ext_resource type="Texture2D" uid="uid://cmi1byceli7ye" path="res://art/title_screen/Untitled_Artwork-4 2.png" id="8_1ajci"]
+[ext_resource type="AudioStream" uid="uid://dnvra22bgbuf" path="res://audio/Deep Blue - Calming Ocean Music - Royalty Free.mp3" id="9_7b55j"]
+[ext_resource type="Texture2D" uid="uid://djmh3f8nwf0lo" path="res://art/title_screen/Untitled_Artwork-5 2.png" id="10_5pajh"]
+[ext_resource type="Script" uid="uid://bukechrxe4bs" path="res://scenes/parallax_background.gd" id="10_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://b8hj5tctad8kh" path="res://art/title_screen/Untitled_Artwork-6 2.png" id="12_flqon"]
 
-[sub_resource type="Theme" id="Theme_wu84c"]
-HeaderLarge/font_sizes/font_size = 120
-HeaderLarge/fonts/font = ExtResource("2_bqqt6")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ln24"]
+shader = ExtResource("4_wu84c")
+shader_parameter/amplitude = 75.806
+shader_parameter/frequency = 5.967
+shader_parameter/speed = 0.839
+shader_parameter/strength = 0.149
+shader_parameter/ray_speed = 1.0
+shader_parameter/ray_density = 3.0
+shader_parameter/ray_width = 0.3
+shader_parameter/ray_slant = 0.5
+shader_parameter/ray_falloff = 1.0
+shader_parameter/ray_intensity = 0.5
+shader_parameter/ray_tint = Vector3(0, 0, 0)
+shader_parameter/ray_motion = 0.0
+shader_parameter/min_length = 0.0
+shader_parameter/max_length = 0.0
+shader_parameter/length_softness = 0.0
+shader_parameter/length_seed_offset = 0.0
+shader_parameter/debug_show_mask = false
+shader_parameter/tone = 4.75e-08
+shader_parameter/tint_color = Vector3(1, 0.6, 0.6)
+shader_parameter/tint_strength = 0.0
+shader_parameter/preserve_threshold = 0.92
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rtw2f"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
 bg_color = Color(0.865852, 0.955006, 0.984934, 1)
@@ -23,7 +54,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
-bg_color = Color(0.515297, 0.832582, 0.923161, 1)
+bg_color = Color(0.779633, 0.927251, 0.971922, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -35,99 +66,14 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-border_blend = true
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="Gradient" id="Gradient_j7ex8"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ln24"]
-shader = ExtResource("4_wu84c")
-shader_parameter/amplitude = 75.0
-shader_parameter/frequency = 1.0
-shader_parameter/speed = 1.0
-shader_parameter/strength = 0.5
-shader_parameter/ray_speed = 1.0
-shader_parameter/ray_density = 3.0
-shader_parameter/ray_width = 0.3
-shader_parameter/ray_slant = 0.5
-shader_parameter/ray_falloff = 1.0
-shader_parameter/ray_intensity = 0.5
-shader_parameter/ray_tint = Vector3(1, 1, 1)
-shader_parameter/ray_motion = 0.18
-shader_parameter/min_length = 0.001
-shader_parameter/max_length = 0.2
-shader_parameter/length_softness = 0.7
-shader_parameter/length_seed_offset = 5.0
-shader_parameter/debug_show_mask = false
-shader_parameter/tone = 4.75e-08
-shader_parameter/tint_color = Vector3(1, 0.6, 0.6)
-shader_parameter/tint_strength = 0.0
-shader_parameter/preserve_threshold = 0.92
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_rtw2f"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a8gd2"]
+gradient = SubResource("Gradient_j7ex8")
+use_hdr = true
 
 [node name="CanvasLayer" type="Node2D"]
-
-[node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource("1_ekxnf")
-
-[node name="Control" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="UI/Control"]
-layout_mode = 2
-offset_left = 212.0
-offset_top = 78.0
-offset_right = 935.0
-offset_bottom = 214.0
-theme = SubResource("Theme_wu84c")
-theme_type_variation = &"HeaderLarge"
-text = "Song of the Sea"
-horizontal_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control"]
-custom_minimum_size = Vector2(500, 200)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -108.0
-offset_right = 250.0
-offset_bottom = 202.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="Play" type="Button" parent="UI/Control/VBoxContainer"]
-custom_minimum_size = Vector2(500, 80)
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.491878, 0.76977, 0.902489, 1)
-theme_override_colors/font_color = Color(0.431326, 0.736421, 0.846406, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_bqqt6")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
-theme_override_styles/normal = SubResource("StyleBoxFlat_8ln24")
-text = "Play"
 
 [node name="TextureRect" type="TextureRect" parent="." groups=["texture_rect"]]
 material = SubResource("ShaderMaterial_8ln24")
@@ -151,6 +97,116 @@ audio_listener_enable_3d = true
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="MainFull2" parent="SubViewport" instance=ExtResource("4_8ln24")]
+[node name="Title" type="Sprite2D" parent="SubViewport"]
+z_index = 100
+position = Vector2(697, 326)
+scale = Vector2(0.468982, 0.42963)
+texture = ExtResource("10_5pajh")
 
-[connection signal="pressed" from="UI/Control/VBoxContainer/Play" to="UI" method="_on_button_pressed"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="SubViewport"]
+script = ExtResource("10_lgwnu")
+
+[node name="1" type="ParallaxLayer" parent="SubViewport/ParallaxBackground"]
+position = Vector2(527, 596)
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/ParallaxBackground/1"]
+position = Vector2(38.0001, -46)
+scale = Vector2(0.964815, 0.94321)
+texture = ExtResource("5_lgwnu")
+
+[node name="2" type="ParallaxLayer" parent="SubViewport/ParallaxBackground"]
+position = Vector2(527, 596)
+motion_scale = Vector2(0.95, 0.95)
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/ParallaxBackground/2"]
+position = Vector2(148, -266)
+scale = Vector2(0.443519, 0.428395)
+texture = ExtResource("6_flqon")
+
+[node name="3" type="ParallaxLayer" parent="SubViewport/ParallaxBackground"]
+position = Vector2(527, 596)
+motion_scale = Vector2(0.9, 0.9)
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/ParallaxBackground/3"]
+position = Vector2(136, -266)
+scale = Vector2(0.449074, 0.409259)
+texture = ExtResource("7_rcqid")
+
+[node name="4" type="ParallaxLayer" parent="SubViewport/ParallaxBackground"]
+position = Vector2(527, 596)
+motion_scale = Vector2(0.85, 0.85)
+
+[node name="5" type="ParallaxLayer" parent="SubViewport/ParallaxBackground"]
+position = Vector2(527, 596)
+motion_scale = Vector2(0.8, 0.8)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_7b55j")
+autoplay = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("1_ekxnf")
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="UI/Control"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -476.0
+offset_top = 106.0
+offset_right = -356.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.262605, 0.622126, 0.893828, 1)
+theme_override_colors/font_color = Color(0.186363, 0.646663, 0.833071, 1)
+theme_override_colors/font_pressed_color = Color(0.24541, 0.712833, 0.882196, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/normal = ExtResource("3_5dd4i")
+text = "Play"
+
+[node name="Label" type="Label" parent="UI/Control/Play"]
+layout_mode = 2
+offset_right = 723.0
+offset_bottom = 80.0
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.346431, 0.708032, 0.865312, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+text = ">"
+vertical_alignment = 1
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+z_index = 10
+position = Vector2(668.5, 329)
+scale = Vector2(0.455093, 0.414815)
+texture = ExtResource("8_1ajci")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D"]
+z_index = 10
+position = Vector2(59.363, 302)
+scale = Vector2(1.04404, 752)
+texture = SubResource("GradientTexture1D_a8gd2")
+
+[node name="Whale" type="Sprite2D" parent="Node2D"]
+z_index = 10
+position = Vector2(668.5, 329)
+scale = Vector2(0.455093, 0.414815)
+texture = ExtResource("12_flqon")
+
+[connection signal="pressed" from="UI/Control/Play" to="UI" method="_on_button_pressed"]

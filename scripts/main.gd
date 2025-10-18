@@ -25,4 +25,5 @@ func reset():
 	default_main.reset_shader()
 	
 	enemy_spawner.enemies_spawned = 0
+	enemy_spawner.respawn()
 	inventory.clear()

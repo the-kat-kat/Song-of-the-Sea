@@ -8,8 +8,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a8y0u"]
 shader = ExtResource("7_85g3d")
-shader_parameter/amplitude = 75.0
-shader_parameter/frequency = 1.0
+shader_parameter/amplitude = 47.58
+shader_parameter/frequency = 2.695
 shader_parameter/speed = 1.0
 shader_parameter/strength = 0.5
 shader_parameter/ray_speed = 1.0
@@ -71,6 +71,7 @@ bus = &"music"
 layer = 101
 
 [node name="BlackOut" type="ColorRect" parent="CanvasLayer"]
+visible = false
 z_index = 100
 z_as_relative = false
 anchors_preset = 15

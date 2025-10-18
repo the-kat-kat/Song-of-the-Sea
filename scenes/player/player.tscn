@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://b37o51iyq1xg8"]
+[gd_scene load_steps=14 format=3 uid="uid://b37o51iyq1xg8"]
 
 [ext_resource type="Script" uid="uid://clhkx2cashlun" path="res://scripts/player.gd" id="1_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://ds78xikiwosu7" path="res://art/player/swim_anim/Untitled_Artwork-3.png" id="2_qek5x"]
 [ext_resource type="Texture2D" uid="uid://c22wi15mcmeis" path="res://art/player/swim_anim/Untitled_Artwork-4.png" id="3_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://t7o1x2wxj5jl" path="res://art/player/swim_anim/Untitled_Artwork-5.png" id="4_h17s1"]
-[ext_resource type="Texture2D" uid="uid://1ncqg88phgk1" path="res://art/player/swim_anim/Untitled_Artwork-1.png" id="5_je7p5"]
 [ext_resource type="Texture2D" uid="uid://bwri3xfaqj8yr" path="res://art/player/swim_anim/Untitled_Artwork-2.png" id="6_fm80t"]
 [ext_resource type="Texture2D" uid="uid://dt4tv53t821uo" path="res://art/player/swim_anim/Untitled_Artwork-6.png" id="7_gx1jg"]
 [ext_resource type="Texture2D" uid="uid://wuf85eck8wj5" path="res://art/player/swim_anim/Untitled_Artwork-7.png" id="8_ugbui"]
@@ -17,22 +16,22 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("6_fm80t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qek5x")
+}, {
+"duration": 1.0,
 "texture": ExtResource("2_qek5x")
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_5gtgg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_h17s1")
 }],
 "loop": true,
 "name": &"default",
-"speed": 2.0
+"speed": 3.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_je7p5")
-}, {
 "duration": 1.0,
 "texture": ExtResource("6_fm80t")
 }, {
@@ -70,8 +69,7 @@ actionable_finder = NodePath("ActionableFinder")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
-frame = 1
-frame_progress = 0.866328
+frame_progress = 0.631095
 
 [node name="CollisionRight" type="CollisionPolygon2D" parent="."]
 visible = false
@@ -81,6 +79,7 @@ polygon = PackedVector2Array(-6.71429, -17.9551, 14, -18.9526, 17.5714, -9.77556
 one_way_collision_margin = 2.0
 
 [node name="CollisionLeft" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(-48, -4)
 scale = Vector2(-14, 10.025)
 polygon = PackedVector2Array(4, -18.9526, 7.28571, -17.1571, 10.2857, -11.1721, 9.85714, 6.58354, 2.57143, 17.5561, -7.57143, 19.3516, -12.4286, 12.1696, -17.7143, -9.37656, -14.1429, -18.7531)
@@ -103,6 +102,7 @@ scale = Vector2(-14, 10.025)
 polygon = PackedVector2Array(-14.2857, -20.1496, -0.714286, -24.9377, 10.7143, -22.1446, 16.1429, -14.5636, 16.2857, -0.997506, 4.14286, 19.3516, -6, 19.3516, -11.4286, 12.9676, -13.7143, 3.39152, -16.4286, -9.17706)
 
 [node name="Area" type="CollisionShape2D" parent="ActionableFinder"]
+visible = false
 position = Vector2(0, -25)
 shape = SubResource("CircleShape2D_fm80t")
 
