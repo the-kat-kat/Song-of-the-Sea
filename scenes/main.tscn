@@ -65,6 +65,7 @@ expand_mode = 2
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ya4ey")
 volume_db = -20.0
+autoplay = true
 bus = &"music"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

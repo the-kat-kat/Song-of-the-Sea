@@ -93,7 +93,7 @@ func _on_detection_area_area_exited(area: Area2D) -> void:
 func _on_bullet_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("bullet"):
 		body.queue_free()
-		update_health(30)
+		update_health(10)
 	if body.is_in_group("dagger"):
 		body.queue_free()
 		update_health(100)
