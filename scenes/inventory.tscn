@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb545e5l5xd2p"]
+[gd_scene load_steps=6 format=3 uid="uid://bb545e5l5xd2p"]
 
 [ext_resource type="Script" uid="uid://ny2xtg0kbtio" path="res://scenes/inventory.gd" id="1_53g1v"]
-[ext_resource type="PackedScene" uid="uid://ruewc7m1dsjv" path="res://slot.tscn" id="1_qw0r6"]
+[ext_resource type="PackedScene" uid="uid://2lbstrv4mmeb" path="res://scenes/slot.tscn" id="1_qw0r6"]
 [ext_resource type="Script" uid="uid://c0nqssg1vq764" path="res://scenes/hotbar.gd" id="2_ty45s"]
+[ext_resource type="StyleBox" uid="uid://c8ibx1s7hj0qe" path="res://ui/white_box.tres" id="4_53g1v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ty45s"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -117,9 +118,9 @@ anchor_top = 0.01
 anchor_right = 1.0
 anchor_bottom = 1.01
 offset_left = 218.0
-offset_top = 503.52
+offset_top = 493.52
 offset_right = -819.0
-offset_bottom = -29.48
+offset_bottom = -39.48
 size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxFlat_ty45s")
@@ -133,9 +134,9 @@ anchor_top = 0.795
 anchor_right = 0.804
 anchor_bottom = 0.949
 offset_left = 0.208008
-offset_top = 2.83997
+offset_top = -7.16003
 offset_right = -0.208008
-offset_bottom = 3.04797
+offset_bottom = -6.95203
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 20
@@ -170,3 +171,37 @@ size_flags_vertical = 6
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.491)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18
+anchor_top = 0.762
+anchor_right = 0.82
+anchor_bottom = 0.972
+offset_left = 4.63998
+offset_top = 0.223999
+offset_right = 0.359924
+offset_bottom = -7.85602
+theme_override_styles/hover = ExtResource("4_53g1v")
+theme_override_styles/pressed = ExtResource("4_53g1v")
+theme_override_styles/normal = ExtResource("4_53g1v")
+
+[node name="BG" parent="Button" instance=ExtResource("1_qw0r6")]
+visible = false
+modulate = Color(1, 1, 1, 0.423)
+layout_mode = 1
+anchor_top = 0.01
+anchor_right = 1.0
+anchor_bottom = 1.01
+offset_left = 207.0
+offset_top = 501.92
+offset_right = 936.0
+offset_bottom = 627.92
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = ExtResource("4_53g1v")
+script = null
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -75,11 +75,12 @@ func _physics_process(delta: float) -> void:
 	if default_main.switching:
 		balloon.hide()
 
-func _unhandled_input(_event: InputEvent) -> void:
-	# Only the balloon is allowed to handle input while it's showing
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		if dialogue_label.is_typing:
+			dialogue_label.skip_typing()
 	get_viewport().set_input_as_handled()
-
-
+			
 func _notification(what: int) -> void:
 	## Detect a change of locale and update the current dialogue line to show the new language
 	if what == NOTIFICATION_TRANSLATION_CHANGED and _locale != TranslationServer.get_locale() and is_instance_valid(dialogue_label):
@@ -113,6 +114,7 @@ func apply_dialogue_line() -> void:
 		print(character_label.text)
 		if character_label.text == player_name:
 			yapper1.visible = true
+			yapper1.texture = yapper_images.get(character_label.text)
 			yapper1.modulate.a = 1.0
 			yapper2.modulate.a = 0.4
 		else:

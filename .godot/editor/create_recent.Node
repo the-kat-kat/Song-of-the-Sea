@@ -1,7 +1,8 @@
 Button
+VBoxContainer
+AnimatedSprite2D
 Node2D
 Node
-AnimatedSprite2D
 ParallaxLayer
 ParallaxBackground
 Sprite2D
@@ -11,5 +12,3 @@ TextureRect
 CanvasLayer
 AudioStreamPlayer2D
 PathFollow2D
-Path2D
-Marker2D

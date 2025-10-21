@@ -1,17 +1,31 @@
-[gd_scene load_steps=19 format=3 uid="uid://boem5i1cboxfk"]
+[gd_scene load_steps=34 format=3 uid="uid://boem5i1cboxfk"]
 
 [ext_resource type="Script" uid="uid://rvsvltaft3r7" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://bo5ne51gkjwi0" path="res://dialogue/fonts/AdabelleHandwriting-Regular.ttf" id="2_bqqt6"]
-[ext_resource type="StyleBox" uid="uid://bybs62ef0kuei" path="res://scenes/blue_button.tres" id="3_5dd4i"]
 [ext_resource type="Shader" uid="uid://btedhdw4ym1am" path="res://scenes/shaders/sway.gdshader" id="4_wu84c"]
 [ext_resource type="Texture2D" uid="uid://tb48w65aqgd7" path="res://art/title_screen/Untitled_Artwork-1 3.png" id="5_lgwnu"]
 [ext_resource type="Texture2D" uid="uid://b3c3f5lvg75dh" path="res://art/title_screen/Untitled_Artwork-2 2.png" id="6_flqon"]
 [ext_resource type="Texture2D" uid="uid://bfhki3cweukq7" path="res://art/title_screen/Untitled_Artwork-3 2.png" id="7_rcqid"]
 [ext_resource type="Texture2D" uid="uid://cmi1byceli7ye" path="res://art/title_screen/Untitled_Artwork-4 2.png" id="8_1ajci"]
 [ext_resource type="AudioStream" uid="uid://dnvra22bgbuf" path="res://audio/Deep Blue - Calming Ocean Music - Royalty Free.mp3" id="9_7b55j"]
+[ext_resource type="StyleBox" uid="uid://c8ibx1s7hj0qe" path="res://ui/white_box.tres" id="10_1acrt"]
 [ext_resource type="Texture2D" uid="uid://djmh3f8nwf0lo" path="res://art/title_screen/Untitled_Artwork-5 2.png" id="10_5pajh"]
 [ext_resource type="Script" uid="uid://bukechrxe4bs" path="res://scenes/parallax_background.gd" id="10_lgwnu"]
-[ext_resource type="Texture2D" uid="uid://b8hj5tctad8kh" path="res://art/title_screen/Untitled_Artwork-6 2.png" id="12_flqon"]
+[ext_resource type="Texture2D" uid="uid://b3w0gjbh7yxa2" path="res://art/environment/whale_menu/Untitled_Artwork-1 3.png" id="12_3wgol"]
+[ext_resource type="Texture2D" uid="uid://cfvkx6i5asd03" path="res://art/environment/whale_menu/Untitled_Artwork-2 2.png" id="13_1acrt"]
+[ext_resource type="Texture2D" uid="uid://burk7lvppr0cq" path="res://art/environment/whale_menu/Untitled_Artwork-3 2.png" id="14_vr8o3"]
+[ext_resource type="Texture2D" uid="uid://d4ey0mh5eyq3k" path="res://art/environment/whale_menu/Untitled_Artwork-4 2.png" id="15_1a85y"]
+[ext_resource type="Texture2D" uid="uid://b64aemjoojkjf" path="res://art/environment/whale_menu/Untitled_Artwork-5 2.png" id="16_hl5e0"]
+[ext_resource type="Texture2D" uid="uid://dykjuhtv6dtn6" path="res://art/environment/whale_menu/Untitled_Artwork-6 2.png" id="17_engjn"]
+[ext_resource type="Texture2D" uid="uid://bjh686x05ugww" path="res://art/environment/whale_menu/Untitled_Artwork-7 2.png" id="18_6h3lr"]
+[ext_resource type="Texture2D" uid="uid://ddxfj3fxpr373" path="res://art/environment/whale_menu/Untitled_Artwork-8.png" id="19_dj67d"]
+[ext_resource type="Texture2D" uid="uid://bfv1hailn18i0" path="res://art/environment/whale_menu/Untitled_Artwork-9.png" id="20_6vcge"]
+[ext_resource type="Texture2D" uid="uid://cn8bpyc5ibis" path="res://art/environment/whale_menu/Untitled_Artwork-10.png" id="21_ip0br"]
+[ext_resource type="Texture2D" uid="uid://bb4aft8equ7hn" path="res://art/environment/whale_menu/Untitled_Artwork-11.png" id="22_xyero"]
+[ext_resource type="Texture2D" uid="uid://cuyeswktwb5su" path="res://art/environment/whale_menu/Untitled_Artwork-12.png" id="23_tcusk"]
+[ext_resource type="Texture2D" uid="uid://kcqc33ay8mo6" path="res://art/environment/whale_menu/Untitled_Artwork-13.png" id="24_4puye"]
+[ext_resource type="Texture2D" uid="uid://62313s3wh5rt" path="res://art/empty.png" id="25_q13xq"]
+[ext_resource type="Script" uid="uid://desjq722f0khc" path="res://scenes/ui/whale_ui.gd" id="26_1acrt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ln24"]
 shader = ExtResource("4_wu84c")
@@ -72,6 +86,77 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_a8gd2"]
 gradient = SubResource("Gradient_j7ex8")
 use_hdr = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u43bj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_3wgol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1acrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_vr8o3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_1a85y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hl5e0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_engjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_6h3lr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_dj67d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_6vcge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ip0br")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_xyero")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_tcusk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_4puye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_q13xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_q13xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_q13xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_q13xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_q13xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_q13xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_q13xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_q13xq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [node name="CanvasLayer" type="Node2D"]
 
@@ -147,28 +232,20 @@ autoplay = true
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("1_ekxnf")
 
-[node name="Control" type="Control" parent="UI"]
-layout_mode = 3
+[node name="Control" type="VBoxContainer" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 412.0
+offset_right = -776.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Play" type="Button" parent="UI/Control"]
 custom_minimum_size = Vector2(0, 80)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -476.0
-offset_top = 106.0
-offset_right = -356.0
-offset_bottom = 186.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.262605, 0.622126, 0.893828, 1)
 theme_override_colors/font_color = Color(0.186363, 0.646663, 0.833071, 1)
 theme_override_colors/font_pressed_color = Color(0.24541, 0.712833, 0.882196, 1)
@@ -176,13 +253,27 @@ theme_override_fonts/font = ExtResource("2_bqqt6")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
-theme_override_styles/normal = ExtResource("3_5dd4i")
+theme_override_styles/normal = ExtResource("10_1acrt")
 text = "Play"
 
-[node name="Label" type="Label" parent="UI/Control/Play"]
+[node name="Settings" type="Button" parent="UI/Control"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-offset_right = 723.0
-offset_bottom = 80.0
+theme_override_colors/font_hover_color = Color(0.262605, 0.622126, 0.893828, 1)
+theme_override_colors/font_color = Color(0.186363, 0.646663, 0.833071, 1)
+theme_override_colors/font_pressed_color = Color(0.24541, 0.712833, 0.882196, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/normal = ExtResource("10_1acrt")
+text = "Settings"
+
+[node name="Label" type="Label" parent="UI"]
+offset_left = 100.0
+offset_top = 436.0
+offset_right = 376.0
+offset_bottom = 468.0
 theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_color = Color(0.346431, 0.708032, 0.865312, 1)
 theme_override_fonts/font = ExtResource("2_bqqt6")
@@ -203,10 +294,13 @@ position = Vector2(59.363, 302)
 scale = Vector2(1.04404, 752)
 texture = SubResource("GradientTexture1D_a8gd2")
 
-[node name="Whale" type="Sprite2D" parent="Node2D"]
+[node name="WhaleUI" type="AnimatedSprite2D" parent="Node2D"]
 z_index = 10
 position = Vector2(668.5, 329)
 scale = Vector2(0.455093, 0.414815)
-texture = ExtResource("12_flqon")
+sprite_frames = SubResource("SpriteFrames_u43bj")
+frame_progress = 0.672319
+script = ExtResource("26_1acrt")
 
 [connection signal="pressed" from="UI/Control/Play" to="UI" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Control/Settings" to="UI" method="_on_settings_pressed"]

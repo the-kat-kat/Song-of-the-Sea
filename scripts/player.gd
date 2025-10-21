@@ -9,7 +9,8 @@ var bullet_path = preload("res://scenes/bullet.tscn")
 @export var dash_cooldown := 1
 
 @export var bgm: AudioStreamPlayer
-@export var firing_pos_array: Array[Node2D]
+
+@onready var firing_pos_array: Array[Node] = $FiringPositionHolder.get_children()
 @onready var heart_display: HBoxContainer = get_tree().get_nodes_in_group("hearts")[0]
 @onready var inventory: Control = get_tree().get_nodes_in_group("inventory")[0]
 

@@ -3353,7 +3353,7 @@ tile_map_data = PackedByteArray("AADn/wAAAgABACYAAADo//z/AgACACIAAADo//3/AgACACM
 tile_set = ExtResource("2_y7clp")
 
 [node name="Player" parent="." instance=ExtResource("3_sv6s2")]
-position = Vector2(-612, -556)
+position = Vector2(-993, -607)
 
 [node name="EnemySpawner" type="Node2D" parent="." groups=["enemy_spawner"]]
 position = Vector2(2378, 420)
@@ -3454,7 +3454,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="welcome" type="TextEdit" parent="text"]
 z_index = 200
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.2
+anchor_top = 2.65
+anchor_right = -2.2
+anchor_bottom = 2.65
 offset_left = -611.0
 offset_top = -772.0
 offset_right = -370.0

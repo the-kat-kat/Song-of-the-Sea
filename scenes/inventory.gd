@@ -6,6 +6,8 @@ const DEFAULT = preload("res://ui/inventory/items/default.tres")
 
 @export var hotbar: HBoxContainer
 @export var grid: GridContainer
+
+@export var inventory_button: Button 
 @onready var main = get_tree().get_nodes_in_group("main")[0]
 
 func _ready():
@@ -13,10 +15,11 @@ func _ready():
 	current_scene = main
 	hotbar.get_children()[0].item= DEFAULT
 	
-func _physics_process(delta: float) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("i"):
 		visible = !visible
-
+		inventory_button.visible = !visible
+	
 func _on_hotbar_equip(item: Item) -> void:
 	if current_scene != null:
 		current_scene.currently_equipped = item
@@ -40,6 +43,10 @@ func clear():
 			slot.item = null
 	hotbar.index = 0
 
-
 func _on_inventory_button_pressed() -> void:
 	visible = !visible
+	inventory_button.visible = !visible
+
+func _on_button_pressed() -> void:
+	visible = !visible
+	inventory_button.visible = !visible

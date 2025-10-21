@@ -58,11 +58,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_fm80t"]
 radius = 242.002
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("firing_pos_array", "audio_node", "actionable_finder") groups=["player"]]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("audio_node", "actionable_finder") groups=["player"]]
 scale = Vector2(0.5, 0.5)
 collision_mask = 3
 script = ExtResource("1_5gtgg")
-firing_pos_array = [NodePath("FiringPositionHolder/FiringPosition"), NodePath("FiringPositionHolder/FiringPosition2"), NodePath("FiringPositionHolder/FiringPosition3"), NodePath("FiringPositionHolder/FiringPosition4"), NodePath("FiringPositionHolder/FiringPosition5")]
 audio_node = NodePath("Bubbles")
 actionable_finder = NodePath("ActionableFinder")
 
@@ -72,14 +71,12 @@ sprite_frames = SubResource("SpriteFrames_qlg0r")
 frame_progress = 0.969479
 
 [node name="CollisionRight" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(-48, -4)
 scale = Vector2(14, 10.025)
 polygon = PackedVector2Array(-6.71429, -17.9551, 14, -18.9526, 17.5714, -9.77556, 12.4286, 12.1696, 7.71429, 18.9526, -3, 16.3591, -7.71429, 9.57606, -10.4286, -0.399003, -9.42857, -11.1721)
 one_way_collision_margin = 2.0
 
 [node name="CollisionLeft" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(-48, -4)
 scale = Vector2(-14, 10.025)
 polygon = PackedVector2Array(4, -18.9526, 7.28571, -17.1571, 10.2857, -11.1721, 9.85714, 6.58354, 2.57143, 17.5561, -7.57143, 19.3516, -12.4286, 12.1696, -17.7143, -9.37656, -14.1429, -18.7531)
@@ -122,7 +119,8 @@ playback_type = 1
 
 [node name="Bubbles" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_5gtgg")
-volume_db = -60.0
+volume_db = -31.344
+pitch_scale = 1.01
 
 [node name="FiringPositionHolder" type="Node2D" parent="."]
 
@@ -166,6 +164,38 @@ position = Vector2(166, 88)
 rotation = 0.432842
 
 [node name="Sprite2D" type="Sprite2D" parent="FiringPositionHolder/FiringPosition5"]
+visible = false
+scale = Vector2(0.0837887, 0.078125)
+texture = ExtResource("12_fm80t")
+
+[node name="FiringPosition6" type="Node2D" parent="FiringPositionHolder"]
+position = Vector2(140, 136)
+
+[node name="Sprite2D" type="Sprite2D" parent="FiringPositionHolder/FiringPosition6"]
+visible = false
+scale = Vector2(0.0837887, 0.078125)
+texture = ExtResource("12_fm80t")
+
+[node name="FiringPosition7" type="Node2D" parent="FiringPositionHolder"]
+position = Vector2(138, -208)
+
+[node name="Sprite2D" type="Sprite2D" parent="FiringPositionHolder/FiringPosition7"]
+visible = false
+scale = Vector2(0.0837887, 0.078125)
+texture = ExtResource("12_fm80t")
+
+[node name="FiringPosition8" type="Node2D" parent="FiringPositionHolder"]
+position = Vector2(202, -92)
+
+[node name="Sprite2D" type="Sprite2D" parent="FiringPositionHolder/FiringPosition8"]
+visible = false
+scale = Vector2(0.0837887, 0.078125)
+texture = ExtResource("12_fm80t")
+
+[node name="FiringPosition9" type="Node2D" parent="FiringPositionHolder"]
+position = Vector2(192, 46)
+
+[node name="Sprite2D" type="Sprite2D" parent="FiringPositionHolder/FiringPosition9"]
 visible = false
 scale = Vector2(0.0837887, 0.078125)
 texture = ExtResource("12_fm80t")

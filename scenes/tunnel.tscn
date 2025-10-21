@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7j1tu276cmgs"]
 
-[ext_resource type="Script" uid="uid://l7yq5rj1167q" path="res://tunnel_area.gd" id="2_mv5om"]
+[ext_resource type="Script" uid="uid://l7yq5rj1167q" path="res://scripts/tunnel_area.gd" id="2_mv5om"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_sitcv"]
 a = Vector2(366, -2)

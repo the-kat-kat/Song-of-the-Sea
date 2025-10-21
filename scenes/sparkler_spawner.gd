@@ -1,6 +1,6 @@
 extends Node2D
 
-var sparkle_path = preload("res://sparkle.tscn")
+var sparkle_path = preload("res://scenes/sparkle.tscn")
 @export var sparkle_count = 10
 
 # Called when the node enters the scene tree for the first time.

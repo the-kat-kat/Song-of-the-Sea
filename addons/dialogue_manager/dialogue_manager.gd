@@ -37,7 +37,6 @@ signal bridge_dialogue_started(resource: DialogueResource)
 ## Used inernally
 signal bridge_mutated()
 
-
 ## The list of globals that dialogue can query
 var game_states: Array = []
 

@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=15 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" uid="uid://d1wt4ma6055l8" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="FontFile" uid="uid://bo5ne51gkjwi0" path="res://dialogue/fonts/AdabelleHandwriting-Regular.ttf" id="2_nlsx6"]
+[ext_resource type="Texture2D" uid="uid://cel56bs7kooqx" path="res://art/player/whale_sprite.png" id="2_v42gu"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="Texture2D" uid="uid://mqfg6w8t77jv" path="res://art/player/girl_sprite.png" id="3_wqs7j"]
 [ext_resource type="StyleBox" uid="uid://c8ibx1s7hj0qe" path="res://ui/white_box.tres" id="5_1337t"]
-[ext_resource type="Texture2D" uid="uid://1ncqg88phgk1" path="res://art/player/swim_anim/Untitled_Artwork-1.png" id="6_r5ei8"]
-[ext_resource type="Texture2D" uid="uid://dim2nf2ttlw0f" path="res://art/other_ppl/whale_cropped.png" id="8_v42gu"]
+[ext_resource type="StyleBox" uid="uid://dwpwb5igbhl1s" path="res://scenes/blue_button_thick.tres" id="7_v42gu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(1, 1, 1, 1)
@@ -87,8 +88,8 @@ corner_radius_bottom_left = 40
 layer = 100
 script = ExtResource("1_36de5")
 yapper_images = {
-"Blue": ExtResource("8_v42gu"),
-"Umi": ExtResource("6_r5ei8")
+"Blue": ExtResource("2_v42gu"),
+"Umi": ExtResource("3_wqs7j")
 }
 
 [node name="Balloon" type="Control" parent="."]
@@ -132,7 +133,7 @@ mouse_filter = 1
 theme_override_colors/default_color = Color(0.189647, 0.635826, 0.741466, 1)
 theme_override_colors/font_selected_color = Color(0.222856, 0.45771, 0.504146, 1)
 theme_override_fonts/normal_font = ExtResource("2_nlsx6")
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -145,7 +146,7 @@ size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.189647, 0.635826, 0.741466, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_nlsx6")
-theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/normal_font_size = 30
 text = "Dialogue..."
 
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]
@@ -176,27 +177,34 @@ theme_override_colors/font_hover_color = Color(0.189647, 0.635826, 0.741466, 1)
 theme_override_colors/font_color = Color(0.189647, 0.635826, 0.741466, 1)
 theme_override_colors/font_focus_color = Color(0.189647, 0.635826, 0.741466, 1)
 theme_override_colors/font_pressed_color = Color(0.189647, 0.635826, 0.741466, 1)
-theme_override_font_sizes/font_size = 40
-theme_override_styles/hover = ExtResource("5_1337t")
-theme_override_styles/pressed = ExtResource("5_1337t")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = ExtResource("7_v42gu")
+theme_override_styles/hover_mirrored = ExtResource("7_v42gu")
+theme_override_styles/hover = ExtResource("7_v42gu")
+theme_override_styles/pressed = ExtResource("7_v42gu")
 theme_override_styles/normal = ExtResource("5_1337t")
 text = "Response example"
 
 [node name="Yapper1" type="TextureRect" parent="Balloon"]
 z_index = -1
-offset_left = -112.0
-offset_top = 143.0
-offset_right = 385.0
-offset_bottom = 577.0
-texture = ExtResource("6_r5ei8")
+layout_mode = 0
+offset_left = 32.0
+offset_top = 140.0
+offset_right = 529.0
+offset_bottom = 574.0
 expand_mode = 1
+stretch_mode = 4
 
 [node name="Yapper2" type="TextureRect" parent="Balloon"]
 z_index = -1
-offset_left = 711.0
-offset_top = 131.0
-offset_right = 1182.0
-offset_bottom = 550.0
+layout_mode = 0
+offset_left = 750.0
+offset_top = 126.0
+offset_right = 1221.0
+offset_bottom = 545.0
+texture = ExtResource("2_v42gu")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

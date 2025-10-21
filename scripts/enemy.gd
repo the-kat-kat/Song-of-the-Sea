@@ -44,6 +44,7 @@ func _ready():
 
 
 func _physics_process(delta: float) -> void:
+	
 	if !active || !player || player.in_dialogue:
 		return
 	

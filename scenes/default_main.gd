@@ -14,6 +14,7 @@ func _ready() -> void:
 	black_out.visible = false
 	black_out.color = Color("BLACK", 0.0)
 	print("blackout_path", black_out.get_path())
+	level1()
 	
 func switch_scene(path: NodePath):
 	black_out.visible = true
