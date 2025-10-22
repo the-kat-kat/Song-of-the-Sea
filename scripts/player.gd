@@ -45,6 +45,10 @@ var gravity = true
 var rotate = 0.0
 var input_locked = false
 
+@export var pulse_scene: PackedScene
+@export var pulse_cooldown: float = 1.0
+
+var can_pulse: bool = true
 
 func _ready():
 	shoots_left = number_shots
@@ -59,6 +63,10 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
+		
+	if can_pulse and Input.is_action_just_pressed("pulse"):
+		print("p")
+		emit_pulse()
 		
 	if Input.is_action_just_pressed("ui_accept"):
 		var actionables = actionable_finder.get_overlapping_areas()
@@ -177,3 +185,11 @@ func touching_random_item(body: Node2D):
 		await get_tree().create_timer(0.1).timeout
 		inventory.add_item(body.item)
 		body.queue_free()
+
+func emit_pulse():
+	var pulse = pulse_scene.instantiate()
+	get_parent().add_child(pulse)
+	pulse.global_position = global_position
+	can_pulse = false
+	await get_tree().create_timer(pulse_cooldown).timeout
+	can_pulse = true
