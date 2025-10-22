@@ -19,3 +19,6 @@ res://scenes/ui/settings.tscn
 res://addons/dialogue_manager/example_balloon/example_balloon.tscn
 res://scenes/bullet.tscn
 res://echo/echo_pulse.tscn
+res://scenes/shaders/level1_full.gdshader
+res://game_manager.gd
+res://scenes/default_main.gd

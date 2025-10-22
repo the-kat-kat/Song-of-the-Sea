@@ -10,16 +10,20 @@ var switching = false #switching to new scene
 var fade_in = true #fade in black out panel
 var new_scene_path: NodePath
 
+signal main_scene_loaded(scene_root: Node)
+
 func _ready() -> void:
 	black_out.visible = false
 	black_out.color = Color("BLACK", 0.0)
 	print("blackout_path", black_out.get_path())
+	emit_signal("main_scene_loaded")
 	level1()
 	
 func switch_scene(path: NodePath):
 	black_out.visible = true
 	new_scene_path = path
 	switching = true
+	GameManager.switch_viewport_scene()
 
 func new_scene_reset():
 	#queue free old scene

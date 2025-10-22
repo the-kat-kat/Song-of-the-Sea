@@ -1,3 +1,4 @@
+ColorRect
 CollisionShape2D
 Button
 VBoxContainer
@@ -8,8 +9,6 @@ ParallaxLayer
 ParallaxBackground
 Sprite2D
 AudioStreamPlayer
-ColorRect
 TextureRect
 CanvasLayer
 AudioStreamPlayer2D
-PathFollow2D
