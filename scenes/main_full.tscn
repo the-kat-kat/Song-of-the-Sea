@@ -3355,19 +3355,6 @@ tile_set = ExtResource("2_y7clp")
 [node name="Player" parent="." instance=ExtResource("3_sv6s2")]
 position = Vector2(-993, -607)
 
-[node name="EnemySpawner" type="Node2D" parent="." groups=["enemy_spawner"]]
-position = Vector2(2378, 420)
-script = ExtResource("8_biknp")
-
-[node name="Enemy" parent="EnemySpawner" instance=ExtResource("7_vhbye")]
-position = Vector2(-2089, -688)
-
-[node name="Enemy2" parent="EnemySpawner" instance=ExtResource("7_vhbye")]
-position = Vector2(-1234, -39)
-
-[node name="Enemy3" parent="EnemySpawner" instance=ExtResource("7_vhbye")]
-position = Vector2(-588, 194)
-
 [node name="Whale" parent="." instance=ExtResource("5_yc7d0")]
 position = Vector2(-344, -328)
 scale = Vector2(0.5, 0.5)
@@ -3423,17 +3410,19 @@ z_index = 100
 z_as_relative = false
 position = Vector2(15, -630)
 
-[node name="sparkler_spawner" type="Node2D" parent="."]
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="sparkler_spawner" type="Node2D" parent="Environment"]
 script = ExtResource("13_loh53")
 sparkle_count = 30
 
-[node name="text" type="Control" parent="."]
+[node name="text" type="Control" parent="Environment"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="talk" type="TextEdit" parent="text"]
+[node name="talk" type="TextEdit" parent="Environment/text"]
 z_index = 200
 layout_mode = 1
 anchors_preset = -1
@@ -3452,7 +3441,7 @@ text = "Talk to the whale!
 (Press E)"
 metadata/_edit_use_anchors_ = true
 
-[node name="welcome" type="TextEdit" parent="text"]
+[node name="welcome" type="TextEdit" parent="Environment/text"]
 z_index = 200
 layout_mode = 1
 anchors_preset = -1
@@ -3471,7 +3460,7 @@ text = "WASD - Move
 E - Interact"
 metadata/_edit_use_anchors_ = true
 
-[node name="talk2" type="TextEdit" parent="text"]
+[node name="talk2" type="TextEdit" parent="Environment/text"]
 z_index = 200
 layout_mode = 1
 anchors_preset = -1
@@ -3493,7 +3482,7 @@ X to dash
 q for inventory"
 metadata/_edit_use_anchors_ = true
 
-[node name="this way" type="TextEdit" parent="text"]
+[node name="this way" type="TextEdit" parent="Environment/text"]
 z_index = 200
 layout_mode = 1
 anchors_preset = -1
@@ -3511,7 +3500,20 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_y6clf")
 text = "Come this way!"
 metadata/_edit_use_anchors_ = true
 
-[node name="Jellies" type="Node2D" parent="."]
+[node name="Jellies" type="Node2D" parent="Environment"]
 position = Vector2(998, -186)
 script = ExtResource("17_kq31c")
 jelly_count = 7
+
+[node name="EnemySpawner" type="Node2D" parent="Environment" groups=["enemy_spawner"]]
+position = Vector2(2378, 420)
+script = ExtResource("8_biknp")
+
+[node name="Enemy" parent="Environment/EnemySpawner" instance=ExtResource("7_vhbye")]
+position = Vector2(-2089, -688)
+
+[node name="Enemy2" parent="Environment/EnemySpawner" instance=ExtResource("7_vhbye")]
+position = Vector2(-1234, -39)
+
+[node name="Enemy3" parent="Environment/EnemySpawner" instance=ExtResource("7_vhbye")]
+position = Vector2(-588, 194)

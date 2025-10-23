@@ -17,12 +17,14 @@ func _ready() -> void:
 	black_out.color = Color("BLACK", 0.0)
 	print("blackout_path", black_out.get_path())
 	emit_signal("main_scene_loaded")
-	level1()
+	
+	GameManager.default_main = self
 	
 func switch_scene(path: NodePath):
 	black_out.visible = true
 	new_scene_path = path
 	switching = true
+	new_scene_reset()
 	GameManager.switch_viewport_scene()
 
 func new_scene_reset():
@@ -35,9 +37,8 @@ func new_scene_reset():
 	$SubViewport.add_child(new_scene)
 	
 	#reset references to nodes
-	$UI/BulletBar.player = get_tree().get_nodes_in_group("player")[0]
-	$UI/Inventory/Hotbar.player = get_tree().get_nodes_in_group("player")[0]
-	$UI/HorizontalHearts.main = get_tree().get_nodes_in_group("main")[0]
+	GameManager.player = get_tree().get_nodes_in_group("player")[0]
+	GameManager.main = get_tree().get_nodes_in_group("main")[0]
 	
 	#reset shader
 	reset_shader()

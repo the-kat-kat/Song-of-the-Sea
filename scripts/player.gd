@@ -53,6 +53,7 @@ var can_pulse: bool = true
 func _ready():
 	shoots_left = number_shots
 	shoot_delay = number_shots
+	GameManager.player = self
 	
 func _notification(what):
 	if what == NOTIFICATION_PREDELETE:
@@ -187,9 +188,8 @@ func touching_random_item(body: Node2D):
 		body.queue_free()
 
 func emit_pulse():
-	var pulse = pulse_scene.instantiate()
-	get_parent().add_child(pulse)
-	pulse.global_position = global_position
-	can_pulse = false
-	await get_tree().create_timer(pulse_cooldown).timeout
-	can_pulse = true
+	if GameManager.current_level ==1:
+		return
+	var overlay = get_parent().get_node("CanvasLayer").get_node("DarkOverlay")
+	if overlay:
+		overlay.emit_pulse(global_position)

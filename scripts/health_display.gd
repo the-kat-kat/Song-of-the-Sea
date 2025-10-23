@@ -9,15 +9,11 @@ var health = 5.0
 @onready var main: Node2D
 
 func _ready():
-	var mains = get_tree().get_nodes_in_group("main")
-	if mains.size() > 0:
-		main = mains[0]
-	else:
+	GameManager.heart_display = self
+	main = GameManager.main
+	if main == null:
 		await get_tree().process_frame
-		mains = get_tree().get_nodes_in_group("player")
-		if mains.size() > 0:
-			main = mains[0]
-
+		GameManager.main
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

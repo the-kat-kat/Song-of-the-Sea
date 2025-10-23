@@ -1,14 +1,21 @@
 extends ProgressBar
 
-@onready var player = get_tree().get_nodes_in_group("player")[0]
+var player
 
 var sb: StyleBoxFlat
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	player = GameManager.player
 	sb = get_theme_stylebox("fill")
 	value = 3
 	sb.bg_color = Color("#91ffcf")
+	
+	GameManager.connect("player_set", Callable(self, "_on_player_set"))
+	
+func _on_player_set():
+	print("player set")
+	player = GameManager.player
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

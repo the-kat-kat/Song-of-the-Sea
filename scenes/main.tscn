@@ -70,6 +70,7 @@ bus = &"music"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 101
+visible = false
 
 [node name="BlackOut" type="ColorRect" parent="CanvasLayer"]
 visible = false

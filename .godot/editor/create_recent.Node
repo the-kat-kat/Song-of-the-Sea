@@ -1,14 +1,14 @@
+CanvasLayer
+Node2D
 ColorRect
 CollisionShape2D
 Button
 VBoxContainer
 AnimatedSprite2D
-Node2D
 Node
 ParallaxLayer
 ParallaxBackground
 Sprite2D
 AudioStreamPlayer
 TextureRect
-CanvasLayer
 AudioStreamPlayer2D

@@ -1,8 +1,9 @@
-[gd_scene load_steps=44 format=3 uid="uid://cgrfe01wegji4"]
+[gd_scene load_steps=45 format=3 uid="uid://cgrfe01wegji4"]
 
 [ext_resource type="Script" uid="uid://bsyvhc4xlrfk3" path="res://scripts/main.gd" id="1_o2mis"]
 [ext_resource type="Shader" uid="uid://xkxi8gf4oyb3" path="res://scenes/shaders/level1_full.gdshader" id="3_pgune"]
 [ext_resource type="PackedScene" uid="uid://bok5465lpn3wk" path="res://scenes/environment/enemy.tscn" id="4_5i0hr"]
+[ext_resource type="Script" uid="uid://b1wo30yg582iy" path="res://echo/echo_pulse.gd" id="4_jsig8"]
 [ext_resource type="PackedScene" uid="uid://b37o51iyq1xg8" path="res://scenes/player/player.tscn" id="5_5i0hr"]
 [ext_resource type="Script" uid="uid://c3bindv088m03" path="res://scripts/enemyspawner.gd" id="6_3xnes"]
 [ext_resource type="PackedScene" uid="uid://cy5vpdxiqjn7x" path="res://scenes/environment/whale.tscn" id="8_c1wvr"]
@@ -38,12 +39,14 @@
 [ext_resource type="Texture2D" uid="uid://bawxfykx44k4p" path="res://art/other_ppl/Jelly/Untitled_Artwork-15.png" id="35_6rr0c"]
 [ext_resource type="Texture2D" uid="uid://62313s3wh5rt" path="res://art/empty.png" id="36_pj1bh"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jsig8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pgune"]
 shader = ExtResource("3_pgune")
 shader_parameter/pulse_position = Vector2(0, 0)
+shader_parameter/pulse_center = Vector2(0, 0)
+shader_parameter/screen_size = Vector2(0, 0)
 shader_parameter/pulse_radius = 0.0
-shader_parameter/pulse_thickness = 80.0
-shader_parameter/brightness = 1.0
+shader_parameter/pulse_width = 80.0
+shader_parameter/fade = 1.0
 
 [sub_resource type="Theme" id="Theme_qse01"]
 default_font = ExtResource("16_w7eol")
@@ -127,17 +130,19 @@ animations = [{
 [node name="MainFull" type="Node2D" groups=["main"]]
 script = ExtResource("1_o2mis")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 30
+
+[node name="DarkOverlay" type="ColorRect" parent="CanvasLayer"]
+z_index = 2
+material = SubResource("ShaderMaterial_pgune")
+offset_right = 2318.0
+offset_bottom = 1328.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("4_jsig8")
+
 [node name="Player" parent="." instance=ExtResource("5_5i0hr")]
 position = Vector2(-612, -556)
-
-[node name="DarkOverlay" type="ColorRect" parent="Player"]
-z_index = 2
-material = SubResource("ShaderMaterial_jsig8")
-offset_left = -1412.0
-offset_top = -738.0
-offset_right = 1394.0
-offset_bottom = 717.0
-color = Color(0, 0, 0, 1)
 
 [node name="Whale" parent="." instance=ExtResource("8_c1wvr")]
 position = Vector2(-344, -328)

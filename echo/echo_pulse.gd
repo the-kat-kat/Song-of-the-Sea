@@ -1,27 +1,39 @@
-extends Node2D
+extends ColorRect
 
-@export var max_radius: float = 800.0
-@export var speed: float = 400.0
+var pulse_speed: float = 600.0
+var max_radius: float = 1600.0
+var pulse_active: bool = false
 
-var radius: float = 0.0
-var alpha: float = 1.0
+@onready var viewport_size: Vector2 = get_viewport().get_visible_rect().size
+
+var shader_mat: Material
 
 func _ready() -> void:
 	pass
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	radius += speed * delta
-	alpha = 1.0 - (radius/ max_radius)
 	
-	if alpha <= 0.0:
-		queue_free()
+func get_overlay():
+	if is_instance_valid(GameManager.main):
+		shader_mat = GameManager.main.get_node("Player").get_node("DarkOverlay").material
+	else:
+		GameManager.main = get_tree().get_first_node_in_group("main")
+		shader_mat = GameManager.main.get_node("Player").get_node("DarkOverlay").material
 		
-	queue_redraw()
+func emit_pulse(center: Vector2) -> void:
+	if shader_mat == null:
+		get_overlay()
+	shader_mat.set_shader_parameter("pulse_center", center)
+	shader_mat.set_shader_parameter("screen_size", viewport_size)
+	shader_mat.set_shader_parameter("pulse_radius", 0.0)
+	shader_mat.set_shader_parameter("fade", 1.0)
+	pulse_active = true
 	
-func _draw():
-	var color = pulse_color
-	color.a = alpha
-	draw_arc(Vector2.ZERO, radius, 0.0, TAU, 128, color, line_thickness)
+func _process(delta: float) -> void:
+	if pulse_active:
+		var radius = shader_mat.get_shader_parameter("pulse_radius") + pulse_speed * delta
+		shader_mat.set_shader_parameter("pulse_radius", radius)
+		var fade = 1.0 - (radius / max_radius)
+		shader_mat.set_shader_parameter("fade", fade)
+		if radius >= max_radius:
+			pulse_active = false
+			shader_mat.set_shader_parameter("fade", 0.0)
+			
