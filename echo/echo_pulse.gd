@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 		if radius >= max_radius:
 			pulse_active = false
 			shader_mat.set_shader_parameter("fade", 0.0)
+			
 #get the shader mat
 func get_overlay():
 	if is_instance_valid(GameManager.player):

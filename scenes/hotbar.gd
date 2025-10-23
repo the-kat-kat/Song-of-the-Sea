@@ -1,6 +1,5 @@
 extends HBoxContainer
 
-@onready var player
 @onready var outline = get_parent().get_node("Outline")
 
 var shield_path = preload("res://scenes/player/shield.tscn")
@@ -25,7 +24,6 @@ var index = 0:
 		queue_redraw()
 		
 func _ready():
-	player = GameManager.player
 	call_deferred("queue_redraw")
 	
 func _draw():
@@ -50,7 +48,7 @@ func update():
 
 func use_current():
 	if currently_equipped == null || currently_equipped.title =="default":
-		player.fire()
+		GameManager.player.fire()
 		return
 		
 	if get_child(index).amount>0:
@@ -58,13 +56,13 @@ func use_current():
 		match currently_equipped.title:
 			"shield":
 				var new_shield = shield_path.instantiate()
-				player.add_child(new_shield)
+				GameManager.player.add_child(new_shield)
 				await get_tree().create_timer(shield_time).timeout
 				new_shield.queue_free()
 			"dagger":
 				var new_dagger = dagger_path.instantiate()
-				player.add_child(new_dagger)
-				if !player.playerAnim.flip_h:
+				GameManager.player.add_child(new_dagger)
+				if !GameManager.player.playerAnim.flip_h:
 					new_dagger.position.x = 300
 					new_dagger.direction = Vector2(1,0)
 				else:
