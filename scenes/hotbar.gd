@@ -25,7 +25,7 @@ var index = 0:
 		queue_redraw()
 		
 func _ready():
-	player = get_tree().get_nodes_in_group("player")[0]
+	player = GameManager.player
 	call_deferred("queue_redraw")
 	
 func _draw():

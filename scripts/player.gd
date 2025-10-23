@@ -54,6 +54,8 @@ func _ready():
 	shoots_left = number_shots
 	shoot_delay = number_shots
 	GameManager.player = self
+	if GameManager.current_level == 1:
+		GameManager.dark_overlay = $CanvasLayer/DarkOverlay
 	
 func _notification(what):
 	if what == NOTIFICATION_PREDELETE:
@@ -188,8 +190,6 @@ func touching_random_item(body: Node2D):
 		body.queue_free()
 
 func emit_pulse():
-	if GameManager.current_level ==1:
+	if GameManager.current_level == 0:
 		return
-	var overlay = get_parent().get_node("CanvasLayer").get_node("DarkOverlay")
-	if overlay:
-		overlay.emit_pulse(global_position)
+	GameManager.dark_overlay.emit_pulse(global_position)

@@ -1,6 +1,6 @@
 extends Node2D
 
-var current_level: int = 1
+var current_level: int = 0
 
 @onready var main: Node2D 
 
@@ -38,12 +38,4 @@ func _on_scene_changed() -> void:
 	set_player(player)
 
 func switch_viewport_scene():
-	print("switching")
 	current_level += 1
-	if current_level == 1:
-		level1_update()
-	main = get_tree().get_nodes_in_group("main")[0]
-	player = get_tree().get_nodes_in_group("player")[0]
-	
-func level1_update():
-	dark_overlay = main.get_node("CanvasLayer").get_node("DarkOverlay")

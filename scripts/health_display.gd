@@ -10,15 +10,10 @@ var health = 5.0
 
 func _ready():
 	GameManager.heart_display = self
-	main = GameManager.main
-	if main == null:
-		await get_tree().process_frame
-		GameManager.main
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	label.text = str(health)
-	
 	
 func take_damage(damage: float):
 	health -= damage
@@ -28,7 +23,7 @@ func take_damage(damage: float):
 		else:
 			hearts[i-1].hide()
 	if(health <= 0):
-		main.reset()
+		GameManager.main.reset()
 		health = max_health
 		for i in range(1, 6):
 			hearts[i-1].show()

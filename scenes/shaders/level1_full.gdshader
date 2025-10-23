@@ -6,7 +6,7 @@ uniform vec2 pulse_center;
 uniform vec2 screen_size;
 uniform float pulse_radius = 0.0;
 uniform float pulse_width = 80.0;
-uniform float fade = 1.0;
+uniform float fade = 0.9;
 
 void fragment() {
 	vec2 screen_uv = UV * screen_size;

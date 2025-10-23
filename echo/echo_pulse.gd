@@ -9,14 +9,25 @@ var pulse_active: bool = false
 var shader_mat: Material
 
 func _ready() -> void:
-	pass
-	
+	get_overlay()
+
+#ring moves out
+func _process(delta: float) -> void:
+	if pulse_active:
+		var radius = shader_mat.get_shader_parameter("pulse_radius") + pulse_speed * delta
+		shader_mat.set_shader_parameter("pulse_radius", radius)
+		var fade = 1.0 - (radius / max_radius)
+		shader_mat.set_shader_parameter("fade", fade)
+		if radius >= max_radius:
+			pulse_active = false
+			shader_mat.set_shader_parameter("fade", 0.0)
+#get the shader mat
 func get_overlay():
-	if is_instance_valid(GameManager.main):
-		shader_mat = GameManager.main.get_node("Player").get_node("DarkOverlay").material
+	if is_instance_valid(GameManager.player):
+		shader_mat = GameManager.player.get_node("CanvasLayer").get_node("DarkOverlay").material
 	else:
-		GameManager.main = get_tree().get_first_node_in_group("main")
-		shader_mat = GameManager.main.get_node("Player").get_node("DarkOverlay").material
+		GameManager.player= get_tree().get_first_node_in_group("player")
+		shader_mat = GameManager.player.get_node("CanvasLayer").get_node("DarkOverlay").material
 		
 func emit_pulse(center: Vector2) -> void:
 	if shader_mat == null:
@@ -27,13 +38,3 @@ func emit_pulse(center: Vector2) -> void:
 	shader_mat.set_shader_parameter("fade", 1.0)
 	pulse_active = true
 	
-func _process(delta: float) -> void:
-	if pulse_active:
-		var radius = shader_mat.get_shader_parameter("pulse_radius") + pulse_speed * delta
-		shader_mat.set_shader_parameter("pulse_radius", radius)
-		var fade = 1.0 - (radius / max_radius)
-		shader_mat.set_shader_parameter("fade", fade)
-		if radius >= max_radius:
-			pulse_active = false
-			shader_mat.set_shader_parameter("fade", 0.0)
-			

@@ -20,7 +20,6 @@ func _process(delta: float) -> void:
 		shield_sprite.flip_h = true
 		shield_sprite.position.x = -16
 		shield_collision.scale.x = -1
-		print("shield flip", shield_sprite.scale.x)
 	else:
 		shield_sprite.flip_h = false
 		shield_sprite.position.x = 16

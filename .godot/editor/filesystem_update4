@@ -24,3 +24,6 @@ res://scripts/main_menu.gd
 res://scenes/default_main.gd
 res://scenes/ui.tscn
 res://scripts/health_display.gd
+res://echo/echo_pulse.gd
+res://scenes/player/shield.gd
+res://scenes/hotbar.gd

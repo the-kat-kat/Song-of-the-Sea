@@ -16,11 +16,13 @@ func _ready() -> void:
 	black_out.visible = false
 	black_out.color = Color("BLACK", 0.0)
 	print("blackout_path", black_out.get_path())
+		
 	emit_signal("main_scene_loaded")
 	
 	GameManager.default_main = self
 	
-func switch_scene(path: NodePath):
+	#switching viewport scene
+func switch_vp_scene(path: NodePath):
 	black_out.visible = true
 	new_scene_path = path
 	switching = true
@@ -29,7 +31,6 @@ func switch_scene(path: NodePath):
 
 func new_scene_reset():
 	#queue free old scene
-	
 	for child in $SubViewport.get_children():
 		child.queue_free()
 	await get_tree().process_frame
@@ -63,7 +64,7 @@ func _physics_process(delta: float) -> void:
 				black_out.visible = false
 			
 func level1():
-	switch_scene("res://scenes/level1_full.tscn")
+	switch_vp_scene("res://scenes/level1_full.tscn")
 	
 func reset_shader():
 	texture_rect.material.set_shader_parameter("tint_color", Vector3(1, 1, 1))

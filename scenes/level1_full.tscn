@@ -130,19 +130,19 @@ animations = [{
 [node name="MainFull" type="Node2D" groups=["main"]]
 script = ExtResource("1_o2mis")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Player" parent="." instance=ExtResource("5_5i0hr")]
+position = Vector2(-612, -556)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
 layer = 30
 
-[node name="DarkOverlay" type="ColorRect" parent="CanvasLayer"]
+[node name="DarkOverlay" type="ColorRect" parent="Player/CanvasLayer"]
 z_index = 2
 material = SubResource("ShaderMaterial_pgune")
 offset_right = 2318.0
 offset_bottom = 1328.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("4_jsig8")
-
-[node name="Player" parent="." instance=ExtResource("5_5i0hr")]
-position = Vector2(-612, -556)
 
 [node name="Whale" parent="." instance=ExtResource("8_c1wvr")]
 position = Vector2(-344, -328)
