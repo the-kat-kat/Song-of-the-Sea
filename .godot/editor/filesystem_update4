@@ -14,3 +14,5 @@ res://scenes/ui.tscn
 res://scripts/main_menu.gd
 res://ui/loading_screen.tscn
 res://scenes/default_main.gd
+res://ui/loading_screen.gd
+res://scenes/blue_button.tres

@@ -1,16 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://bunb3megbbkkl"]
+[gd_scene load_steps=7 format=3 uid="uid://bunb3megbbkkl"]
 
+[ext_resource type="Script" uid="uid://c4mwmenk8a71x" path="res://ui/loading_screen.gd" id="1_1kfex"]
 [ext_resource type="FontFile" uid="uid://bo5ne51gkjwi0" path="res://dialogue/fonts/AdabelleHandwriting-Regular.ttf" id="1_pojjl"]
+[ext_resource type="Texture2D" uid="uid://tb48w65aqgd7" path="res://art/title_screen/Untitled_Artwork-1 3.png" id="2_o3r17"]
+[ext_resource type="Texture2D" uid="uid://b3c3f5lvg75dh" path="res://art/title_screen/Untitled_Artwork-2 2.png" id="3_w0ar3"]
+[ext_resource type="Texture2D" uid="uid://bfhki3cweukq7" path="res://art/title_screen/Untitled_Artwork-3 2.png" id="4_j3af1"]
+[ext_resource type="StyleBox" uid="uid://bybs62ef0kuei" path="res://scenes/blue_button.tres" id="6_yb3ym"]
 
 [node name="LoadingScreen" type="CanvasLayer"]
+script = ExtResource("1_1kfex")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BG" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.697578, 0.697578, 0.697578, 1)
+texture = ExtResource("2_o3r17")
+
+[node name="Blob1" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -156.0
+offset_top = -147.0
+offset_right = 380.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_w0ar3")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Blob2" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 607.0
+offset_top = -388.0
+offset_right = 1143.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.602846
+texture = ExtResource("4_j3af1")
+expand_mode = 2
+stretch_mode = 4
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 15
@@ -23,3 +58,16 @@ theme_override_font_sizes/font_size = 50
 text = "Loading"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 184.0
+offset_top = 387.0
+offset_right = -177.0
+offset_bottom = -171.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = ExtResource("6_yb3ym")
+theme_override_styles/fill = ExtResource("6_yb3ym")

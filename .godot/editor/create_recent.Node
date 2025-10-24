@@ -1,3 +1,4 @@
+TextureRect
 ProgressBar
 CanvasLayer
 Control
@@ -12,4 +13,3 @@ Node
 ParallaxLayer
 ParallaxBackground
 Sprite2D
-AudioStreamPlayer
