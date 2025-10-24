@@ -10,6 +10,7 @@ var shader_mat: Material
 
 func _ready() -> void:
 	get_overlay()
+	GameManager.dark_overlay = self
 
 #ring moves out
 func _process(delta: float) -> void:

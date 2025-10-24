@@ -3361,7 +3361,7 @@ scale = Vector2(0.5, 0.5)
 dialogue_resource = ExtResource("9_55v7u")
 
 [node name="Whale2" parent="." instance=ExtResource("5_yc7d0")]
-position = Vector2(-474, -771)
+position = Vector2(-385, -783)
 scale = Vector2(-0.5, 0.5)
 dialogue_resource = ExtResource("10_tuhyb")
 
@@ -3369,9 +3369,8 @@ dialogue_resource = ExtResource("10_tuhyb")
 position = Vector2(0, -900)
 scale = Vector2(0.5, 0.5)
 stream = ExtResource("10_yq0vf")
-volume_db = 11.333
+volume_db = 4.0
 autoplay = true
-stream_paused = true
 max_distance = 1200.0
 attenuation = 2.2974
 panning_strength = 1.85
@@ -3511,7 +3510,7 @@ position = Vector2(2378, 420)
 script = ExtResource("8_biknp")
 
 [node name="Enemy" parent="Environment/EnemySpawner" instance=ExtResource("7_vhbye")]
-position = Vector2(-2089, -688)
+position = Vector2(-1903, -201)
 
 [node name="Enemy2" parent="Environment/EnemySpawner" instance=ExtResource("7_vhbye")]
 position = Vector2(-1234, -39)

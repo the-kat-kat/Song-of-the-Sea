@@ -24,8 +24,6 @@ func switch_vp_scene(path: NodePath):
 	black_out.visible = true
 	new_scene_path = path
 	switching = true
-	new_scene_reset()
-	GameManager.switch_viewport_scene()
 
 #prepare for new scene
 func new_scene_reset():
@@ -43,11 +41,11 @@ func new_scene_reset():
 	#reset shader
 	reset_shader()
 	
-	fade_in = false
 	switching = true
 		
 func _physics_process(delta: float) -> void:
 	if switching:
+		print("swticingh")
 		if fade_in:
 			t += delta / black_out_time
 		else:
@@ -56,10 +54,13 @@ func _physics_process(delta: float) -> void:
 		if t >= 1:
 			if fade_in:
 				switching = false
+				fade_in = false
 				new_scene_reset()
+				GameManager.inc_level()
 		elif t<=0:
 			if !fade_in:
 				switching = false
+				fade_in = true
 				black_out.visible = false
 			
 func level1():

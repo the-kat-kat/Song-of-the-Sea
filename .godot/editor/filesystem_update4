@@ -17,3 +17,9 @@ res://scenes/default_main.gd
 res://ui/loading_screen.gd
 res://scenes/blue_button.tres
 res://scenes/inventory.tscn
+res://scripts/enemy.gd
+res://default_bus_layout.tres
+res://echo/echo_pulse.gd
+res://scenes/inventory.gd
+res://scripts/main.gd
+res://game_manager.gd

@@ -14,6 +14,7 @@ func _ready():
 	visible = false
 	current_scene = main
 	hotbar.get_children()[0].item= DEFAULT
+	GameManager.inventory = self
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("i"):

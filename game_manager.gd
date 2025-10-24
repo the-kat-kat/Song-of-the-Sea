@@ -37,5 +37,5 @@ func _on_scene_changed() -> void:
 	
 	set_player(player)
 
-func switch_viewport_scene():
+func inc_level():
 	current_level += 1

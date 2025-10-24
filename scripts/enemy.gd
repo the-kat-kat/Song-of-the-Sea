@@ -30,16 +30,10 @@ func _ready():
 	health_bar.max_value = max_health
 	health_bar.value = max_health
 	health = max_health
-	#change color
-	var r = randf_range(180, 250)
-	var g = randf_range(180, 250)
-	var b = randf_range(180, 250)
-
-	enemyAnim.modulate = Color.from_rgba8(r, g, b)
+	#enemyAnim.modulate = Color.from_rgba8(r, g, b)
 	#change speed
 	enemyAnim.speed_scale= randf_range(0.8, 1.2)
 	enemyAnim.play()
-
 
 func _physics_process(delta: float) -> void:
 	

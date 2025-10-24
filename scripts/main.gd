@@ -8,6 +8,9 @@ var enemy_array
 @onready var enemy_spawner = $Environment/EnemySpawner
 
 var currently_equipped: Item = null
+
+func _ready():
+	GameManager.main = self
  
 func get_enemy_array():
 	enemy_array = get_tree().get_nodes_in_group("enemy")
