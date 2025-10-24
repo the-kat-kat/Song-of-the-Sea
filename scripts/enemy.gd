@@ -17,6 +17,7 @@ var enemy_spawner: Node2D
 
 var touching_player = false
 var bouncing_back = false
+var bounce_velocity: Vector2
 
 var drift_direction := Vector2.ZERO
 var drift_timer := 0.0
@@ -44,24 +45,25 @@ func _physics_process(delta: float) -> void:
 	
 	if touching_player:
 		if can_take_damage:
-			print("take damage")
 			update_health(10)
 			can_take_damage = false
 			
 	if bouncing_back:
+		velocity = bounce_velocity
 		move_and_slide()
 		return
-		
 	else:
 		if !can_take_damage:
 			can_take_damage = true
 	
+	#if chasing player but no collision
 	if player_chase && !touching_player:
 		var direction = (GameManager.player.global_position - global_position).normalized().rotated(rotate)
 		if velocity.length() != speed:
 			velocity = velocity.lerp(direction * speed, 1.2 * delta)
 		else:
 			velocity = direction * speed 
+	#just drifting
 	elif !player_chase && !touching_player:
 		drift_timer -= delta
 		if drift_timer <= 0.0:
@@ -73,6 +75,11 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.normalized()* speed
 		#player_chase = true
 		touching_player = false
+		
+	if touching_player:
+		var away = (global_position - GameManager.player.global_position).normalized()*20
+		velocity = away * speed
+		
 	move_and_slide()
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
@@ -104,8 +111,13 @@ func spawn_random_item():
 	random_item.position = position
 	get_parent().call_deferred("add_child", random_item)
 
-func start_bounce_delay() -> void:
+func bounce_away(away: Vector2, bounce_force: int):
+	bounce_velocity = -away * bounce_force
 	touching_player = true
+	can_take_damage = true
+	start_bounce_delay()
+
+func start_bounce_delay() -> void:
 	bouncing_back = true
 	await get_tree().create_timer(0.05).timeout
 	bouncing_back = false

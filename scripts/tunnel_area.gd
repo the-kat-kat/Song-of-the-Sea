@@ -56,6 +56,10 @@ func _physics_process(delta):
 	body.global_rotation = rotate * t
 	body.rotate = rotate
 	
+	#make dark overlay shader darker
+	GameManager.dark_overlay.darkness = t*0.9
+	GameManager.dark_overlay.update_darkness()
+	
 	if make_dark:
 		var texture_rect_material = texture_rect.material
 		var start_tint = texture_rect_material.get_shader_parameter("tint_color")

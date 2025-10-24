@@ -111,7 +111,6 @@ func apply_dialogue_line() -> void:
 	character_label.text = tr(dialogue_line.character, "dialogue")
 	
 	if yapper_images.has(character_label.text):
-		print(character_label.text)
 		if character_label.text == player_name:
 			yapper1.visible = true
 			yapper1.texture = yapper_images.get(character_label.text)

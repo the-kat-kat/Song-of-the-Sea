@@ -175,10 +175,7 @@ func touching_enemy(body: Node2D):
 
 	var away = (global_position - body.global_position).normalized()
 	velocity = away * bounce_force
-	body.velocity = -away.rotated(rotate) * bounce_force
-	body.touching_player = true
-	body.can_take_damage = true
-	body.start_bounce_delay()
+	body.bounce_away(away, bounce_force)
 	
 func touching_random_item(body: Node2D):
 	if !body.just_spawned:
@@ -192,4 +189,4 @@ func touching_random_item(body: Node2D):
 func emit_pulse():
 	if GameManager.current_level == 0:
 		return
-	GameManager.dark_overlay.emit_pulse(global_position)
+	GameManager.dark_overlay.emit_pulse()

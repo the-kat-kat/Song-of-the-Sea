@@ -4,7 +4,7 @@ extends Node2D
 @onready var texture_rect = $TextureRect
 @onready var black_out: ColorRect = $CanvasLayer/BlackOut
 
-var black_out_time = 1.0
+var black_out_time = 0.5
 var t = 0.0
 var switching = false #switching to new scene
 var fade_in = true #fade in black out panel
@@ -45,7 +45,6 @@ func new_scene_reset():
 		
 func _physics_process(delta: float) -> void:
 	if switching:
-		print("swticingh")
 		if fade_in:
 			t += delta / black_out_time
 		else:

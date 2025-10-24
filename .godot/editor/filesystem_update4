@@ -23,3 +23,9 @@ res://echo/echo_pulse.gd
 res://scenes/inventory.gd
 res://scripts/main.gd
 res://game_manager.gd
+res://scenes/environment/jelly.gd
+res://scenes/jelly_spawner.gd
+res://addons/dialogue_manager/dialogue_manager.gd
+res://addons/dialogue_manager/example_balloon/example_balloon.gd
+res://scripts/player.gd
+res://scripts/tunnel_area.gd
