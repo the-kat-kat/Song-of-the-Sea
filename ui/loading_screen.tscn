@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bunb3megbbkkl"]
+
+[ext_resource type="FontFile" uid="uid://bo5ne51gkjwi0" path="res://dialogue/fonts/AdabelleHandwriting-Regular.ttf" id="1_pojjl"]
+
+[node name="LoadingScreen" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.697578, 0.697578, 0.697578, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_pojjl")
+theme_override_font_sizes/font_size = 50
+text = "Loading"
+horizontal_alignment = 1
+vertical_alignment = 1

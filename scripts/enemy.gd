@@ -10,7 +10,6 @@ var active = true
 
 var enemy_spawner: Node2D
 
-@onready var player
 @onready var enemyAnim = $AnimatedSprite2D
 @export var max_health = 100
 
@@ -26,7 +25,6 @@ var drift_interval := 5.0
 var can_take_damage = true
 
 func _ready():
-	player = get_tree().get_nodes_in_group("player")[0]
 	
 	enemy_spawner = get_tree().get_nodes_in_group("enemy_spawner")[0]
 	health_bar.max_value = max_health
@@ -45,7 +43,7 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	
-	if !active || !player || player.in_dialogue:
+	if !active || !GameManager.player || GameManager.player.in_dialogue:
 		return
 	
 	#await get_tree().create_timer(0.1).timeout
@@ -65,7 +63,7 @@ func _physics_process(delta: float) -> void:
 			can_take_damage = true
 	
 	if player_chase && !touching_player:
-		var direction = (player.global_position - global_position).normalized().rotated(rotate)
+		var direction = (GameManager.player.global_position - global_position).normalized().rotated(rotate)
 		if velocity.length() != speed:
 			velocity = velocity.lerp(direction * speed, 1.2 * delta)
 		else:

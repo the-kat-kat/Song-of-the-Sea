@@ -1,3 +1,4 @@
+res://ui
 res://scenes/shaders
 res://scenes
 res://echo
@@ -5,7 +6,6 @@ res://
 res://scenes/ui
 /Users/henrysue/Godot/song-of-the-sea/build
 res://scenes/environment
-res://ui
 res://ui/inventory/items
 res://scenes/player
 res://ui/inventory

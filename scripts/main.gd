@@ -25,7 +25,7 @@ func reset():
 	player.global_rotation = 0.0
 	player.camera.rotation = 0.0
 	player.rotate = 0.0
-	default_main.reset_shader()
+	GameManager.default_main.reset_shader()
 	
 	enemy_spawner.enemies_spawned = 0
 	enemy_spawner.respawn()

@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://c3bindv088m03" path="res://scripts/enemyspawner.gd" id="6_3xnes"]
 [ext_resource type="PackedScene" uid="uid://cy5vpdxiqjn7x" path="res://scenes/environment/whale.tscn" id="8_c1wvr"]
 [ext_resource type="Resource" uid="uid://b4k2pemnelcur" path="res://dialogue/whale.dialogue" id="9_ebll6"]
-[ext_resource type="Resource" uid="uid://c8sateb28ei0i" path="res://whale2.dialogue" id="10_qxwt3"]
+[ext_resource type="Resource" uid="uid://c8sateb28ei0i" path="res://dialogue/whale2.dialogue" id="10_qxwt3"]
 [ext_resource type="AudioStream" uid="uid://2eiki3mclfbh" path="res://audio/waves.mp3" id="11_xfxrm"]
 [ext_resource type="Script" uid="uid://vdk0w1tmwmak" path="res://scenes/wave_adio.gd" id="12_gg5fr"]
 [ext_resource type="Texture2D" uid="uid://cmr6ytecm2i7" path="res://art/environment/level_blobs/Untitled_Artwork-5 2.png" id="12_onx2v"]

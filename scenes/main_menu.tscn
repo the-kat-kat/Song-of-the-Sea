@@ -302,5 +302,5 @@ sprite_frames = SubResource("SpriteFrames_u43bj")
 frame_progress = 0.672319
 script = ExtResource("26_1acrt")
 
-[connection signal="pressed" from="UI/Control/Play" to="UI" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Control/Play" to="UI" method="_on_play_pressed"]
 [connection signal="pressed" from="UI/Control/Settings" to="UI" method="_on_settings_pressed"]

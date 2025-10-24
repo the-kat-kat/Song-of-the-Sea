@@ -15,8 +15,6 @@ signal main_scene_loaded(scene_root: Node)
 func _ready() -> void:
 	black_out.visible = false
 	black_out.color = Color("BLACK", 0.0)
-	print("blackout_path", black_out.get_path())
-		
 	emit_signal("main_scene_loaded")
 	
 	GameManager.default_main = self
@@ -29,6 +27,7 @@ func switch_vp_scene(path: NodePath):
 	new_scene_reset()
 	GameManager.switch_viewport_scene()
 
+#prepare for new scene
 func new_scene_reset():
 	#queue free old scene
 	for child in $SubViewport.get_children():

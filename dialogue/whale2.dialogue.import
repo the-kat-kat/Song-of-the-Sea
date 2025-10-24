@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c8sateb28ei0i"
+path="res://.godot/imported/whale2.dialogue-dcf8837358f4b1aed4f00c738f360111.tres"
+
+[deps]
+
+source_file="res://dialogue/whale2.dialogue"
+dest_files=["res://.godot/imported/whale2.dialogue-dcf8837358f4b1aed4f00c738f360111.tres"]
+
+[params]
+
+defaults=true

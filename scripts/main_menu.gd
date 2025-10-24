@@ -19,7 +19,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		print("proceed")
 		if button_num == 0:
 			# go to level 0
-			GameManager.change_scene("res://scenes/main.tscn")
+			start_game()
 		elif button_num ==1:
 			# go to settings
 			get_tree().change_scene_to_file("res://scenes/ui/settings.tscn")
@@ -35,8 +35,25 @@ func update_arrow_position():
 	var tween = create_tween()
 	tween.tween_property(arrow, "global_position", target_pos, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 	
-func _on_button_pressed() -> void:
+func show_loading_screen() -> CanvasLayer:
+	var loading_scene = preload("res://ui/loading_screen.tscn")
+	var loading_screen: CanvasLayer = loading_scene.instantiate()
+	loading_screen.layer = 100
+	get_tree().root.add_child(loading_screen)
+	return loading_screen
+	
+func start_game():
+	var loading_screen = show_loading_screen()
+	print("before waiting")
+	await get_tree().create_timer(1).timeout
+	print("after waiting")
 	GameManager.change_scene("res://scenes/main.tscn")
+	loading_screen.queue_free()
 
+#settings
 func _on_settings_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/settings.tscn")
+
+#start
+func _on_play_pressed() -> void:
+	start_game()

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bok5465lpn3wk" path="res://scenes/environment/enemy.tscn" id="7_vhbye"]
 [ext_resource type="Script" uid="uid://c3bindv088m03" path="res://scripts/enemyspawner.gd" id="8_biknp"]
 [ext_resource type="Resource" uid="uid://b4k2pemnelcur" path="res://dialogue/whale.dialogue" id="9_55v7u"]
-[ext_resource type="Resource" uid="uid://c8sateb28ei0i" path="res://whale2.dialogue" id="10_tuhyb"]
+[ext_resource type="Resource" uid="uid://c8sateb28ei0i" path="res://dialogue/whale2.dialogue" id="10_tuhyb"]
 [ext_resource type="AudioStream" uid="uid://2eiki3mclfbh" path="res://audio/waves.mp3" id="10_yq0vf"]
 [ext_resource type="Script" uid="uid://vdk0w1tmwmak" path="res://scenes/wave_adio.gd" id="11_oaiiy"]
 [ext_resource type="Script" uid="uid://ci64r51is4oqc" path="res://scenes/sparkler_spawner.gd" id="13_loh53"]
