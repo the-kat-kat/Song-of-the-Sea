@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cgrfe01wegji4"]
+[gd_scene load_steps=31 format=3 uid="uid://cgrfe01wegji4"]
 
 [ext_resource type="Script" uid="uid://bsyvhc4xlrfk3" path="res://scripts/main.gd" id="1_o2mis"]
 [ext_resource type="Shader" uid="uid://xkxi8gf4oyb3" path="res://scenes/shaders/level1_full.gdshader" id="3_pgune"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://c15qjobwieo4c" path="res://art/ui/circleBlue.png" id="18_3xnes"]
 [ext_resource type="Texture2D" uid="uid://c46nsndhse13j" path="res://art/environment/level_blobs/current.png" id="18_bm0my"]
 [ext_resource type="Script" uid="uid://3ujdk7wl5vxj" path="res://scenes/jelly_spawner.gd" id="24_asvjk"]
+[ext_resource type="PackedScene" uid="uid://6n00icghcic1" path="res://scenes/environment/gem.tscn" id="25_qxwt3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pgune"]
 shader = ExtResource("3_pgune")
@@ -338,7 +339,7 @@ script = ExtResource("6_3xnes")
 position = Vector2(-2855, 3866)
 
 [node name="Enemy" parent="Environment/EnemySpawner" instance=ExtResource("4_5i0hr")]
-position = Vector2(-2000, 2557)
+position = Vector2(-2241, 3421)
 
 [node name="Enemy2" parent="Environment/EnemySpawner" instance=ExtResource("4_5i0hr")]
 position = Vector2(-191, 2113)
@@ -347,10 +348,10 @@ position = Vector2(-191, 2113)
 position = Vector2(-141, 3927)
 
 [node name="Enemy4" parent="Environment/EnemySpawner" instance=ExtResource("4_5i0hr")]
-position = Vector2(-3728, 2116)
+position = Vector2(-4129, 2080)
 
 [node name="Enemy6" parent="Environment/EnemySpawner" instance=ExtResource("4_5i0hr")]
-position = Vector2(-3101, 2048)
+position = Vector2(-3525, 2135)
 
 [node name="Jellies" type="Node2D" parent="Environment"]
 position = Vector2(-307, 1904)
@@ -358,3 +359,11 @@ script = ExtResource("24_asvjk")
 jelly_count = 20
 spawner_range_x = Vector2(-3000, 2000)
 spawner_range_y = Vector2(650, 3200)
+
+[node name="Gems" type="CanvasLayer" parent="Environment"]
+layer = 50
+visible = false
+
+[node name="Gem" parent="Environment/Gems" instance=ExtResource("25_qxwt3")]
+visible = false
+position = Vector2(-897, 2334)

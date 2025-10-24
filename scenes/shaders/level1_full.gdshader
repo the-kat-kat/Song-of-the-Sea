@@ -1,4 +1,5 @@
 shader_type canvas_item;
+render_mode blend_mix, unshaded;
 
 uniform float player_radius;
 uniform float player_fade;
@@ -23,5 +24,6 @@ void fragment() {
 	float ring = inner - outer;
 
 	alpha *= (1.0-ring);
-	COLOR = vec4(vec3(0.0), alpha);
+	COLOR.rgb = vec3(0.0);
+	COLOR.a = alpha;
 }

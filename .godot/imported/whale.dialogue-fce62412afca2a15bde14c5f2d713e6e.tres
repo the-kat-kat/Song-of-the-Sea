@@ -68,29 +68,29 @@ lines = {
 &"character": "Blue",
 &"id": "16",
 &"next_id": "17",
-&"text": "Press q to switch items in inventory. Your first item and all empty slots will by default allow you to shoot!",
+&"text": "Click the button at the bottom of the screen or press i to see your inventory.",
 &"type": "dialogue"
 },
 "17": {
 &"character": "Blue",
 &"id": "17",
 &"next_id": "18",
-&"text": "The wobs are pretty fast so use X to dash.",
+&"text": "Press q to switch items in inventory. Your first item and all empty slots will by default allow you to shoot!",
 &"type": "dialogue"
 },
 "18": {
 &"character": "Blue",
 &"id": "18",
 &"next_id": "19",
-&"text": "Good luck!",
+&"text": "The wobs are pretty fast so use X to dash.",
 &"type": "dialogue"
 },
 "19": {
+&"character": "Blue",
 &"id": "19",
-&"is_snippet": false,
-&"next_id": "end",
-&"next_id_after": "",
-&"type": "goto"
+&"next_id": "20",
+&"text": "Good luck!",
+&"type": "dialogue"
 },
 "2": {
 &"character": "Umi",
@@ -99,13 +99,20 @@ lines = {
 &"text": "Hey there I'm Umi. What's your name?",
 &"type": "dialogue"
 },
-"22": {
-&"id": "22",
-&"next_id": "23",
-&"type": ""
+"20": {
+&"id": "20",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
 },
 "23": {
 &"id": "23",
+&"next_id": "24",
+&"type": ""
+},
+"24": {
+&"id": "24",
 &"is_snippet": false,
 &"next_id": "end",
 &"next_id_after": "",
@@ -177,6 +184,7 @@ Blue: Could you help lead the way past the rock formation? I'm scared of going a
 	Blue: Aw do you not like me.
 	Blue: Well you've got to help me just this once :> (maybe more actually)
 Blue: By the way, you can press SPACE to shoot.
+Blue: Click the button at the bottom of the screen or press i to see your inventory.
 Blue: Press q to switch items in inventory. Your first item and all empty slots will by default allow you to shoot!
 Blue: The wobs are pretty fast so use X to dash.
 Blue: Good luck!

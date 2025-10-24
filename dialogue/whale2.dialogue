@@ -1,5 +1,9 @@
 ~ start
-Blue: Woww you made it to the end!
-Blue: Good job 
+Blue: Wow we made it past the wobs!
+Blue: I couldn't have done it alone, thanks for helping me :>
+Blue: My pod is still so far away though...
+Umi: If you would like, I can help guide you all the way there
+Blue: Really?
+Umi: Of course, don't worry.
 do level1()
 => END
