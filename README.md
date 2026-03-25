@@ -1,3 +1,6 @@
+Play it here! https://kats-korner.itch.io/song-of-the-sea
+--
+
 Song of the Sea ~
 
 <img width="154" height="155" alt="Screenshot 2025-09-07 at 3 03 43 AM" src="https://github.com/user-attachments/assets/cb690da0-ca4e-41ec-9e63-ea31a83f59c0" />
